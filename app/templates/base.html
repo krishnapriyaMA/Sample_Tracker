@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sample Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .status-pill { padding: 2px 8px; border-radius: 12px; font-size: 0.85rem; background: #e2e8f0; }
+        .modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 50; }
+        .modal.active, .modal.open { display: flex; }
+        .modal-card { background: white; padding: 24px; border-radius: 8px; width: 100%; max-width: 600px; max-height: 90vh; overflow-y: auto; }
+
+        .login-screen {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--navy, #123458);
+        }
+        .login-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            padding: 32px;
+            width: 100%;
+            max-width: 380px;
+            box-sizing: border-box;
+        }
+        .login-card h1 { font-size: 1.25rem; margin: 0 0 20px; }
+        .login-card label { display: block; font-size: 13px; font-weight: 600; color: var(--text-muted, #6B7280); margin-bottom: 14px; }
+        .login-card input { display: block; width: 100%; margin-top: 6px; padding: 9px 10px; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 14px; box-sizing: border-box; }
+        .form-error { background: #fef2f2; color: var(--danger, #B23A48); padding: 8px 12px; border-radius: 6px; font-size: 13px; margin: 0 0 16px; }
+    </style>
+</head>
+<body>
+
+    {% block bare_content %}
+    <div class="app-shell">
+        <aside class="sidebar">
+            <div class="brand">
+                <span class="brand-mark">ST</span>
+                <span class="brand-name">Sample Tracker</span>
+            </div>
+
+            <nav>
+                <a href="/" class="{{ 'active' if request.path == '/' or request.path == '/dashboard' }}">Dashboard</a>
+                <a href="/golden-samples" class="{{ 'active' if request.path.startswith('/golden-samples') }}">Golden Samples</a>
+                <a href="/development-samples" class="{{ 'active' if request.path.startswith('/development-samples') }}">Development Samples</a>
+                <a href="/shipment-samples" class="{{ 'active' if request.path.startswith('/shipment-samples') }}">Shipment Samples</a>
+                <a href="/notifications" class="{{ 'active' if request.path.startswith('/notifications') }}">Notifications</a>
+                
+                {% set auth_user = current_user or user %}
+                {% if auth_user and auth_user.role == 'admin' %}
+                <a href="/admin" class="{{ 'active' if request.path.startswith('/admin') }}">Admin</a>
+                {% endif %}
+            </nav>
+
+            <div class="sidebar-footer">
+                {% set auth_user = current_user or user %}
+                {% if auth_user %}
+                <div class="user-chip">
+                    <div class="user-name">{{ auth_user.email.split('@')[0] if auth_user.email else 'User' }}</div>
+                    <div class="user-role">{{ auth_user.role or 'user' }}</div>
+                </div>
+                <!-- Confirmation dialog added to onclick -->
+                <a href="/logout" 
+                   class="logout-link" 
+                   onclick="return confirm('Are you sure you want to log out?');">
+                   Log out
+                </a>
+                {% endif %}
+            </div>
+        </aside>
+
+        <main class="content">
+            {% block content %}{% endblock %}
+        </main>
+    </div>
+    {% endblock %}
+
+    <script>
+        function openModal(id) { 
+            const el = document.getElementById(id);
+            if (el) el.classList.add('active', 'open'); 
+        }
+        function closeModal(id) { 
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('active', 'open'); 
+        }
+    </script>
+</body>
+</html>

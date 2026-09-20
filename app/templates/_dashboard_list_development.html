@@ -1,0 +1,21 @@
+{% if items %}
+<table class="data-table">
+  <thead>
+    <tr><th>Title</th><th>Description</th><th>Client</th><th>Route</th><th>Due back</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for it in items %}
+    <tr>
+      <td><strong>{{ it.title or '—' }}</strong></td>
+      <td>{{ it.sku_description or '—' }}</td>
+      <td>{{ it.client or '—' }}</td>
+      <td>{{ it.from_location or '—' }} → {{ it.to_location or '—' }}</td>
+      <td>{{ it.return_date|fmt_date if it.return_date else '—' }}</td>
+      <td><span class="status-pill">{{ it.status }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty-note">No matching Development Samples.</p>
+{% endif %}

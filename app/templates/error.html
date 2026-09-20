@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Access denied — Sample Tracker{% endblock %}
+{% block content %}
+<div class="card" style="max-width:480px;margin:60px auto;text-align:center;">
+  <h2>Access denied</h2>
+  <p>{{ message }}</p>
+  <a href="/" class="btn btn-primary">Back to dashboard</a>
+</div>
+{% endblock %}
+{% block bare_content %}
+<div class="login-screen">
+  <div class="login-card" style="text-align:center;">
+    <h1>Access denied</h1>
+    <p>{{ message }}</p>
+    <a href="/login" class="btn btn-primary btn-block">Go to login</a>
+  </div>
+</div>
+{% endblock %}

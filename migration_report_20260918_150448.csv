@@ -1,0 +1,2579 @@
+row,sku,outcome,reason
+2,253891,inserted,
+3,253767,inserted,
+4,253888,inserted,
+5,106093,inserted,
+6,253788,inserted,
+7,188317,inserted,
+8,102994,inserted,
+9,253743,inserted,
+10,164001,inserted,
+11,103015,inserted,
+12,103009,inserted,
+13,188311,inserted,
+14,253744,inserted,
+15,163986,inserted,
+16,159625,inserted,
+17,159731,inserted,
+18,159629,inserted,
+19,188331,inserted,
+20,102995,inserted,
+21,105971,inserted,
+22,105972,inserted,
+23,103274,inserted,
+24,159646,inserted,
+25,188328,inserted,
+26,103292,inserted,
+27,103297,inserted,
+28,110548,inserted,
+29,159300,inserted,
+30,159299,inserted,
+31,164440,inserted,
+32,106110,inserted,
+33,103397,inserted,
+34,106073,inserted,
+35,159757,inserted,
+36,188326,inserted,
+37,105999,inserted,
+38,160667,inserted,
+39,112751,inserted,
+40,103573,inserted,
+41,103554,inserted,
+42,159739,inserted,
+43,103290,inserted,
+44,164447,inserted,
+45,159738,inserted,
+46,103633,inserted,
+47,190754,inserted,
+48,106106,inserted,
+49,103585,inserted,
+50,106206,inserted,
+51,106077,inserted,
+52,103908,inserted,
+53,103924,inserted,
+54,511069,inserted,
+55,511072,inserted,
+56,511075,inserted,
+57,511078,inserted,
+58,511081,inserted,
+59,837985,inserted,
+60,838017,inserted,
+61,838006,inserted,
+62,838011,inserted,
+63,,skipped_invalid,SKU is blank
+64,,skipped_invalid,SKU is blank
+65,,skipped_invalid,SKU is blank
+66,837987,inserted,
+67,139616,inserted,
+68,139640,inserted,
+69,139649,inserted,
+70,139671,inserted,
+71,139681,inserted,
+72,140741,inserted,
+73,140742,inserted,
+74,141116,inserted,
+75,326450,inserted,
+76,326451,inserted,
+77,326452,inserted,
+78,326453,inserted,
+79,326454,inserted,
+80,326455,inserted,
+81,326456,inserted,
+82,326457,inserted,
+83,326458,inserted,
+84,460737,inserted,
+85,460735,inserted,
+86,460734,inserted,
+87,600584,inserted,
+88,600585,inserted,
+89,493157,inserted,
+90,493165,inserted,
+91,493166,inserted,
+92,493173,inserted,
+93,493174,inserted,
+94,493176,inserted,
+95,493177,inserted,
+96,493178,inserted,
+97,493179,inserted,
+98,493183,inserted,
+99,493044,inserted,
+100,493089,inserted,
+101,492993,inserted,
+102,492994,inserted,
+103,492995,inserted,
+104,492996,inserted,
+105,492997,inserted,
+106,492998,inserted,
+107,492999,inserted,
+108,493000,inserted,
+109,493001,inserted,
+110,493002,inserted,
+111,493003,inserted,
+112,493004,inserted,
+113,493005,inserted,
+114,493006,inserted,
+115,493008,inserted,
+116,493010,inserted,
+117,493011,inserted,
+118,493012,inserted,
+119,493013,inserted,
+120,493015,inserted,
+121,493016,inserted,
+122,493017,inserted,
+123,493018,inserted,
+124,493019,inserted,
+125,493020,inserted,
+126,493021,inserted,
+127,493024,inserted,
+128,493025,inserted,
+129,493026,inserted,
+130,493027,inserted,
+131,493028,inserted,
+132,493029,inserted,
+133,493030,inserted,
+134,493031,inserted,
+135,493032,inserted,
+136,493033,inserted,
+137,493034,inserted,
+138,493035,inserted,
+139,493036,inserted,
+140,493038,inserted,
+141,493039,inserted,
+142,493040,inserted,
+143,493041,inserted,
+144,493042,inserted,
+145,493043,inserted,
+146,493045,inserted,
+147,493046,inserted,
+148,493047,inserted,
+149,493049,inserted,
+150,493050,inserted,
+151,493051,inserted,
+152,493052,inserted,
+153,493053,inserted,
+154,493054,inserted,
+155,493055,inserted,
+156,493056,inserted,
+157,493058,inserted,
+158,493059,inserted,
+159,493060,inserted,
+160,493062,inserted,
+161,493063,inserted,
+162,493065,inserted,
+163,493066,inserted,
+164,493067,inserted,
+165,493070,inserted,
+166,493071,inserted,
+167,493072,inserted,
+168,493073,inserted,
+169,493074,inserted,
+170,493075,inserted,
+171,493076,inserted,
+172,493079,inserted,
+173,493081,inserted,
+174,493082,inserted,
+175,493083,inserted,
+176,493084,inserted,
+177,493085,inserted,
+178,493086,inserted,
+179,493087,inserted,
+180,493088,inserted,
+181,493090,inserted,
+182,493091,inserted,
+183,493092,inserted,
+184,493093,inserted,
+185,493094,inserted,
+186,493096,inserted,
+187,493097,inserted,
+188,493098,inserted,
+189,139949,inserted,
+190,140959,inserted,
+191,141000,inserted,
+192,141001,inserted,
+193,141002,inserted,
+194,141003,inserted,
+195,141004,inserted,
+196,141006,inserted,
+197,141007,inserted,
+198,141113,inserted,
+199,141114,inserted,
+200,141115,inserted,
+201,141272,inserted,
+202,141048,inserted,
+203,804486,inserted,
+204,139731,inserted,
+205,139732,inserted,
+206,139743,inserted,
+207,139744,inserted,
+208,139761,inserted,
+209,139777,inserted,
+210,139803,inserted,
+211,139807,inserted,
+212,139933,inserted,
+213,140326,inserted,
+214,140746,inserted,
+215,140747,inserted,
+216,493157,skipped_dup_in_file,Same SKU appears earlier in this file
+217,493165,skipped_dup_in_file,Same SKU appears earlier in this file
+218,493166,skipped_dup_in_file,Same SKU appears earlier in this file
+219,493173,skipped_dup_in_file,Same SKU appears earlier in this file
+220,493174,skipped_dup_in_file,Same SKU appears earlier in this file
+221,493176,skipped_dup_in_file,Same SKU appears earlier in this file
+222,493177,skipped_dup_in_file,Same SKU appears earlier in this file
+223,493178,skipped_dup_in_file,Same SKU appears earlier in this file
+224,493179,skipped_dup_in_file,Same SKU appears earlier in this file
+225,493183,skipped_dup_in_file,Same SKU appears earlier in this file
+226,112547,inserted,
+227,112568,inserted,
+228,493069,inserted,
+229,112625,inserted,
+230,112626,inserted,
+231,112653,inserted,
+232,112622,inserted,
+233,112624,inserted,
+234,112657,inserted,
+235,112880,inserted,
+236,112867,inserted,
+237,112654,inserted,
+238,112656,inserted,
+239,112623,inserted,
+240,112868,inserted,
+241,112465,inserted,
+242,112468,inserted,
+243,112851,inserted,
+244,112878,inserted,
+245,112845,inserted,
+246,112634,inserted,
+247,112431,inserted,
+248,112644,inserted,
+249,112690,inserted,
+250,112687,inserted,
+251,112643,inserted,
+252,112885,inserted,
+253,112884,inserted,
+254,112638,inserted,
+255,112861,inserted,
+256,112879,inserted,
+257,112874,inserted,
+258,112635,inserted,
+259,112871,inserted,
+260,112427,inserted,
+261,112630,inserted,
+262,112639,inserted,
+263,112873,inserted,
+264,112470,inserted,
+265,112860,inserted,
+266,112872,inserted,
+267,112876,inserted,
+268,112877,inserted,
+269,112875,inserted,
+270,112869,inserted,
+271,112636,inserted,
+272,112435,inserted,
+273,112865,inserted,
+274,112433,inserted,
+275,112437,inserted,
+276,112328,inserted,
+277,112329,inserted,
+278,112464,inserted,
+279,112666,inserted,
+280,112667,inserted,
+281,112668,inserted,
+282,112669,inserted,
+283,112691,inserted,
+284,112692,inserted,
+285,112693,inserted,
+286,112694,inserted,
+287,112341,inserted,
+288,112683,inserted,
+289,112664,inserted,
+290,112589,inserted,
+291,112663,inserted,
+292,112340,inserted,
+293,112361,inserted,
+294,112685,inserted,
+295,112664,skipped_dup_in_file,Same SKU appears earlier in this file
+296,112684,inserted,
+297,112686,inserted,
+298,112659,inserted,
+299,112660,inserted,
+300,112338,inserted,
+301,112336,inserted,
+302,112337,inserted,
+303,112658,inserted,
+304,112339,inserted,
+305,492868,inserted,
+306,492871,inserted,
+307,492874,inserted,
+308,492877,inserted,
+309,492872,inserted,
+310,511069,skipped_dup_in_file,Same SKU appears earlier in this file
+311,511072,skipped_dup_in_file,Same SKU appears earlier in this file
+312,511075,skipped_dup_in_file,Same SKU appears earlier in this file
+313,511078,skipped_dup_in_file,Same SKU appears earlier in this file
+314,511081,skipped_dup_in_file,Same SKU appears earlier in this file
+315,837985,skipped_dup_in_file,Same SKU appears earlier in this file
+316,838017,skipped_dup_in_file,Same SKU appears earlier in this file
+317,838006,skipped_dup_in_file,Same SKU appears earlier in this file
+318,838011,skipped_dup_in_file,Same SKU appears earlier in this file
+319,,skipped_invalid,SKU is blank
+320,,skipped_invalid,SKU is blank
+321,,skipped_invalid,SKU is blank
+322,837987,skipped_dup_in_file,Same SKU appears earlier in this file
+323,139616,skipped_dup_in_file,Same SKU appears earlier in this file
+324,139640,skipped_dup_in_file,Same SKU appears earlier in this file
+325,139649,skipped_dup_in_file,Same SKU appears earlier in this file
+326,139671,skipped_dup_in_file,Same SKU appears earlier in this file
+327,139681,skipped_dup_in_file,Same SKU appears earlier in this file
+328,140741,skipped_dup_in_file,Same SKU appears earlier in this file
+329,140742,skipped_dup_in_file,Same SKU appears earlier in this file
+330,141116,skipped_dup_in_file,Same SKU appears earlier in this file
+331,326450,skipped_dup_in_file,Same SKU appears earlier in this file
+332,326451,skipped_dup_in_file,Same SKU appears earlier in this file
+333,326452,skipped_dup_in_file,Same SKU appears earlier in this file
+334,326453,skipped_dup_in_file,Same SKU appears earlier in this file
+335,326454,skipped_dup_in_file,Same SKU appears earlier in this file
+336,326455,skipped_dup_in_file,Same SKU appears earlier in this file
+337,326456,skipped_dup_in_file,Same SKU appears earlier in this file
+338,326457,skipped_dup_in_file,Same SKU appears earlier in this file
+339,326458,skipped_dup_in_file,Same SKU appears earlier in this file
+340,460737,skipped_dup_in_file,Same SKU appears earlier in this file
+341,460735,skipped_dup_in_file,Same SKU appears earlier in this file
+342,460734,skipped_dup_in_file,Same SKU appears earlier in this file
+343,600584,skipped_dup_in_file,Same SKU appears earlier in this file
+344,600585,skipped_dup_in_file,Same SKU appears earlier in this file
+345,493157,skipped_dup_in_file,Same SKU appears earlier in this file
+346,493165,skipped_dup_in_file,Same SKU appears earlier in this file
+347,493166,skipped_dup_in_file,Same SKU appears earlier in this file
+348,493173,skipped_dup_in_file,Same SKU appears earlier in this file
+349,493174,skipped_dup_in_file,Same SKU appears earlier in this file
+350,493176,skipped_dup_in_file,Same SKU appears earlier in this file
+351,493177,skipped_dup_in_file,Same SKU appears earlier in this file
+352,493178,skipped_dup_in_file,Same SKU appears earlier in this file
+353,493179,skipped_dup_in_file,Same SKU appears earlier in this file
+354,493183,skipped_dup_in_file,Same SKU appears earlier in this file
+355,493044,skipped_dup_in_file,Same SKU appears earlier in this file
+356,493089,skipped_dup_in_file,Same SKU appears earlier in this file
+357,492993,skipped_dup_in_file,Same SKU appears earlier in this file
+358,492994,skipped_dup_in_file,Same SKU appears earlier in this file
+359,492995,skipped_dup_in_file,Same SKU appears earlier in this file
+360,492996,skipped_dup_in_file,Same SKU appears earlier in this file
+361,492997,skipped_dup_in_file,Same SKU appears earlier in this file
+362,492998,skipped_dup_in_file,Same SKU appears earlier in this file
+363,492999,skipped_dup_in_file,Same SKU appears earlier in this file
+364,493000,skipped_dup_in_file,Same SKU appears earlier in this file
+365,493001,skipped_dup_in_file,Same SKU appears earlier in this file
+366,493002,skipped_dup_in_file,Same SKU appears earlier in this file
+367,493003,skipped_dup_in_file,Same SKU appears earlier in this file
+368,493004,skipped_dup_in_file,Same SKU appears earlier in this file
+369,493005,skipped_dup_in_file,Same SKU appears earlier in this file
+370,493006,skipped_dup_in_file,Same SKU appears earlier in this file
+371,493008,skipped_dup_in_file,Same SKU appears earlier in this file
+372,493010,skipped_dup_in_file,Same SKU appears earlier in this file
+373,493011,skipped_dup_in_file,Same SKU appears earlier in this file
+374,493012,skipped_dup_in_file,Same SKU appears earlier in this file
+375,493013,skipped_dup_in_file,Same SKU appears earlier in this file
+376,493015,skipped_dup_in_file,Same SKU appears earlier in this file
+377,493016,skipped_dup_in_file,Same SKU appears earlier in this file
+378,493017,skipped_dup_in_file,Same SKU appears earlier in this file
+379,493018,skipped_dup_in_file,Same SKU appears earlier in this file
+380,493019,skipped_dup_in_file,Same SKU appears earlier in this file
+381,493020,skipped_dup_in_file,Same SKU appears earlier in this file
+382,493021,skipped_dup_in_file,Same SKU appears earlier in this file
+383,493024,skipped_dup_in_file,Same SKU appears earlier in this file
+384,493025,skipped_dup_in_file,Same SKU appears earlier in this file
+385,493026,skipped_dup_in_file,Same SKU appears earlier in this file
+386,493027,skipped_dup_in_file,Same SKU appears earlier in this file
+387,493028,skipped_dup_in_file,Same SKU appears earlier in this file
+388,493029,skipped_dup_in_file,Same SKU appears earlier in this file
+389,493030,skipped_dup_in_file,Same SKU appears earlier in this file
+390,493031,skipped_dup_in_file,Same SKU appears earlier in this file
+391,493032,skipped_dup_in_file,Same SKU appears earlier in this file
+392,493033,skipped_dup_in_file,Same SKU appears earlier in this file
+393,493034,skipped_dup_in_file,Same SKU appears earlier in this file
+394,493035,skipped_dup_in_file,Same SKU appears earlier in this file
+395,493036,skipped_dup_in_file,Same SKU appears earlier in this file
+396,493038,skipped_dup_in_file,Same SKU appears earlier in this file
+397,493039,skipped_dup_in_file,Same SKU appears earlier in this file
+398,493040,skipped_dup_in_file,Same SKU appears earlier in this file
+399,493041,skipped_dup_in_file,Same SKU appears earlier in this file
+400,493042,skipped_dup_in_file,Same SKU appears earlier in this file
+401,493043,skipped_dup_in_file,Same SKU appears earlier in this file
+402,493045,skipped_dup_in_file,Same SKU appears earlier in this file
+403,493046,skipped_dup_in_file,Same SKU appears earlier in this file
+404,493047,skipped_dup_in_file,Same SKU appears earlier in this file
+405,493049,skipped_dup_in_file,Same SKU appears earlier in this file
+406,493050,skipped_dup_in_file,Same SKU appears earlier in this file
+407,493051,skipped_dup_in_file,Same SKU appears earlier in this file
+408,493052,skipped_dup_in_file,Same SKU appears earlier in this file
+409,493053,skipped_dup_in_file,Same SKU appears earlier in this file
+410,493054,skipped_dup_in_file,Same SKU appears earlier in this file
+411,493055,skipped_dup_in_file,Same SKU appears earlier in this file
+412,493056,skipped_dup_in_file,Same SKU appears earlier in this file
+413,493058,skipped_dup_in_file,Same SKU appears earlier in this file
+414,493059,skipped_dup_in_file,Same SKU appears earlier in this file
+415,493060,skipped_dup_in_file,Same SKU appears earlier in this file
+416,493062,skipped_dup_in_file,Same SKU appears earlier in this file
+417,493063,skipped_dup_in_file,Same SKU appears earlier in this file
+418,493065,skipped_dup_in_file,Same SKU appears earlier in this file
+419,493066,skipped_dup_in_file,Same SKU appears earlier in this file
+420,493067,skipped_dup_in_file,Same SKU appears earlier in this file
+421,493070,skipped_dup_in_file,Same SKU appears earlier in this file
+422,493071,skipped_dup_in_file,Same SKU appears earlier in this file
+423,493072,skipped_dup_in_file,Same SKU appears earlier in this file
+424,493073,skipped_dup_in_file,Same SKU appears earlier in this file
+425,493074,skipped_dup_in_file,Same SKU appears earlier in this file
+426,493075,skipped_dup_in_file,Same SKU appears earlier in this file
+427,493076,skipped_dup_in_file,Same SKU appears earlier in this file
+428,493079,skipped_dup_in_file,Same SKU appears earlier in this file
+429,493081,skipped_dup_in_file,Same SKU appears earlier in this file
+430,493082,skipped_dup_in_file,Same SKU appears earlier in this file
+431,493083,skipped_dup_in_file,Same SKU appears earlier in this file
+432,493084,skipped_dup_in_file,Same SKU appears earlier in this file
+433,493085,skipped_dup_in_file,Same SKU appears earlier in this file
+434,493086,skipped_dup_in_file,Same SKU appears earlier in this file
+435,493087,skipped_dup_in_file,Same SKU appears earlier in this file
+436,493088,skipped_dup_in_file,Same SKU appears earlier in this file
+437,493090,skipped_dup_in_file,Same SKU appears earlier in this file
+438,493091,skipped_dup_in_file,Same SKU appears earlier in this file
+439,493092,skipped_dup_in_file,Same SKU appears earlier in this file
+440,493093,skipped_dup_in_file,Same SKU appears earlier in this file
+441,493094,skipped_dup_in_file,Same SKU appears earlier in this file
+442,493096,skipped_dup_in_file,Same SKU appears earlier in this file
+443,493097,skipped_dup_in_file,Same SKU appears earlier in this file
+444,493098,skipped_dup_in_file,Same SKU appears earlier in this file
+445,139949,skipped_dup_in_file,Same SKU appears earlier in this file
+446,140959,skipped_dup_in_file,Same SKU appears earlier in this file
+447,141000,skipped_dup_in_file,Same SKU appears earlier in this file
+448,141001,skipped_dup_in_file,Same SKU appears earlier in this file
+449,141002,skipped_dup_in_file,Same SKU appears earlier in this file
+450,141003,skipped_dup_in_file,Same SKU appears earlier in this file
+451,141004,skipped_dup_in_file,Same SKU appears earlier in this file
+452,141006,skipped_dup_in_file,Same SKU appears earlier in this file
+453,141007,skipped_dup_in_file,Same SKU appears earlier in this file
+454,141113,skipped_dup_in_file,Same SKU appears earlier in this file
+455,141114,skipped_dup_in_file,Same SKU appears earlier in this file
+456,141115,skipped_dup_in_file,Same SKU appears earlier in this file
+457,141272,skipped_dup_in_file,Same SKU appears earlier in this file
+458,141048,skipped_dup_in_file,Same SKU appears earlier in this file
+459,804486,skipped_dup_in_file,Same SKU appears earlier in this file
+460,139731,skipped_dup_in_file,Same SKU appears earlier in this file
+461,139732,skipped_dup_in_file,Same SKU appears earlier in this file
+462,139743,skipped_dup_in_file,Same SKU appears earlier in this file
+463,139744,skipped_dup_in_file,Same SKU appears earlier in this file
+464,139761,skipped_dup_in_file,Same SKU appears earlier in this file
+465,139777,skipped_dup_in_file,Same SKU appears earlier in this file
+466,139803,skipped_dup_in_file,Same SKU appears earlier in this file
+467,139807,skipped_dup_in_file,Same SKU appears earlier in this file
+468,139933,skipped_dup_in_file,Same SKU appears earlier in this file
+469,140326,skipped_dup_in_file,Same SKU appears earlier in this file
+470,140746,skipped_dup_in_file,Same SKU appears earlier in this file
+471,140747,skipped_dup_in_file,Same SKU appears earlier in this file
+472,493157,skipped_dup_in_file,Same SKU appears earlier in this file
+473,493165,skipped_dup_in_file,Same SKU appears earlier in this file
+474,493166,skipped_dup_in_file,Same SKU appears earlier in this file
+475,493173,skipped_dup_in_file,Same SKU appears earlier in this file
+476,493174,skipped_dup_in_file,Same SKU appears earlier in this file
+477,493176,skipped_dup_in_file,Same SKU appears earlier in this file
+478,493177,skipped_dup_in_file,Same SKU appears earlier in this file
+479,493178,skipped_dup_in_file,Same SKU appears earlier in this file
+480,493179,skipped_dup_in_file,Same SKU appears earlier in this file
+481,493183,skipped_dup_in_file,Same SKU appears earlier in this file
+482,112547,skipped_dup_in_file,Same SKU appears earlier in this file
+483,112568,skipped_dup_in_file,Same SKU appears earlier in this file
+484,493069,skipped_dup_in_file,Same SKU appears earlier in this file
+485,112625,skipped_dup_in_file,Same SKU appears earlier in this file
+486,112626,skipped_dup_in_file,Same SKU appears earlier in this file
+487,112653,skipped_dup_in_file,Same SKU appears earlier in this file
+488,112622,skipped_dup_in_file,Same SKU appears earlier in this file
+489,112624,skipped_dup_in_file,Same SKU appears earlier in this file
+490,112657,skipped_dup_in_file,Same SKU appears earlier in this file
+491,112880,skipped_dup_in_file,Same SKU appears earlier in this file
+492,112867,skipped_dup_in_file,Same SKU appears earlier in this file
+493,112654,skipped_dup_in_file,Same SKU appears earlier in this file
+494,112656,skipped_dup_in_file,Same SKU appears earlier in this file
+495,112623,skipped_dup_in_file,Same SKU appears earlier in this file
+496,112868,skipped_dup_in_file,Same SKU appears earlier in this file
+497,112465,skipped_dup_in_file,Same SKU appears earlier in this file
+498,112468,skipped_dup_in_file,Same SKU appears earlier in this file
+499,112851,skipped_dup_in_file,Same SKU appears earlier in this file
+500,112878,skipped_dup_in_file,Same SKU appears earlier in this file
+501,112845,skipped_dup_in_file,Same SKU appears earlier in this file
+502,112634,skipped_dup_in_file,Same SKU appears earlier in this file
+503,112431,skipped_dup_in_file,Same SKU appears earlier in this file
+504,112644,skipped_dup_in_file,Same SKU appears earlier in this file
+505,112690,skipped_dup_in_file,Same SKU appears earlier in this file
+506,112687,skipped_dup_in_file,Same SKU appears earlier in this file
+507,112643,skipped_dup_in_file,Same SKU appears earlier in this file
+508,112885,skipped_dup_in_file,Same SKU appears earlier in this file
+509,112884,skipped_dup_in_file,Same SKU appears earlier in this file
+510,112638,skipped_dup_in_file,Same SKU appears earlier in this file
+511,112861,skipped_dup_in_file,Same SKU appears earlier in this file
+512,112879,skipped_dup_in_file,Same SKU appears earlier in this file
+513,112874,skipped_dup_in_file,Same SKU appears earlier in this file
+514,112635,skipped_dup_in_file,Same SKU appears earlier in this file
+515,112871,skipped_dup_in_file,Same SKU appears earlier in this file
+516,112427,skipped_dup_in_file,Same SKU appears earlier in this file
+517,112630,skipped_dup_in_file,Same SKU appears earlier in this file
+518,112639,skipped_dup_in_file,Same SKU appears earlier in this file
+519,112873,skipped_dup_in_file,Same SKU appears earlier in this file
+520,112470,skipped_dup_in_file,Same SKU appears earlier in this file
+521,112860,skipped_dup_in_file,Same SKU appears earlier in this file
+522,112872,skipped_dup_in_file,Same SKU appears earlier in this file
+523,112876,skipped_dup_in_file,Same SKU appears earlier in this file
+524,112877,skipped_dup_in_file,Same SKU appears earlier in this file
+525,112875,skipped_dup_in_file,Same SKU appears earlier in this file
+526,112869,skipped_dup_in_file,Same SKU appears earlier in this file
+527,112636,skipped_dup_in_file,Same SKU appears earlier in this file
+528,112435,skipped_dup_in_file,Same SKU appears earlier in this file
+529,112865,skipped_dup_in_file,Same SKU appears earlier in this file
+530,112433,skipped_dup_in_file,Same SKU appears earlier in this file
+531,112437,skipped_dup_in_file,Same SKU appears earlier in this file
+532,112328,skipped_dup_in_file,Same SKU appears earlier in this file
+533,112329,skipped_dup_in_file,Same SKU appears earlier in this file
+534,112464,skipped_dup_in_file,Same SKU appears earlier in this file
+535,112666,skipped_dup_in_file,Same SKU appears earlier in this file
+536,112667,skipped_dup_in_file,Same SKU appears earlier in this file
+537,112668,skipped_dup_in_file,Same SKU appears earlier in this file
+538,112669,skipped_dup_in_file,Same SKU appears earlier in this file
+539,112691,skipped_dup_in_file,Same SKU appears earlier in this file
+540,112692,skipped_dup_in_file,Same SKU appears earlier in this file
+541,112693,skipped_dup_in_file,Same SKU appears earlier in this file
+542,112694,skipped_dup_in_file,Same SKU appears earlier in this file
+543,112341,skipped_dup_in_file,Same SKU appears earlier in this file
+544,112683,skipped_dup_in_file,Same SKU appears earlier in this file
+545,112664,skipped_dup_in_file,Same SKU appears earlier in this file
+546,112589,skipped_dup_in_file,Same SKU appears earlier in this file
+547,112663,skipped_dup_in_file,Same SKU appears earlier in this file
+548,112340,skipped_dup_in_file,Same SKU appears earlier in this file
+549,112361,skipped_dup_in_file,Same SKU appears earlier in this file
+550,112685,skipped_dup_in_file,Same SKU appears earlier in this file
+551,112664,skipped_dup_in_file,Same SKU appears earlier in this file
+552,112684,skipped_dup_in_file,Same SKU appears earlier in this file
+553,112686,skipped_dup_in_file,Same SKU appears earlier in this file
+554,112659,skipped_dup_in_file,Same SKU appears earlier in this file
+555,112660,skipped_dup_in_file,Same SKU appears earlier in this file
+556,112338,skipped_dup_in_file,Same SKU appears earlier in this file
+557,112336,skipped_dup_in_file,Same SKU appears earlier in this file
+558,112337,skipped_dup_in_file,Same SKU appears earlier in this file
+559,112658,skipped_dup_in_file,Same SKU appears earlier in this file
+560,112339,skipped_dup_in_file,Same SKU appears earlier in this file
+561,492868,skipped_dup_in_file,Same SKU appears earlier in this file
+562,492871,skipped_dup_in_file,Same SKU appears earlier in this file
+563,492874,skipped_dup_in_file,Same SKU appears earlier in this file
+564,492877,skipped_dup_in_file,Same SKU appears earlier in this file
+565,492872,skipped_dup_in_file,Same SKU appears earlier in this file
+566,492873,inserted,
+567,492876,inserted,
+568,492869,inserted,
+569,492870,inserted,
+570,492875,inserted,
+571,492878,inserted,
+572,492879,inserted,
+573,492883,inserted,
+574,492880,inserted,
+575,492882,inserted,
+576,492881,inserted,
+577,492694,inserted,
+578,492689,inserted,
+579,492692,inserted,
+580,492691,inserted,
+581,492670,inserted,
+582,492690,inserted,
+583,492699,inserted,
+584,492693,inserted,
+585,492697,inserted,
+586,492698,inserted,
+587,492696,inserted,
+588,492695,inserted,
+589,492687,inserted,
+590,492688,inserted,
+591,492680,inserted,
+592,492668,inserted,
+593,492648,inserted,
+594,492667,inserted,
+595,492685,inserted,
+596,492686,inserted,
+597,492650,inserted,
+598,492669,inserted,
+599,492656,inserted,
+600,492661,inserted,
+601,492593,inserted,
+602,492676,inserted,
+603,492675,inserted,
+604,492677,inserted,
+605,492653,inserted,
+606,492652,inserted,
+607,492658,inserted,
+608,492660,inserted,
+609,492662,inserted,
+610,492598,inserted,
+611,492673,inserted,
+612,492649,inserted,
+613,492595,inserted,
+614,492663,inserted,
+615,492654,inserted,
+616,492655,inserted,
+617,492664,inserted,
+618,492597,inserted,
+619,492594,inserted,
+620,492599,inserted,
+621,492592,inserted,
+622,492644,inserted,
+623,492590,inserted,
+624,492659,inserted,
+625,492666,inserted,
+626,492657,inserted,
+627,492665,inserted,
+628,492596,inserted,
+629,492679,inserted,
+630,492513,inserted,
+631,493009,inserted,
+632,493007,inserted,
+633,491204,inserted,
+634,492503,inserted,
+635,492504,inserted,
+636,492505,inserted,
+637,492508,inserted,
+638,492507,inserted,
+639,492730,inserted,
+640,492553,inserted,
+641,492536,inserted,
+642,492464,inserted,
+643,491231,inserted,
+644,492934,inserted,
+645,492464,skipped_dup_in_file,Same SKU appears earlier in this file
+646,492465,inserted,
+647,492108,inserted,
+648,492124,inserted,
+649,490169,inserted,
+650,490170,inserted,
+651,491306,inserted,
+652,491307,inserted,
+653,491310,inserted,
+654,491322,inserted,
+655,491323,inserted,
+656,492452,inserted,
+657,492460,inserted,
+658,491007,inserted,
+659,491020,inserted,
+660,491721,inserted,
+661,492506,inserted,
+662,492734,inserted,
+663,490120,inserted,
+664,490162,inserted,
+665,491331,inserted,
+666,491342,inserted,
+667,492262,inserted,
+668,492263,inserted,
+669,492271,inserted,
+670,492272,inserted,
+671,492273,inserted,
+672,492281,inserted,
+673,492716,inserted,
+674,490164,inserted,
+675,491840,inserted,
+676,392904,inserted,
+677,392905,inserted,
+678,392938,inserted,
+679,490004,inserted,
+680,490032,inserted,
+681,490052,inserted,
+682,490060,inserted,
+683,491022,inserted,
+684,491034,inserted,
+685,490161,inserted,
+686,491341,inserted,
+687,491360,inserted,
+688,491362,inserted,
+689,492525,inserted,
+690,492541,inserted,
+691,492542,inserted,
+692,492553,skipped_dup_in_file,Same SKU appears earlier in this file
+693,492563,inserted,
+694,492565,inserted,
+695,492714,inserted,
+696,492722,inserted,
+697,492724,inserted,
+698,492912,inserted,
+699,493202,inserted,
+700,493820,inserted,
+701,491204,skipped_dup_in_file,Same SKU appears earlier in this file
+702,392907,inserted,
+703,392939,inserted,
+704,490007,inserted,
+705,490053,inserted,
+706,490054,inserted,
+707,491011,inserted,
+708,491862,inserted,
+709,490150,inserted,
+710,490174,inserted,
+711,491103,inserted,
+712,491104,inserted,
+713,491230,inserted,
+714,491330,inserted,
+715,491332,inserted,
+716,491340,inserted,
+717,491350,inserted,
+718,491370,inserted,
+719,491371,inserted,
+720,492523,inserted,
+721,492528,inserted,
+722,492530,inserted,
+723,492531,inserted,
+724,492536,skipped_dup_in_file,Same SKU appears earlier in this file
+725,492910,inserted,
+726,493203,inserted,
+727,490141,inserted,
+728,391289,inserted,
+729,582010,inserted,
+730,581320,inserted,
+731,398537,inserted,
+732,106211,inserted,
+733,398038,inserted,
+734,106670,inserted,
+735,106671,inserted,
+736,581310,inserted,
+737,582009,inserted,
+738,510030,inserted,
+739,510031,inserted,
+740,510027,inserted,
+741,510028,inserted,
+742,510032,inserted,
+743,510029,inserted,
+744,660392,inserted,
+745,660395,inserted,
+746,350812,inserted,
+747,350813,inserted,
+748,392931,inserted,
+749,392932,inserted,
+750,392934,inserted,
+751,460744,inserted,
+752,460745,inserted,
+753,392929,inserted,
+754,391938,inserted,
+755,392950,inserted,
+756,392930,inserted,
+757,400478,inserted,
+758,835892,inserted,
+759,835893,inserted,
+760,835894,inserted,
+761,835895,inserted,
+762,835896,inserted,
+763,835897,inserted,
+764,835898,inserted,
+765,835899,inserted,
+766,835900,inserted,
+767,835901,inserted,
+768,835902,inserted,
+769,835903,inserted,
+770,835904,inserted,
+771,835905,inserted,
+772,835906,inserted,
+773,835907,inserted,
+774,835908,inserted,
+775,835909,inserted,
+776,835910,inserted,
+777,835911,inserted,
+778,835912,inserted,
+779,835913,inserted,
+780,835914,inserted,
+781,835915,inserted,
+782,835916,inserted,
+783,835917,inserted,
+784,835918,inserted,
+785,835919,inserted,
+786,835920,inserted,
+787,835921,inserted,
+788,835922,inserted,
+789,835923,inserted,
+790,835924,inserted,
+791,835925,inserted,
+792,835926,inserted,
+793,835927,inserted,
+794,835928,inserted,
+795,835929,inserted,
+796,839396,inserted,
+797,839389,inserted,
+798,836914,inserted,
+799,841736,inserted,
+800,839395,inserted,
+801,142-4821-4,inserted,
+802,142-3469-0,inserted,
+803,042-2930-4,inserted,
+804,142-3470-4,inserted,
+805,490131,inserted,
+806,491230,skipped_dup_in_file,Same SKU appears earlier in this file
+807,492802,inserted,
+808,491081,inserted,
+809,490165,inserted,
+810,491231,skipped_dup_in_file,Same SKU appears earlier in this file
+811,491224,inserted,
+812,491021,inserted,
+813,491071,inserted,
+814,490147,inserted,
+815,492453,inserted,
+816,492860,inserted,
+817,490002,inserted,
+818,490213,inserted,
+819,491751,inserted,
+820,492117,inserted,
+821,492118,inserted,
+822,490042,inserted,
+823,492504,skipped_dup_in_file,Same SKU appears earlier in this file
+824,491223,inserted,
+825,492923,inserted,
+826,492461,inserted,
+827,491202,inserted,
+828,492792,inserted,
+829,491203,inserted,
+830,491041,inserted,
+831,490212,inserted,
+832,491211,inserted,
+833,492122,inserted,
+834,492121,inserted,
+835,492120,inserted,
+836,490134,inserted,
+837,490173,inserted,
+838,491042,inserted,
+839,491821,inserted,
+840,490012,inserted,
+841,491755,inserted,
+842,491072,inserted,
+843,492462,inserted,
+844,491720,inserted,
+845,491817,inserted,
+846,491800,inserted,
+847,491806,inserted,
+848,490811,inserted,
+849,492732,inserted,
+850,492730,skipped_dup_in_file,Same SKU appears earlier in this file
+851,492823,inserted,
+852,491040,inserted,
+853,490160,inserted,
+854,491308,inserted,
+855,490200,inserted,
+856,490110,inserted,
+857,492110,inserted,
+858,492463,inserted,
+859,492104,inserted,
+860,492106,inserted,
+861,492282,inserted,
+862,490169,skipped_dup_in_file,Same SKU appears earlier in this file
+863,490174,skipped_dup_in_file,Same SKU appears earlier in this file
+864,490141,skipped_dup_in_file,Same SKU appears earlier in this file
+865,490051,inserted,
+866,491883,inserted,
+867,492529,inserted,
+868,490810,inserted,
+869,490071,inserted,
+870,490142,inserted,
+871,490210,inserted,
+872,490100,inserted,
+873,491106,inserted,
+874,100607,inserted,
+875,491082,inserted,
+876,391292,inserted,
+877,492557,inserted,
+878,492704,inserted,
+879,491108,inserted,
+880,491320,inserted,
+881,491340,skipped_dup_in_file,Same SKU appears earlier in this file
+882,491075,inserted,
+883,490015,inserted,
+884,490145,inserted,
+885,492113,inserted,
+886,852684,inserted,
+887,,skipped_invalid,SKU is blank
+888,834751,inserted,
+889,6567051,inserted,
+890,6567069,inserted,
+891,6567077,inserted,
+892,6567085,inserted,
+893,6567093,inserted,
+894,6567101,inserted,
+895,6567119,inserted,
+896,6567127,inserted,
+897,6567135,inserted,
+898,6567143,inserted,
+899,6567150,inserted,
+900,6567168,inserted,
+901,6567176,inserted,
+902,6567184,inserted,
+903,261958,inserted,
+904,261962,inserted,
+905,250439,inserted,
+906,822695,inserted,
+907,822704,inserted,
+908,822681,inserted,
+909,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+910,822678,inserted,
+911,822691,inserted,
+912,,skipped_invalid,SKU is blank
+913,822685,inserted,
+914,822689,inserted,
+915,822669,inserted,
+916,,skipped_invalid,SKU is blank
+917,816567,inserted,
+918,816566,inserted,
+919,816575,inserted,
+920,816573,inserted,
+921,816574,inserted,
+922,816569,inserted,
+923,816572,inserted,
+924,807220,inserted,
+925,807227,inserted,
+926,807228,inserted,
+927,807223,inserted,
+928,807224,inserted,
+929,834847,inserted,
+930,803662,inserted,
+931,803663,inserted,
+932,834857,inserted,
+933,803660,inserted,
+934,,skipped_invalid,SKU is blank
+935,,skipped_invalid,SKU is blank
+936,852684,skipped_dup_in_file,Same SKU appears earlier in this file
+937,,skipped_invalid,SKU is blank
+938,834751,skipped_dup_in_file,Same SKU appears earlier in this file
+939,6567051,skipped_dup_in_file,Same SKU appears earlier in this file
+940,6567069,skipped_dup_in_file,Same SKU appears earlier in this file
+941,6567077,skipped_dup_in_file,Same SKU appears earlier in this file
+942,6567085,skipped_dup_in_file,Same SKU appears earlier in this file
+943,6567093,skipped_dup_in_file,Same SKU appears earlier in this file
+944,6567101,skipped_dup_in_file,Same SKU appears earlier in this file
+945,6567119,skipped_dup_in_file,Same SKU appears earlier in this file
+946,6567127,skipped_dup_in_file,Same SKU appears earlier in this file
+947,6567135,skipped_dup_in_file,Same SKU appears earlier in this file
+948,6567143,skipped_dup_in_file,Same SKU appears earlier in this file
+949,6567150,skipped_dup_in_file,Same SKU appears earlier in this file
+950,6567168,skipped_dup_in_file,Same SKU appears earlier in this file
+951,6567176,skipped_dup_in_file,Same SKU appears earlier in this file
+952,6567184,skipped_dup_in_file,Same SKU appears earlier in this file
+953,261958,skipped_dup_in_file,Same SKU appears earlier in this file
+954,261962,skipped_dup_in_file,Same SKU appears earlier in this file
+955,250439,skipped_dup_in_file,Same SKU appears earlier in this file
+956,822695,skipped_dup_in_file,Same SKU appears earlier in this file
+957,822704,skipped_dup_in_file,Same SKU appears earlier in this file
+958,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+959,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+960,822678,skipped_dup_in_file,Same SKU appears earlier in this file
+961,822691,skipped_dup_in_file,Same SKU appears earlier in this file
+962,,skipped_invalid,SKU is blank
+963,822685,skipped_dup_in_file,Same SKU appears earlier in this file
+964,822689,skipped_dup_in_file,Same SKU appears earlier in this file
+965,822669,skipped_dup_in_file,Same SKU appears earlier in this file
+966,,skipped_invalid,SKU is blank
+967,816567,skipped_dup_in_file,Same SKU appears earlier in this file
+968,816566,skipped_dup_in_file,Same SKU appears earlier in this file
+969,816575,skipped_dup_in_file,Same SKU appears earlier in this file
+970,816573,skipped_dup_in_file,Same SKU appears earlier in this file
+971,816574,skipped_dup_in_file,Same SKU appears earlier in this file
+972,816569,skipped_dup_in_file,Same SKU appears earlier in this file
+973,816572,skipped_dup_in_file,Same SKU appears earlier in this file
+974,807220,skipped_dup_in_file,Same SKU appears earlier in this file
+975,807227,skipped_dup_in_file,Same SKU appears earlier in this file
+976,807228,skipped_dup_in_file,Same SKU appears earlier in this file
+977,807223,skipped_dup_in_file,Same SKU appears earlier in this file
+978,807224,skipped_dup_in_file,Same SKU appears earlier in this file
+979,,skipped_invalid,SKU is blank
+980,810568,inserted,
+981,810607,inserted,
+982,810575,inserted,
+983,810564,inserted,
+984,810604,inserted,
+985,810591,inserted,
+986,810566,inserted,
+987,808060,inserted,
+988,812283,inserted,
+989,812285,inserted,
+990,812286,inserted,
+991,812287,inserted,
+992,812289,inserted,
+993,834847,skipped_dup_in_file,Same SKU appears earlier in this file
+994,803662,skipped_dup_in_file,Same SKU appears earlier in this file
+995,803663,skipped_dup_in_file,Same SKU appears earlier in this file
+996,834857,skipped_dup_in_file,Same SKU appears earlier in this file
+997,803660,skipped_dup_in_file,Same SKU appears earlier in this file
+998,,skipped_invalid,SKU is blank
+999,,skipped_invalid,SKU is blank
+1000,,skipped_invalid,SKU is blank
+1001,,skipped_invalid,SKU is blank
+1002,,skipped_invalid,SKU is blank
+1003,,skipped_invalid,SKU is blank
+1004,,skipped_invalid,SKU is blank
+1005,,skipped_invalid,SKU is blank
+1006,,skipped_invalid,SKU is blank
+1007,,skipped_invalid,SKU is blank
+1008,,skipped_invalid,SKU is blank
+1009,,skipped_invalid,SKU is blank
+1010,,skipped_invalid,SKU is blank
+1011,,skipped_invalid,SKU is blank
+1012,,skipped_invalid,SKU is blank
+1013,,skipped_invalid,SKU is blank
+1014,,skipped_invalid,SKU is blank
+1015,,skipped_invalid,SKU is blank
+1016,,skipped_invalid,SKU is blank
+1017,,skipped_invalid,SKU is blank
+1018,,skipped_invalid,SKU is blank
+1019,,skipped_invalid,SKU is blank
+1020,,skipped_invalid,SKU is blank
+1021,,skipped_invalid,SKU is blank
+1022,,skipped_invalid,SKU is blank
+1023,,skipped_invalid,SKU is blank
+1024,,skipped_invalid,SKU is blank
+1025,,skipped_invalid,SKU is blank
+1026,,skipped_invalid,SKU is blank
+1027,,skipped_invalid,SKU is blank
+1028,,skipped_invalid,SKU is blank
+1029,,skipped_invalid,SKU is blank
+1030,,skipped_invalid,SKU is blank
+1031,,skipped_invalid,SKU is blank
+1032,,skipped_invalid,SKU is blank
+1033,,skipped_invalid,SKU is blank
+1034,,skipped_invalid,SKU is blank
+1035,,skipped_invalid,SKU is blank
+1036,,skipped_invalid,SKU is blank
+1037,,skipped_invalid,SKU is blank
+1038,,skipped_invalid,SKU is blank
+1039,,skipped_invalid,SKU is blank
+1040,,skipped_invalid,SKU is blank
+1041,,skipped_invalid,SKU is blank
+1042,,skipped_invalid,SKU is blank
+1043,,skipped_invalid,SKU is blank
+1044,,skipped_invalid,SKU is blank
+1045,,skipped_invalid,SKU is blank
+1046,,skipped_invalid,SKU is blank
+1047,,skipped_invalid,SKU is blank
+1048,,skipped_invalid,SKU is blank
+1049,,skipped_invalid,SKU is blank
+1050,,skipped_invalid,SKU is blank
+1051,,skipped_invalid,SKU is blank
+1052,,skipped_invalid,SKU is blank
+1053,,skipped_invalid,SKU is blank
+1054,,skipped_invalid,SKU is blank
+1055,,skipped_invalid,SKU is blank
+1056,,skipped_invalid,SKU is blank
+1057,,skipped_invalid,SKU is blank
+1058,543655,inserted,
+1059,534173,inserted,
+1060,510181,inserted,
+1061,546220,inserted,
+1062,510030,skipped_dup_in_file,Same SKU appears earlier in this file
+1063,510027,skipped_dup_in_file,Same SKU appears earlier in this file
+1064,534172,inserted,
+1065,544133,inserted,
+1066,534840,inserted,
+1067,510032,skipped_dup_in_file,Same SKU appears earlier in this file
+1068,510182,inserted,
+1069,544959,inserted,
+1070,544524,inserted,
+1071,544085,inserted,
+1072,544988,inserted,
+1073,544123,inserted,
+1074,244225,inserted,
+1075,544131,inserted,
+1076,544132,inserted,
+1077,544127,inserted,
+1078,544529,inserted,
+1079,510176,inserted,
+1080,544984,inserted,
+1081,544535,inserted,
+1082,544516,inserted,
+1083,510180,inserted,
+1084,544517,inserted,
+1085,544532,inserted,
+1086,546225,inserted,
+1087,544510,inserted,
+1088,510173,inserted,
+1089,510028,skipped_dup_in_file,Same SKU appears earlier in this file
+1090,544526,inserted,
+1091,544135,inserted,
+1092,544514,inserted,
+1093,544984,skipped_dup_in_file,Same SKU appears earlier in this file
+1094,544968,inserted,
+1095,544970,inserted,
+1096,544065,inserted,
+1097,544095,inserted,
+1098,510171,inserted,
+1099,547636,inserted,
+1100,244205,inserted,
+1101,544120,inserted,
+1102,581084,inserted,
+1103,534033,inserted,
+1104,547637,inserted,
+1105,547641,inserted,
+1106,547645,inserted,
+1107,547642,inserted,
+1108,547644,inserted,
+1109,,skipped_invalid,SKU is blank
+1110,,skipped_invalid,SKU is blank
+1111,,skipped_invalid,SKU is blank
+1112,,skipped_invalid,SKU is blank
+1113,,skipped_invalid,SKU is blank
+1114,,skipped_invalid,SKU is blank
+1115,,skipped_invalid,SKU is blank
+1116,,skipped_invalid,SKU is blank
+1117,,skipped_invalid,SKU is blank
+1118,279066,inserted,
+1119,156723,inserted,
+1120,279053,inserted,
+1121,279067,inserted,
+1122,240100,inserted,
+1123,240385,inserted,
+1124,294415,inserted,
+1125,246004,inserted,
+1126,279049,inserted,
+1127,152724,inserted,
+1128,152801,inserted,
+1129,279057,inserted,
+1130,246003,inserted,
+1131,279048,inserted,
+1132,152830,inserted,
+1133,294416,inserted,
+1134,294414,inserted,
+1135,279058,inserted,
+1136,152716,inserted,
+1137,246007,inserted,
+1138,279052,inserted,
+1139,279054,inserted,
+1140,156726,inserted,
+1141,240107,inserted,
+1142,279056,inserted,
+1143,279051,inserted,
+1144,240002,inserted,
+1145,246015,inserted,
+1146,279062,inserted,
+1147,152802,inserted,
+1148,240024,inserted,
+1149,279055,inserted,
+1150,152827,inserted,
+1151,152806,inserted,
+1152,152803,inserted,
+1153,152798,inserted,
+1154,246005,inserted,
+1155,246006,inserted,
+1156,152722,inserted,
+1157,279060,inserted,
+1158,294417,inserted,
+1159,279064,inserted,
+1160,246012,inserted,
+1161,156721,inserted,
+1162,246008,inserted,
+1163,156720,inserted,
+1164,279070,inserted,
+1165,156722,inserted,
+1166,86236901,inserted,
+1167,86236902,inserted,
+1168,86236903,inserted,
+1169,86236904,inserted,
+1170,86236905,inserted,
+1171,86236907,inserted,
+1172,86236908,inserted,
+1173,88035245,inserted,
+1174,88035264,inserted,
+1175,88035251,inserted,
+1176,88035302,inserted,
+1177,88035281,inserted,
+1178,88035292,inserted,
+1179,88035325,inserted,
+1180,88035321,inserted,
+1181,88035276,inserted,
+1182,88035255,inserted,
+1183,88035244,inserted,
+1184,88035257,inserted,
+1185,88035291,inserted,
+1186,246011,inserted,
+1187,246010,inserted,
+1188,246009,inserted,
+1189,279079,inserted,
+1190,156731,inserted,
+1191,96035759,inserted,
+1192,96035762,inserted,
+1193,96035746,inserted,
+1194,96238843,inserted,
+1195,96035761,inserted,
+1196,96035750,inserted,
+1197,96035749,inserted,
+1198,,skipped_invalid,SKU is blank
+1199,,skipped_invalid,SKU is blank
+1200,,skipped_invalid,SKU is blank
+1201,96357041,inserted,
+1202,96357057,inserted,
+1203,543601,inserted,
+1204,98829164,inserted,
+1205,948829162,inserted,
+1206,511069,skipped_dup_in_file,Same SKU appears earlier in this file
+1207,511072,skipped_dup_in_file,Same SKU appears earlier in this file
+1208,511075,skipped_dup_in_file,Same SKU appears earlier in this file
+1209,511078,skipped_dup_in_file,Same SKU appears earlier in this file
+1210,511081,skipped_dup_in_file,Same SKU appears earlier in this file
+1211,837985,skipped_dup_in_file,Same SKU appears earlier in this file
+1212,838017,skipped_dup_in_file,Same SKU appears earlier in this file
+1213,838006,skipped_dup_in_file,Same SKU appears earlier in this file
+1214,838011,skipped_dup_in_file,Same SKU appears earlier in this file
+1215,,skipped_invalid,SKU is blank
+1216,,skipped_invalid,SKU is blank
+1217,,skipped_invalid,SKU is blank
+1218,837987,skipped_dup_in_file,Same SKU appears earlier in this file
+1219,139616,skipped_dup_in_file,Same SKU appears earlier in this file
+1220,139640,skipped_dup_in_file,Same SKU appears earlier in this file
+1221,139649,skipped_dup_in_file,Same SKU appears earlier in this file
+1222,139671,skipped_dup_in_file,Same SKU appears earlier in this file
+1223,139681,skipped_dup_in_file,Same SKU appears earlier in this file
+1224,140741,skipped_dup_in_file,Same SKU appears earlier in this file
+1225,140742,skipped_dup_in_file,Same SKU appears earlier in this file
+1226,141116,skipped_dup_in_file,Same SKU appears earlier in this file
+1227,326450,skipped_dup_in_file,Same SKU appears earlier in this file
+1228,326451,skipped_dup_in_file,Same SKU appears earlier in this file
+1229,326452,skipped_dup_in_file,Same SKU appears earlier in this file
+1230,326453,skipped_dup_in_file,Same SKU appears earlier in this file
+1231,326454,skipped_dup_in_file,Same SKU appears earlier in this file
+1232,326455,skipped_dup_in_file,Same SKU appears earlier in this file
+1233,326456,skipped_dup_in_file,Same SKU appears earlier in this file
+1234,326457,skipped_dup_in_file,Same SKU appears earlier in this file
+1235,326458,skipped_dup_in_file,Same SKU appears earlier in this file
+1236,460737,skipped_dup_in_file,Same SKU appears earlier in this file
+1237,460735,skipped_dup_in_file,Same SKU appears earlier in this file
+1238,460734,skipped_dup_in_file,Same SKU appears earlier in this file
+1239,600584,skipped_dup_in_file,Same SKU appears earlier in this file
+1240,600585,skipped_dup_in_file,Same SKU appears earlier in this file
+1241,493157,skipped_dup_in_file,Same SKU appears earlier in this file
+1242,493165,skipped_dup_in_file,Same SKU appears earlier in this file
+1243,493166,skipped_dup_in_file,Same SKU appears earlier in this file
+1244,493173,skipped_dup_in_file,Same SKU appears earlier in this file
+1245,493174,skipped_dup_in_file,Same SKU appears earlier in this file
+1246,493176,skipped_dup_in_file,Same SKU appears earlier in this file
+1247,493177,skipped_dup_in_file,Same SKU appears earlier in this file
+1248,493178,skipped_dup_in_file,Same SKU appears earlier in this file
+1249,493179,skipped_dup_in_file,Same SKU appears earlier in this file
+1250,493183,skipped_dup_in_file,Same SKU appears earlier in this file
+1251,493044,skipped_dup_in_file,Same SKU appears earlier in this file
+1252,493089,skipped_dup_in_file,Same SKU appears earlier in this file
+1253,492993,skipped_dup_in_file,Same SKU appears earlier in this file
+1254,492994,skipped_dup_in_file,Same SKU appears earlier in this file
+1255,492995,skipped_dup_in_file,Same SKU appears earlier in this file
+1256,492996,skipped_dup_in_file,Same SKU appears earlier in this file
+1257,492997,skipped_dup_in_file,Same SKU appears earlier in this file
+1258,492998,skipped_dup_in_file,Same SKU appears earlier in this file
+1259,492999,skipped_dup_in_file,Same SKU appears earlier in this file
+1260,493000,skipped_dup_in_file,Same SKU appears earlier in this file
+1261,493001,skipped_dup_in_file,Same SKU appears earlier in this file
+1262,493002,skipped_dup_in_file,Same SKU appears earlier in this file
+1263,493003,skipped_dup_in_file,Same SKU appears earlier in this file
+1264,493004,skipped_dup_in_file,Same SKU appears earlier in this file
+1265,493005,skipped_dup_in_file,Same SKU appears earlier in this file
+1266,493006,skipped_dup_in_file,Same SKU appears earlier in this file
+1267,493008,skipped_dup_in_file,Same SKU appears earlier in this file
+1268,493010,skipped_dup_in_file,Same SKU appears earlier in this file
+1269,493011,skipped_dup_in_file,Same SKU appears earlier in this file
+1270,493012,skipped_dup_in_file,Same SKU appears earlier in this file
+1271,493013,skipped_dup_in_file,Same SKU appears earlier in this file
+1272,493015,skipped_dup_in_file,Same SKU appears earlier in this file
+1273,493016,skipped_dup_in_file,Same SKU appears earlier in this file
+1274,493017,skipped_dup_in_file,Same SKU appears earlier in this file
+1275,493018,skipped_dup_in_file,Same SKU appears earlier in this file
+1276,493019,skipped_dup_in_file,Same SKU appears earlier in this file
+1277,493020,skipped_dup_in_file,Same SKU appears earlier in this file
+1278,493021,skipped_dup_in_file,Same SKU appears earlier in this file
+1279,493024,skipped_dup_in_file,Same SKU appears earlier in this file
+1280,493025,skipped_dup_in_file,Same SKU appears earlier in this file
+1281,493026,skipped_dup_in_file,Same SKU appears earlier in this file
+1282,493027,skipped_dup_in_file,Same SKU appears earlier in this file
+1283,493028,skipped_dup_in_file,Same SKU appears earlier in this file
+1284,493029,skipped_dup_in_file,Same SKU appears earlier in this file
+1285,493030,skipped_dup_in_file,Same SKU appears earlier in this file
+1286,493031,skipped_dup_in_file,Same SKU appears earlier in this file
+1287,493032,skipped_dup_in_file,Same SKU appears earlier in this file
+1288,493033,skipped_dup_in_file,Same SKU appears earlier in this file
+1289,493034,skipped_dup_in_file,Same SKU appears earlier in this file
+1290,493035,skipped_dup_in_file,Same SKU appears earlier in this file
+1291,493036,skipped_dup_in_file,Same SKU appears earlier in this file
+1292,493038,skipped_dup_in_file,Same SKU appears earlier in this file
+1293,493039,skipped_dup_in_file,Same SKU appears earlier in this file
+1294,493040,skipped_dup_in_file,Same SKU appears earlier in this file
+1295,493041,skipped_dup_in_file,Same SKU appears earlier in this file
+1296,493042,skipped_dup_in_file,Same SKU appears earlier in this file
+1297,493043,skipped_dup_in_file,Same SKU appears earlier in this file
+1298,493045,skipped_dup_in_file,Same SKU appears earlier in this file
+1299,493046,skipped_dup_in_file,Same SKU appears earlier in this file
+1300,493047,skipped_dup_in_file,Same SKU appears earlier in this file
+1301,493049,skipped_dup_in_file,Same SKU appears earlier in this file
+1302,493050,skipped_dup_in_file,Same SKU appears earlier in this file
+1303,493051,skipped_dup_in_file,Same SKU appears earlier in this file
+1304,493052,skipped_dup_in_file,Same SKU appears earlier in this file
+1305,493053,skipped_dup_in_file,Same SKU appears earlier in this file
+1306,493054,skipped_dup_in_file,Same SKU appears earlier in this file
+1307,493055,skipped_dup_in_file,Same SKU appears earlier in this file
+1308,493056,skipped_dup_in_file,Same SKU appears earlier in this file
+1309,493058,skipped_dup_in_file,Same SKU appears earlier in this file
+1310,493059,skipped_dup_in_file,Same SKU appears earlier in this file
+1311,493060,skipped_dup_in_file,Same SKU appears earlier in this file
+1312,493062,skipped_dup_in_file,Same SKU appears earlier in this file
+1313,493063,skipped_dup_in_file,Same SKU appears earlier in this file
+1314,493065,skipped_dup_in_file,Same SKU appears earlier in this file
+1315,493066,skipped_dup_in_file,Same SKU appears earlier in this file
+1316,493067,skipped_dup_in_file,Same SKU appears earlier in this file
+1317,493070,skipped_dup_in_file,Same SKU appears earlier in this file
+1318,493071,skipped_dup_in_file,Same SKU appears earlier in this file
+1319,493072,skipped_dup_in_file,Same SKU appears earlier in this file
+1320,493073,skipped_dup_in_file,Same SKU appears earlier in this file
+1321,493074,skipped_dup_in_file,Same SKU appears earlier in this file
+1322,493075,skipped_dup_in_file,Same SKU appears earlier in this file
+1323,493076,skipped_dup_in_file,Same SKU appears earlier in this file
+1324,493079,skipped_dup_in_file,Same SKU appears earlier in this file
+1325,493081,skipped_dup_in_file,Same SKU appears earlier in this file
+1326,493082,skipped_dup_in_file,Same SKU appears earlier in this file
+1327,493083,skipped_dup_in_file,Same SKU appears earlier in this file
+1328,493084,skipped_dup_in_file,Same SKU appears earlier in this file
+1329,493085,skipped_dup_in_file,Same SKU appears earlier in this file
+1330,493086,skipped_dup_in_file,Same SKU appears earlier in this file
+1331,493087,skipped_dup_in_file,Same SKU appears earlier in this file
+1332,493088,skipped_dup_in_file,Same SKU appears earlier in this file
+1333,493090,skipped_dup_in_file,Same SKU appears earlier in this file
+1334,493091,skipped_dup_in_file,Same SKU appears earlier in this file
+1335,493092,skipped_dup_in_file,Same SKU appears earlier in this file
+1336,493093,skipped_dup_in_file,Same SKU appears earlier in this file
+1337,493094,skipped_dup_in_file,Same SKU appears earlier in this file
+1338,493096,skipped_dup_in_file,Same SKU appears earlier in this file
+1339,493097,skipped_dup_in_file,Same SKU appears earlier in this file
+1340,493098,skipped_dup_in_file,Same SKU appears earlier in this file
+1341,139949,skipped_dup_in_file,Same SKU appears earlier in this file
+1342,140959,skipped_dup_in_file,Same SKU appears earlier in this file
+1343,141000,skipped_dup_in_file,Same SKU appears earlier in this file
+1344,141001,skipped_dup_in_file,Same SKU appears earlier in this file
+1345,141002,skipped_dup_in_file,Same SKU appears earlier in this file
+1346,141003,skipped_dup_in_file,Same SKU appears earlier in this file
+1347,141004,skipped_dup_in_file,Same SKU appears earlier in this file
+1348,141006,skipped_dup_in_file,Same SKU appears earlier in this file
+1349,141007,skipped_dup_in_file,Same SKU appears earlier in this file
+1350,141113,skipped_dup_in_file,Same SKU appears earlier in this file
+1351,141114,skipped_dup_in_file,Same SKU appears earlier in this file
+1352,141115,skipped_dup_in_file,Same SKU appears earlier in this file
+1353,141272,skipped_dup_in_file,Same SKU appears earlier in this file
+1354,141048,skipped_dup_in_file,Same SKU appears earlier in this file
+1355,804486,skipped_dup_in_file,Same SKU appears earlier in this file
+1356,139731,skipped_dup_in_file,Same SKU appears earlier in this file
+1357,139732,skipped_dup_in_file,Same SKU appears earlier in this file
+1358,139743,skipped_dup_in_file,Same SKU appears earlier in this file
+1359,139744,skipped_dup_in_file,Same SKU appears earlier in this file
+1360,139761,skipped_dup_in_file,Same SKU appears earlier in this file
+1361,139777,skipped_dup_in_file,Same SKU appears earlier in this file
+1362,139803,skipped_dup_in_file,Same SKU appears earlier in this file
+1363,139807,skipped_dup_in_file,Same SKU appears earlier in this file
+1364,139933,skipped_dup_in_file,Same SKU appears earlier in this file
+1365,140326,skipped_dup_in_file,Same SKU appears earlier in this file
+1366,140746,skipped_dup_in_file,Same SKU appears earlier in this file
+1367,140747,skipped_dup_in_file,Same SKU appears earlier in this file
+1368,493157,skipped_dup_in_file,Same SKU appears earlier in this file
+1369,493165,skipped_dup_in_file,Same SKU appears earlier in this file
+1370,493166,skipped_dup_in_file,Same SKU appears earlier in this file
+1371,493173,skipped_dup_in_file,Same SKU appears earlier in this file
+1372,493174,skipped_dup_in_file,Same SKU appears earlier in this file
+1373,493176,skipped_dup_in_file,Same SKU appears earlier in this file
+1374,493177,skipped_dup_in_file,Same SKU appears earlier in this file
+1375,493178,skipped_dup_in_file,Same SKU appears earlier in this file
+1376,493179,skipped_dup_in_file,Same SKU appears earlier in this file
+1377,493183,skipped_dup_in_file,Same SKU appears earlier in this file
+1378,112547,skipped_dup_in_file,Same SKU appears earlier in this file
+1379,112568,skipped_dup_in_file,Same SKU appears earlier in this file
+1380,493069,skipped_dup_in_file,Same SKU appears earlier in this file
+1381,112625,skipped_dup_in_file,Same SKU appears earlier in this file
+1382,112626,skipped_dup_in_file,Same SKU appears earlier in this file
+1383,112653,skipped_dup_in_file,Same SKU appears earlier in this file
+1384,112622,skipped_dup_in_file,Same SKU appears earlier in this file
+1385,112624,skipped_dup_in_file,Same SKU appears earlier in this file
+1386,112657,skipped_dup_in_file,Same SKU appears earlier in this file
+1387,112880,skipped_dup_in_file,Same SKU appears earlier in this file
+1388,112867,skipped_dup_in_file,Same SKU appears earlier in this file
+1389,112654,skipped_dup_in_file,Same SKU appears earlier in this file
+1390,112656,skipped_dup_in_file,Same SKU appears earlier in this file
+1391,112623,skipped_dup_in_file,Same SKU appears earlier in this file
+1392,112868,skipped_dup_in_file,Same SKU appears earlier in this file
+1393,112465,skipped_dup_in_file,Same SKU appears earlier in this file
+1394,112468,skipped_dup_in_file,Same SKU appears earlier in this file
+1395,112851,skipped_dup_in_file,Same SKU appears earlier in this file
+1396,112878,skipped_dup_in_file,Same SKU appears earlier in this file
+1397,112845,skipped_dup_in_file,Same SKU appears earlier in this file
+1398,112634,skipped_dup_in_file,Same SKU appears earlier in this file
+1399,112431,skipped_dup_in_file,Same SKU appears earlier in this file
+1400,112644,skipped_dup_in_file,Same SKU appears earlier in this file
+1401,112690,skipped_dup_in_file,Same SKU appears earlier in this file
+1402,112687,skipped_dup_in_file,Same SKU appears earlier in this file
+1403,112643,skipped_dup_in_file,Same SKU appears earlier in this file
+1404,112885,skipped_dup_in_file,Same SKU appears earlier in this file
+1405,112884,skipped_dup_in_file,Same SKU appears earlier in this file
+1406,112638,skipped_dup_in_file,Same SKU appears earlier in this file
+1407,112861,skipped_dup_in_file,Same SKU appears earlier in this file
+1408,112879,skipped_dup_in_file,Same SKU appears earlier in this file
+1409,112874,skipped_dup_in_file,Same SKU appears earlier in this file
+1410,112635,skipped_dup_in_file,Same SKU appears earlier in this file
+1411,112871,skipped_dup_in_file,Same SKU appears earlier in this file
+1412,112427,skipped_dup_in_file,Same SKU appears earlier in this file
+1413,112630,skipped_dup_in_file,Same SKU appears earlier in this file
+1414,112639,skipped_dup_in_file,Same SKU appears earlier in this file
+1415,112873,skipped_dup_in_file,Same SKU appears earlier in this file
+1416,112470,skipped_dup_in_file,Same SKU appears earlier in this file
+1417,112860,skipped_dup_in_file,Same SKU appears earlier in this file
+1418,112872,skipped_dup_in_file,Same SKU appears earlier in this file
+1419,112876,skipped_dup_in_file,Same SKU appears earlier in this file
+1420,112877,skipped_dup_in_file,Same SKU appears earlier in this file
+1421,112875,skipped_dup_in_file,Same SKU appears earlier in this file
+1422,112869,skipped_dup_in_file,Same SKU appears earlier in this file
+1423,112636,skipped_dup_in_file,Same SKU appears earlier in this file
+1424,112435,skipped_dup_in_file,Same SKU appears earlier in this file
+1425,112865,skipped_dup_in_file,Same SKU appears earlier in this file
+1426,112433,skipped_dup_in_file,Same SKU appears earlier in this file
+1427,112437,skipped_dup_in_file,Same SKU appears earlier in this file
+1428,112328,skipped_dup_in_file,Same SKU appears earlier in this file
+1429,112329,skipped_dup_in_file,Same SKU appears earlier in this file
+1430,112464,skipped_dup_in_file,Same SKU appears earlier in this file
+1431,112666,skipped_dup_in_file,Same SKU appears earlier in this file
+1432,112667,skipped_dup_in_file,Same SKU appears earlier in this file
+1433,112668,skipped_dup_in_file,Same SKU appears earlier in this file
+1434,112669,skipped_dup_in_file,Same SKU appears earlier in this file
+1435,112691,skipped_dup_in_file,Same SKU appears earlier in this file
+1436,112692,skipped_dup_in_file,Same SKU appears earlier in this file
+1437,112693,skipped_dup_in_file,Same SKU appears earlier in this file
+1438,112694,skipped_dup_in_file,Same SKU appears earlier in this file
+1439,112341,skipped_dup_in_file,Same SKU appears earlier in this file
+1440,112683,skipped_dup_in_file,Same SKU appears earlier in this file
+1441,112664,skipped_dup_in_file,Same SKU appears earlier in this file
+1442,112589,skipped_dup_in_file,Same SKU appears earlier in this file
+1443,112663,skipped_dup_in_file,Same SKU appears earlier in this file
+1444,112340,skipped_dup_in_file,Same SKU appears earlier in this file
+1445,112361,skipped_dup_in_file,Same SKU appears earlier in this file
+1446,112685,skipped_dup_in_file,Same SKU appears earlier in this file
+1447,112664,skipped_dup_in_file,Same SKU appears earlier in this file
+1448,112684,skipped_dup_in_file,Same SKU appears earlier in this file
+1449,112686,skipped_dup_in_file,Same SKU appears earlier in this file
+1450,112659,skipped_dup_in_file,Same SKU appears earlier in this file
+1451,112660,skipped_dup_in_file,Same SKU appears earlier in this file
+1452,112338,skipped_dup_in_file,Same SKU appears earlier in this file
+1453,112336,skipped_dup_in_file,Same SKU appears earlier in this file
+1454,112337,skipped_dup_in_file,Same SKU appears earlier in this file
+1455,112658,skipped_dup_in_file,Same SKU appears earlier in this file
+1456,112339,skipped_dup_in_file,Same SKU appears earlier in this file
+1457,492868,skipped_dup_in_file,Same SKU appears earlier in this file
+1458,492871,skipped_dup_in_file,Same SKU appears earlier in this file
+1459,492874,skipped_dup_in_file,Same SKU appears earlier in this file
+1460,492877,skipped_dup_in_file,Same SKU appears earlier in this file
+1461,492872,skipped_dup_in_file,Same SKU appears earlier in this file
+1462,492873,skipped_dup_in_file,Same SKU appears earlier in this file
+1463,492876,skipped_dup_in_file,Same SKU appears earlier in this file
+1464,492869,skipped_dup_in_file,Same SKU appears earlier in this file
+1465,492870,skipped_dup_in_file,Same SKU appears earlier in this file
+1466,492875,skipped_dup_in_file,Same SKU appears earlier in this file
+1467,492878,skipped_dup_in_file,Same SKU appears earlier in this file
+1468,492879,skipped_dup_in_file,Same SKU appears earlier in this file
+1469,492883,skipped_dup_in_file,Same SKU appears earlier in this file
+1470,492880,skipped_dup_in_file,Same SKU appears earlier in this file
+1471,492882,skipped_dup_in_file,Same SKU appears earlier in this file
+1472,492881,skipped_dup_in_file,Same SKU appears earlier in this file
+1473,492694,skipped_dup_in_file,Same SKU appears earlier in this file
+1474,492689,skipped_dup_in_file,Same SKU appears earlier in this file
+1475,492692,skipped_dup_in_file,Same SKU appears earlier in this file
+1476,492691,skipped_dup_in_file,Same SKU appears earlier in this file
+1477,492670,skipped_dup_in_file,Same SKU appears earlier in this file
+1478,492690,skipped_dup_in_file,Same SKU appears earlier in this file
+1479,492699,skipped_dup_in_file,Same SKU appears earlier in this file
+1480,492693,skipped_dup_in_file,Same SKU appears earlier in this file
+1481,492697,skipped_dup_in_file,Same SKU appears earlier in this file
+1482,492698,skipped_dup_in_file,Same SKU appears earlier in this file
+1483,492696,skipped_dup_in_file,Same SKU appears earlier in this file
+1484,492695,skipped_dup_in_file,Same SKU appears earlier in this file
+1485,492687,skipped_dup_in_file,Same SKU appears earlier in this file
+1486,492688,skipped_dup_in_file,Same SKU appears earlier in this file
+1487,492680,skipped_dup_in_file,Same SKU appears earlier in this file
+1488,492668,skipped_dup_in_file,Same SKU appears earlier in this file
+1489,492648,skipped_dup_in_file,Same SKU appears earlier in this file
+1490,492667,skipped_dup_in_file,Same SKU appears earlier in this file
+1491,492685,skipped_dup_in_file,Same SKU appears earlier in this file
+1492,492686,skipped_dup_in_file,Same SKU appears earlier in this file
+1493,492650,skipped_dup_in_file,Same SKU appears earlier in this file
+1494,492669,skipped_dup_in_file,Same SKU appears earlier in this file
+1495,492656,skipped_dup_in_file,Same SKU appears earlier in this file
+1496,492661,skipped_dup_in_file,Same SKU appears earlier in this file
+1497,492593,skipped_dup_in_file,Same SKU appears earlier in this file
+1498,492676,skipped_dup_in_file,Same SKU appears earlier in this file
+1499,492675,skipped_dup_in_file,Same SKU appears earlier in this file
+1500,492677,skipped_dup_in_file,Same SKU appears earlier in this file
+1501,492653,skipped_dup_in_file,Same SKU appears earlier in this file
+1502,492652,skipped_dup_in_file,Same SKU appears earlier in this file
+1503,492658,skipped_dup_in_file,Same SKU appears earlier in this file
+1504,492660,skipped_dup_in_file,Same SKU appears earlier in this file
+1505,492662,skipped_dup_in_file,Same SKU appears earlier in this file
+1506,492598,skipped_dup_in_file,Same SKU appears earlier in this file
+1507,492673,skipped_dup_in_file,Same SKU appears earlier in this file
+1508,492649,skipped_dup_in_file,Same SKU appears earlier in this file
+1509,492595,skipped_dup_in_file,Same SKU appears earlier in this file
+1510,492663,skipped_dup_in_file,Same SKU appears earlier in this file
+1511,492654,skipped_dup_in_file,Same SKU appears earlier in this file
+1512,492655,skipped_dup_in_file,Same SKU appears earlier in this file
+1513,492664,skipped_dup_in_file,Same SKU appears earlier in this file
+1514,492597,skipped_dup_in_file,Same SKU appears earlier in this file
+1515,492594,skipped_dup_in_file,Same SKU appears earlier in this file
+1516,492599,skipped_dup_in_file,Same SKU appears earlier in this file
+1517,492592,skipped_dup_in_file,Same SKU appears earlier in this file
+1518,492644,skipped_dup_in_file,Same SKU appears earlier in this file
+1519,492590,skipped_dup_in_file,Same SKU appears earlier in this file
+1520,492659,skipped_dup_in_file,Same SKU appears earlier in this file
+1521,492666,skipped_dup_in_file,Same SKU appears earlier in this file
+1522,492657,skipped_dup_in_file,Same SKU appears earlier in this file
+1523,492665,skipped_dup_in_file,Same SKU appears earlier in this file
+1524,492596,skipped_dup_in_file,Same SKU appears earlier in this file
+1525,492679,skipped_dup_in_file,Same SKU appears earlier in this file
+1526,392911,inserted,
+1527,492582,inserted,
+1528,492513,skipped_dup_in_file,Same SKU appears earlier in this file
+1529,490140,inserted,
+1530,493009,skipped_dup_in_file,Same SKU appears earlier in this file
+1531,493007,skipped_dup_in_file,Same SKU appears earlier in this file
+1532,492111,inserted,
+1533,491204,skipped_dup_in_file,Same SKU appears earlier in this file
+1534,492595,skipped_dup_in_file,Same SKU appears earlier in this file
+1535,492503,skipped_dup_in_file,Same SKU appears earlier in this file
+1536,492504,skipped_dup_in_file,Same SKU appears earlier in this file
+1537,492505,skipped_dup_in_file,Same SKU appears earlier in this file
+1538,492508,skipped_dup_in_file,Same SKU appears earlier in this file
+1539,492507,skipped_dup_in_file,Same SKU appears earlier in this file
+1540,492730,skipped_dup_in_file,Same SKU appears earlier in this file
+1541,492515,inserted,
+1542,492553,skipped_dup_in_file,Same SKU appears earlier in this file
+1543,492536,skipped_dup_in_file,Same SKU appears earlier in this file
+1544,492464,skipped_dup_in_file,Same SKU appears earlier in this file
+1545,491231,skipped_dup_in_file,Same SKU appears earlier in this file
+1546,492934,skipped_dup_in_file,Same SKU appears earlier in this file
+1547,492464,skipped_dup_in_file,Same SKU appears earlier in this file
+1548,492465,skipped_dup_in_file,Same SKU appears earlier in this file
+1549,492108,skipped_dup_in_file,Same SKU appears earlier in this file
+1550,492124,skipped_dup_in_file,Same SKU appears earlier in this file
+1551,490169,skipped_dup_in_file,Same SKU appears earlier in this file
+1552,490170,skipped_dup_in_file,Same SKU appears earlier in this file
+1553,491306,skipped_dup_in_file,Same SKU appears earlier in this file
+1554,491307,skipped_dup_in_file,Same SKU appears earlier in this file
+1555,491310,skipped_dup_in_file,Same SKU appears earlier in this file
+1556,491322,skipped_dup_in_file,Same SKU appears earlier in this file
+1557,491323,skipped_dup_in_file,Same SKU appears earlier in this file
+1558,492452,skipped_dup_in_file,Same SKU appears earlier in this file
+1559,492460,skipped_dup_in_file,Same SKU appears earlier in this file
+1560,491007,skipped_dup_in_file,Same SKU appears earlier in this file
+1561,491020,skipped_dup_in_file,Same SKU appears earlier in this file
+1562,491721,skipped_dup_in_file,Same SKU appears earlier in this file
+1563,492506,skipped_dup_in_file,Same SKU appears earlier in this file
+1564,492734,skipped_dup_in_file,Same SKU appears earlier in this file
+1565,490120,skipped_dup_in_file,Same SKU appears earlier in this file
+1566,490162,skipped_dup_in_file,Same SKU appears earlier in this file
+1567,491331,skipped_dup_in_file,Same SKU appears earlier in this file
+1568,491342,skipped_dup_in_file,Same SKU appears earlier in this file
+1569,492262,skipped_dup_in_file,Same SKU appears earlier in this file
+1570,492263,skipped_dup_in_file,Same SKU appears earlier in this file
+1571,492271,skipped_dup_in_file,Same SKU appears earlier in this file
+1572,492272,skipped_dup_in_file,Same SKU appears earlier in this file
+1573,492273,skipped_dup_in_file,Same SKU appears earlier in this file
+1574,492281,skipped_dup_in_file,Same SKU appears earlier in this file
+1575,492716,skipped_dup_in_file,Same SKU appears earlier in this file
+1576,490164,skipped_dup_in_file,Same SKU appears earlier in this file
+1577,491840,skipped_dup_in_file,Same SKU appears earlier in this file
+1578,392904,skipped_dup_in_file,Same SKU appears earlier in this file
+1579,392905,skipped_dup_in_file,Same SKU appears earlier in this file
+1580,392938,skipped_dup_in_file,Same SKU appears earlier in this file
+1581,490004,skipped_dup_in_file,Same SKU appears earlier in this file
+1582,490032,skipped_dup_in_file,Same SKU appears earlier in this file
+1583,490052,skipped_dup_in_file,Same SKU appears earlier in this file
+1584,490060,skipped_dup_in_file,Same SKU appears earlier in this file
+1585,491022,skipped_dup_in_file,Same SKU appears earlier in this file
+1586,491034,skipped_dup_in_file,Same SKU appears earlier in this file
+1587,490161,skipped_dup_in_file,Same SKU appears earlier in this file
+1588,491341,skipped_dup_in_file,Same SKU appears earlier in this file
+1589,491360,skipped_dup_in_file,Same SKU appears earlier in this file
+1590,491362,skipped_dup_in_file,Same SKU appears earlier in this file
+1591,492525,skipped_dup_in_file,Same SKU appears earlier in this file
+1592,492541,skipped_dup_in_file,Same SKU appears earlier in this file
+1593,492542,skipped_dup_in_file,Same SKU appears earlier in this file
+1594,492553,skipped_dup_in_file,Same SKU appears earlier in this file
+1595,492563,skipped_dup_in_file,Same SKU appears earlier in this file
+1596,492565,skipped_dup_in_file,Same SKU appears earlier in this file
+1597,492714,skipped_dup_in_file,Same SKU appears earlier in this file
+1598,492722,skipped_dup_in_file,Same SKU appears earlier in this file
+1599,492724,skipped_dup_in_file,Same SKU appears earlier in this file
+1600,492912,skipped_dup_in_file,Same SKU appears earlier in this file
+1601,493202,skipped_dup_in_file,Same SKU appears earlier in this file
+1602,493820,skipped_dup_in_file,Same SKU appears earlier in this file
+1603,491204,skipped_dup_in_file,Same SKU appears earlier in this file
+1604,392907,skipped_dup_in_file,Same SKU appears earlier in this file
+1605,392939,skipped_dup_in_file,Same SKU appears earlier in this file
+1606,490007,skipped_dup_in_file,Same SKU appears earlier in this file
+1607,490053,skipped_dup_in_file,Same SKU appears earlier in this file
+1608,490054,skipped_dup_in_file,Same SKU appears earlier in this file
+1609,491011,skipped_dup_in_file,Same SKU appears earlier in this file
+1610,491862,skipped_dup_in_file,Same SKU appears earlier in this file
+1611,490150,skipped_dup_in_file,Same SKU appears earlier in this file
+1612,490174,skipped_dup_in_file,Same SKU appears earlier in this file
+1613,491103,skipped_dup_in_file,Same SKU appears earlier in this file
+1614,491104,skipped_dup_in_file,Same SKU appears earlier in this file
+1615,491230,skipped_dup_in_file,Same SKU appears earlier in this file
+1616,491330,skipped_dup_in_file,Same SKU appears earlier in this file
+1617,491332,skipped_dup_in_file,Same SKU appears earlier in this file
+1618,491340,skipped_dup_in_file,Same SKU appears earlier in this file
+1619,491350,skipped_dup_in_file,Same SKU appears earlier in this file
+1620,491370,skipped_dup_in_file,Same SKU appears earlier in this file
+1621,491371,skipped_dup_in_file,Same SKU appears earlier in this file
+1622,492523,skipped_dup_in_file,Same SKU appears earlier in this file
+1623,492528,skipped_dup_in_file,Same SKU appears earlier in this file
+1624,492530,skipped_dup_in_file,Same SKU appears earlier in this file
+1625,492531,skipped_dup_in_file,Same SKU appears earlier in this file
+1626,492536,skipped_dup_in_file,Same SKU appears earlier in this file
+1627,492910,skipped_dup_in_file,Same SKU appears earlier in this file
+1628,493203,skipped_dup_in_file,Same SKU appears earlier in this file
+1629,490141,skipped_dup_in_file,Same SKU appears earlier in this file
+1630,391289,skipped_dup_in_file,Same SKU appears earlier in this file
+1631,582010,skipped_dup_in_file,Same SKU appears earlier in this file
+1632,581320,skipped_dup_in_file,Same SKU appears earlier in this file
+1633,398537,skipped_dup_in_file,Same SKU appears earlier in this file
+1634,106211,skipped_dup_in_file,Same SKU appears earlier in this file
+1635,398038,skipped_dup_in_file,Same SKU appears earlier in this file
+1636,106670,skipped_dup_in_file,Same SKU appears earlier in this file
+1637,106671,skipped_dup_in_file,Same SKU appears earlier in this file
+1638,581310,skipped_dup_in_file,Same SKU appears earlier in this file
+1639,582009,skipped_dup_in_file,Same SKU appears earlier in this file
+1640,510030,skipped_dup_in_file,Same SKU appears earlier in this file
+1641,510031,skipped_dup_in_file,Same SKU appears earlier in this file
+1642,510027,skipped_dup_in_file,Same SKU appears earlier in this file
+1643,510028,skipped_dup_in_file,Same SKU appears earlier in this file
+1644,510032,skipped_dup_in_file,Same SKU appears earlier in this file
+1645,510029,skipped_dup_in_file,Same SKU appears earlier in this file
+1646,660392,skipped_dup_in_file,Same SKU appears earlier in this file
+1647,660395,skipped_dup_in_file,Same SKU appears earlier in this file
+1648,350812,skipped_dup_in_file,Same SKU appears earlier in this file
+1649,350813,skipped_dup_in_file,Same SKU appears earlier in this file
+1650,392931,skipped_dup_in_file,Same SKU appears earlier in this file
+1651,392932,skipped_dup_in_file,Same SKU appears earlier in this file
+1652,392934,skipped_dup_in_file,Same SKU appears earlier in this file
+1653,460744,skipped_dup_in_file,Same SKU appears earlier in this file
+1654,460745,skipped_dup_in_file,Same SKU appears earlier in this file
+1655,392929,skipped_dup_in_file,Same SKU appears earlier in this file
+1656,391938,skipped_dup_in_file,Same SKU appears earlier in this file
+1657,392950,skipped_dup_in_file,Same SKU appears earlier in this file
+1658,392930,skipped_dup_in_file,Same SKU appears earlier in this file
+1659,492923,skipped_dup_in_file,Same SKU appears earlier in this file
+1660,492924,inserted,
+1661,492925,inserted,
+1662,492926,inserted,
+1663,492934,skipped_dup_in_file,Same SKU appears earlier in this file
+1664,492935,inserted,
+1665,400478,skipped_dup_in_file,Same SKU appears earlier in this file
+1666,835892,skipped_dup_in_file,Same SKU appears earlier in this file
+1667,835893,skipped_dup_in_file,Same SKU appears earlier in this file
+1668,835894,skipped_dup_in_file,Same SKU appears earlier in this file
+1669,835895,skipped_dup_in_file,Same SKU appears earlier in this file
+1670,835896,skipped_dup_in_file,Same SKU appears earlier in this file
+1671,835897,skipped_dup_in_file,Same SKU appears earlier in this file
+1672,835898,skipped_dup_in_file,Same SKU appears earlier in this file
+1673,835899,skipped_dup_in_file,Same SKU appears earlier in this file
+1674,835900,skipped_dup_in_file,Same SKU appears earlier in this file
+1675,835901,skipped_dup_in_file,Same SKU appears earlier in this file
+1676,835902,skipped_dup_in_file,Same SKU appears earlier in this file
+1677,835903,skipped_dup_in_file,Same SKU appears earlier in this file
+1678,835904,skipped_dup_in_file,Same SKU appears earlier in this file
+1679,835905,skipped_dup_in_file,Same SKU appears earlier in this file
+1680,835906,skipped_dup_in_file,Same SKU appears earlier in this file
+1681,835907,skipped_dup_in_file,Same SKU appears earlier in this file
+1682,835908,skipped_dup_in_file,Same SKU appears earlier in this file
+1683,835909,skipped_dup_in_file,Same SKU appears earlier in this file
+1684,835910,skipped_dup_in_file,Same SKU appears earlier in this file
+1685,835911,skipped_dup_in_file,Same SKU appears earlier in this file
+1686,835912,skipped_dup_in_file,Same SKU appears earlier in this file
+1687,835913,skipped_dup_in_file,Same SKU appears earlier in this file
+1688,835914,skipped_dup_in_file,Same SKU appears earlier in this file
+1689,835915,skipped_dup_in_file,Same SKU appears earlier in this file
+1690,835916,skipped_dup_in_file,Same SKU appears earlier in this file
+1691,835917,skipped_dup_in_file,Same SKU appears earlier in this file
+1692,835918,skipped_dup_in_file,Same SKU appears earlier in this file
+1693,835919,skipped_dup_in_file,Same SKU appears earlier in this file
+1694,835920,skipped_dup_in_file,Same SKU appears earlier in this file
+1695,835921,skipped_dup_in_file,Same SKU appears earlier in this file
+1696,835922,skipped_dup_in_file,Same SKU appears earlier in this file
+1697,835923,skipped_dup_in_file,Same SKU appears earlier in this file
+1698,835924,skipped_dup_in_file,Same SKU appears earlier in this file
+1699,835925,skipped_dup_in_file,Same SKU appears earlier in this file
+1700,835926,skipped_dup_in_file,Same SKU appears earlier in this file
+1701,835927,skipped_dup_in_file,Same SKU appears earlier in this file
+1702,835928,skipped_dup_in_file,Same SKU appears earlier in this file
+1703,835929,skipped_dup_in_file,Same SKU appears earlier in this file
+1704,839396,skipped_dup_in_file,Same SKU appears earlier in this file
+1705,839389,skipped_dup_in_file,Same SKU appears earlier in this file
+1706,836914,skipped_dup_in_file,Same SKU appears earlier in this file
+1707,841736,skipped_dup_in_file,Same SKU appears earlier in this file
+1708,839395,skipped_dup_in_file,Same SKU appears earlier in this file
+1709,142-4821-4,skipped_dup_in_file,Same SKU appears earlier in this file
+1710,142-3469-0,skipped_dup_in_file,Same SKU appears earlier in this file
+1711,042-2930-4,skipped_dup_in_file,Same SKU appears earlier in this file
+1712,142-3470-4,skipped_dup_in_file,Same SKU appears earlier in this file
+1713,490131,skipped_dup_in_file,Same SKU appears earlier in this file
+1714,491230,skipped_dup_in_file,Same SKU appears earlier in this file
+1715,492802,skipped_dup_in_file,Same SKU appears earlier in this file
+1716,491081,skipped_dup_in_file,Same SKU appears earlier in this file
+1717,490165,skipped_dup_in_file,Same SKU appears earlier in this file
+1718,491231,skipped_dup_in_file,Same SKU appears earlier in this file
+1719,491224,skipped_dup_in_file,Same SKU appears earlier in this file
+1720,491021,skipped_dup_in_file,Same SKU appears earlier in this file
+1721,491071,skipped_dup_in_file,Same SKU appears earlier in this file
+1722,490147,skipped_dup_in_file,Same SKU appears earlier in this file
+1723,492453,skipped_dup_in_file,Same SKU appears earlier in this file
+1724,492860,skipped_dup_in_file,Same SKU appears earlier in this file
+1725,490002,skipped_dup_in_file,Same SKU appears earlier in this file
+1726,490213,skipped_dup_in_file,Same SKU appears earlier in this file
+1727,491751,skipped_dup_in_file,Same SKU appears earlier in this file
+1728,492117,skipped_dup_in_file,Same SKU appears earlier in this file
+1729,492118,skipped_dup_in_file,Same SKU appears earlier in this file
+1730,490042,skipped_dup_in_file,Same SKU appears earlier in this file
+1731,492504,skipped_dup_in_file,Same SKU appears earlier in this file
+1732,491223,skipped_dup_in_file,Same SKU appears earlier in this file
+1733,492923,skipped_dup_in_file,Same SKU appears earlier in this file
+1734,492461,skipped_dup_in_file,Same SKU appears earlier in this file
+1735,491202,skipped_dup_in_file,Same SKU appears earlier in this file
+1736,492792,skipped_dup_in_file,Same SKU appears earlier in this file
+1737,491203,skipped_dup_in_file,Same SKU appears earlier in this file
+1738,491041,skipped_dup_in_file,Same SKU appears earlier in this file
+1739,490212,skipped_dup_in_file,Same SKU appears earlier in this file
+1740,491211,skipped_dup_in_file,Same SKU appears earlier in this file
+1741,492122,skipped_dup_in_file,Same SKU appears earlier in this file
+1742,492121,skipped_dup_in_file,Same SKU appears earlier in this file
+1743,492120,skipped_dup_in_file,Same SKU appears earlier in this file
+1744,490134,skipped_dup_in_file,Same SKU appears earlier in this file
+1745,490173,skipped_dup_in_file,Same SKU appears earlier in this file
+1746,491042,skipped_dup_in_file,Same SKU appears earlier in this file
+1747,491821,skipped_dup_in_file,Same SKU appears earlier in this file
+1748,490012,skipped_dup_in_file,Same SKU appears earlier in this file
+1749,491755,skipped_dup_in_file,Same SKU appears earlier in this file
+1750,491072,skipped_dup_in_file,Same SKU appears earlier in this file
+1751,492462,skipped_dup_in_file,Same SKU appears earlier in this file
+1752,491720,skipped_dup_in_file,Same SKU appears earlier in this file
+1753,491817,skipped_dup_in_file,Same SKU appears earlier in this file
+1754,491800,skipped_dup_in_file,Same SKU appears earlier in this file
+1755,491806,skipped_dup_in_file,Same SKU appears earlier in this file
+1756,490811,skipped_dup_in_file,Same SKU appears earlier in this file
+1757,492732,skipped_dup_in_file,Same SKU appears earlier in this file
+1758,492730,skipped_dup_in_file,Same SKU appears earlier in this file
+1759,492823,skipped_dup_in_file,Same SKU appears earlier in this file
+1760,491040,skipped_dup_in_file,Same SKU appears earlier in this file
+1761,490160,skipped_dup_in_file,Same SKU appears earlier in this file
+1762,491308,skipped_dup_in_file,Same SKU appears earlier in this file
+1763,490200,skipped_dup_in_file,Same SKU appears earlier in this file
+1764,490110,skipped_dup_in_file,Same SKU appears earlier in this file
+1765,492110,skipped_dup_in_file,Same SKU appears earlier in this file
+1766,492463,skipped_dup_in_file,Same SKU appears earlier in this file
+1767,492104,skipped_dup_in_file,Same SKU appears earlier in this file
+1768,492106,skipped_dup_in_file,Same SKU appears earlier in this file
+1769,492282,skipped_dup_in_file,Same SKU appears earlier in this file
+1770,490169,skipped_dup_in_file,Same SKU appears earlier in this file
+1771,490174,skipped_dup_in_file,Same SKU appears earlier in this file
+1772,490141,skipped_dup_in_file,Same SKU appears earlier in this file
+1773,490051,skipped_dup_in_file,Same SKU appears earlier in this file
+1774,491883,skipped_dup_in_file,Same SKU appears earlier in this file
+1775,492529,skipped_dup_in_file,Same SKU appears earlier in this file
+1776,490810,skipped_dup_in_file,Same SKU appears earlier in this file
+1777,490071,skipped_dup_in_file,Same SKU appears earlier in this file
+1778,490142,skipped_dup_in_file,Same SKU appears earlier in this file
+1779,490210,skipped_dup_in_file,Same SKU appears earlier in this file
+1780,490100,skipped_dup_in_file,Same SKU appears earlier in this file
+1781,491106,skipped_dup_in_file,Same SKU appears earlier in this file
+1782,100607,skipped_dup_in_file,Same SKU appears earlier in this file
+1783,491082,skipped_dup_in_file,Same SKU appears earlier in this file
+1784,391292,skipped_dup_in_file,Same SKU appears earlier in this file
+1785,492557,skipped_dup_in_file,Same SKU appears earlier in this file
+1786,492704,skipped_dup_in_file,Same SKU appears earlier in this file
+1787,491108,skipped_dup_in_file,Same SKU appears earlier in this file
+1788,491320,skipped_dup_in_file,Same SKU appears earlier in this file
+1789,491340,skipped_dup_in_file,Same SKU appears earlier in this file
+1790,491075,skipped_dup_in_file,Same SKU appears earlier in this file
+1791,490015,skipped_dup_in_file,Same SKU appears earlier in this file
+1792,490145,skipped_dup_in_file,Same SKU appears earlier in this file
+1793,492113,skipped_dup_in_file,Same SKU appears earlier in this file
+1794,852684,skipped_dup_in_file,Same SKU appears earlier in this file
+1795,,skipped_invalid,SKU is blank
+1796,834751,skipped_dup_in_file,Same SKU appears earlier in this file
+1797,6567051,skipped_dup_in_file,Same SKU appears earlier in this file
+1798,6567069,skipped_dup_in_file,Same SKU appears earlier in this file
+1799,6567077,skipped_dup_in_file,Same SKU appears earlier in this file
+1800,6567085,skipped_dup_in_file,Same SKU appears earlier in this file
+1801,6567093,skipped_dup_in_file,Same SKU appears earlier in this file
+1802,6567101,skipped_dup_in_file,Same SKU appears earlier in this file
+1803,6567119,skipped_dup_in_file,Same SKU appears earlier in this file
+1804,6567127,skipped_dup_in_file,Same SKU appears earlier in this file
+1805,6567135,skipped_dup_in_file,Same SKU appears earlier in this file
+1806,6567143,skipped_dup_in_file,Same SKU appears earlier in this file
+1807,6567150,skipped_dup_in_file,Same SKU appears earlier in this file
+1808,6567168,skipped_dup_in_file,Same SKU appears earlier in this file
+1809,6567176,skipped_dup_in_file,Same SKU appears earlier in this file
+1810,6567184,skipped_dup_in_file,Same SKU appears earlier in this file
+1811,261958,skipped_dup_in_file,Same SKU appears earlier in this file
+1812,261962,skipped_dup_in_file,Same SKU appears earlier in this file
+1813,250439,skipped_dup_in_file,Same SKU appears earlier in this file
+1814,822695,skipped_dup_in_file,Same SKU appears earlier in this file
+1815,822704,skipped_dup_in_file,Same SKU appears earlier in this file
+1816,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+1817,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+1818,822678,skipped_dup_in_file,Same SKU appears earlier in this file
+1819,822691,skipped_dup_in_file,Same SKU appears earlier in this file
+1820,,skipped_invalid,SKU is blank
+1821,822685,skipped_dup_in_file,Same SKU appears earlier in this file
+1822,822689,skipped_dup_in_file,Same SKU appears earlier in this file
+1823,822669,skipped_dup_in_file,Same SKU appears earlier in this file
+1824,,skipped_invalid,SKU is blank
+1825,816567,skipped_dup_in_file,Same SKU appears earlier in this file
+1826,816566,skipped_dup_in_file,Same SKU appears earlier in this file
+1827,816575,skipped_dup_in_file,Same SKU appears earlier in this file
+1828,816573,skipped_dup_in_file,Same SKU appears earlier in this file
+1829,816574,skipped_dup_in_file,Same SKU appears earlier in this file
+1830,816569,skipped_dup_in_file,Same SKU appears earlier in this file
+1831,816572,skipped_dup_in_file,Same SKU appears earlier in this file
+1832,807220,skipped_dup_in_file,Same SKU appears earlier in this file
+1833,807227,skipped_dup_in_file,Same SKU appears earlier in this file
+1834,807228,skipped_dup_in_file,Same SKU appears earlier in this file
+1835,807223,skipped_dup_in_file,Same SKU appears earlier in this file
+1836,807224,skipped_dup_in_file,Same SKU appears earlier in this file
+1837,,skipped_invalid,SKU is blank
+1838,810568,skipped_dup_in_file,Same SKU appears earlier in this file
+1839,810607,skipped_dup_in_file,Same SKU appears earlier in this file
+1840,810575,skipped_dup_in_file,Same SKU appears earlier in this file
+1841,810564,skipped_dup_in_file,Same SKU appears earlier in this file
+1842,810604,skipped_dup_in_file,Same SKU appears earlier in this file
+1843,810591,skipped_dup_in_file,Same SKU appears earlier in this file
+1844,810566,skipped_dup_in_file,Same SKU appears earlier in this file
+1845,,skipped_invalid,SKU is blank
+1846,808060,skipped_dup_in_file,Same SKU appears earlier in this file
+1847,812283,skipped_dup_in_file,Same SKU appears earlier in this file
+1848,812285,skipped_dup_in_file,Same SKU appears earlier in this file
+1849,812286,skipped_dup_in_file,Same SKU appears earlier in this file
+1850,812287,skipped_dup_in_file,Same SKU appears earlier in this file
+1851,812289,skipped_dup_in_file,Same SKU appears earlier in this file
+1852,839684,inserted,
+1853,839691,inserted,
+1854,,skipped_invalid,SKU is blank
+1855,,skipped_invalid,SKU is blank
+1856,,skipped_invalid,SKU is blank
+1857,,skipped_invalid,SKU is blank
+1858,836881,inserted,
+1859,,skipped_invalid,SKU is blank
+1860,,skipped_invalid,SKU is blank
+1861,581666,inserted,
+1862,581667,inserted,
+1863,581668,inserted,
+1864,581669,inserted,
+1865,581670,inserted,
+1866,806248,inserted,
+1867,834847,skipped_dup_in_file,Same SKU appears earlier in this file
+1868,803662,skipped_dup_in_file,Same SKU appears earlier in this file
+1869,803663,skipped_dup_in_file,Same SKU appears earlier in this file
+1870,834857,skipped_dup_in_file,Same SKU appears earlier in this file
+1871,803660,skipped_dup_in_file,Same SKU appears earlier in this file
+1872,,skipped_invalid,SKU is blank
+1873,,skipped_invalid,SKU is blank
+1874,801825,inserted,
+1875,801827,inserted,
+1876,801828,inserted,
+1877,801829,inserted,
+1878,801831,inserted,
+1879,801844,inserted,
+1880,801852,inserted,
+1881,801853,inserted,
+1882,801856,inserted,
+1883,801857,inserted,
+1884,89889350,inserted,
+1885,89889506,inserted,
+1886,581666,skipped_dup_in_file,Same SKU appears earlier in this file
+1887,581667,skipped_dup_in_file,Same SKU appears earlier in this file
+1888,581668,skipped_dup_in_file,Same SKU appears earlier in this file
+1889,581669,skipped_dup_in_file,Same SKU appears earlier in this file
+1890,581670,skipped_dup_in_file,Same SKU appears earlier in this file
+1891,806248,skipped_dup_in_file,Same SKU appears earlier in this file
+1892,,skipped_invalid,SKU is blank
+1893,,skipped_invalid,SKU is blank
+1894,801830,inserted,
+1895,,skipped_invalid,SKU is blank
+1896,,skipped_invalid,SKU is blank
+1897,,skipped_invalid,SKU is blank
+1898,,skipped_invalid,SKU is blank
+1899,,skipped_invalid,SKU is blank
+1900,,skipped_invalid,SKU is blank
+1901,,skipped_invalid,SKU is blank
+1902,,skipped_invalid,SKU is blank
+1903,,skipped_invalid,SKU is blank
+1904,,skipped_invalid,SKU is blank
+1905,,skipped_invalid,SKU is blank
+1906,,skipped_invalid,SKU is blank
+1907,,skipped_invalid,SKU is blank
+1908,,skipped_invalid,SKU is blank
+1909,,skipped_invalid,SKU is blank
+1910,,skipped_invalid,SKU is blank
+1911,,skipped_invalid,SKU is blank
+1912,,skipped_invalid,SKU is blank
+1913,,skipped_invalid,SKU is blank
+1914,,skipped_invalid,SKU is blank
+1915,,skipped_invalid,SKU is blank
+1916,,skipped_invalid,SKU is blank
+1917,,skipped_invalid,SKU is blank
+1918,,skipped_invalid,SKU is blank
+1919,,skipped_invalid,SKU is blank
+1920,,skipped_invalid,SKU is blank
+1921,,skipped_invalid,SKU is blank
+1922,,skipped_invalid,SKU is blank
+1923,,skipped_invalid,SKU is blank
+1924,,skipped_invalid,SKU is blank
+1925,,skipped_invalid,SKU is blank
+1926,,skipped_invalid,SKU is blank
+1927,,skipped_invalid,SKU is blank
+1928,,skipped_invalid,SKU is blank
+1929,,skipped_invalid,SKU is blank
+1930,,skipped_invalid,SKU is blank
+1931,,skipped_invalid,SKU is blank
+1932,,skipped_invalid,SKU is blank
+1933,,skipped_invalid,SKU is blank
+1934,,skipped_invalid,SKU is blank
+1935,,skipped_invalid,SKU is blank
+1936,,skipped_invalid,SKU is blank
+1937,,skipped_invalid,SKU is blank
+1938,,skipped_invalid,SKU is blank
+1939,,skipped_invalid,SKU is blank
+1940,,skipped_invalid,SKU is blank
+1941,,skipped_invalid,SKU is blank
+1942,,skipped_invalid,SKU is blank
+1943,,skipped_invalid,SKU is blank
+1944,,skipped_invalid,SKU is blank
+1945,,skipped_invalid,SKU is blank
+1946,,skipped_invalid,SKU is blank
+1947,,skipped_invalid,SKU is blank
+1948,,skipped_invalid,SKU is blank
+1949,,skipped_invalid,SKU is blank
+1950,,skipped_invalid,SKU is blank
+1951,,skipped_invalid,SKU is blank
+1952,,skipped_invalid,SKU is blank
+1953,,skipped_invalid,SKU is blank
+1954,,skipped_invalid,SKU is blank
+1955,,skipped_invalid,SKU is blank
+1956,,skipped_invalid,SKU is blank
+1957,,skipped_invalid,SKU is blank
+1958,,skipped_invalid,SKU is blank
+1959,,skipped_invalid,SKU is blank
+1960,,skipped_invalid,SKU is blank
+1961,,skipped_invalid,SKU is blank
+1962,,skipped_invalid,SKU is blank
+1963,,skipped_invalid,SKU is blank
+1964,,skipped_invalid,SKU is blank
+1965,,skipped_invalid,SKU is blank
+1966,,skipped_invalid,SKU is blank
+1967,,skipped_invalid,SKU is blank
+1968,,skipped_invalid,SKU is blank
+1969,,skipped_invalid,SKU is blank
+1970,,skipped_invalid,SKU is blank
+1971,,skipped_invalid,SKU is blank
+1972,,skipped_invalid,SKU is blank
+1973,,skipped_invalid,SKU is blank
+1974,,skipped_invalid,SKU is blank
+1975,,skipped_invalid,SKU is blank
+1976,,skipped_invalid,SKU is blank
+1977,,skipped_invalid,SKU is blank
+1978,,skipped_invalid,SKU is blank
+1979,,skipped_invalid,SKU is blank
+1980,,skipped_invalid,SKU is blank
+1981,,skipped_invalid,SKU is blank
+1982,,skipped_invalid,SKU is blank
+1983,,skipped_invalid,SKU is blank
+1984,,skipped_invalid,SKU is blank
+1985,,skipped_invalid,SKU is blank
+1986,,skipped_invalid,SKU is blank
+1987,,skipped_invalid,SKU is blank
+1988,,skipped_invalid,SKU is blank
+1989,,skipped_invalid,SKU is blank
+1990,,skipped_invalid,SKU is blank
+1991,,skipped_invalid,SKU is blank
+1992,,skipped_invalid,SKU is blank
+1993,,skipped_invalid,SKU is blank
+1994,,skipped_invalid,SKU is blank
+1995,,skipped_invalid,SKU is blank
+1996,,skipped_invalid,SKU is blank
+1997,,skipped_invalid,SKU is blank
+1998,,skipped_invalid,SKU is blank
+1999,,skipped_invalid,SKU is blank
+2000,,skipped_invalid,SKU is blank
+2001,,skipped_invalid,SKU is blank
+2002,,skipped_invalid,SKU is blank
+2003,,skipped_invalid,SKU is blank
+2004,,skipped_invalid,SKU is blank
+2005,,skipped_invalid,SKU is blank
+2006,,skipped_invalid,SKU is blank
+2007,,skipped_invalid,SKU is blank
+2008,,skipped_invalid,SKU is blank
+2009,,skipped_invalid,SKU is blank
+2010,,skipped_invalid,SKU is blank
+2011,,skipped_invalid,SKU is blank
+2012,,skipped_invalid,SKU is blank
+2013,718743,inserted,
+2014,718742,inserted,
+2015,718744,inserted,
+2016,718741,inserted,
+2017,751150,inserted,
+2018,751154,inserted,
+2019,751151,inserted,
+2020,751149,inserted,
+2021,751152,inserted,
+2022,751153,inserted,
+2023,,skipped_invalid,SKU is blank
+2024,,skipped_invalid,SKU is blank
+2025,,skipped_invalid,SKU is blank
+2026,,skipped_invalid,SKU is blank
+2027,,skipped_invalid,SKU is blank
+2028,,skipped_invalid,SKU is blank
+2029,,skipped_invalid,SKU is blank
+2030,,skipped_invalid,SKU is blank
+2031,,skipped_invalid,SKU is blank
+2032,,skipped_invalid,SKU is blank
+2033,,skipped_invalid,SKU is blank
+2034,,skipped_invalid,SKU is blank
+2035,,skipped_invalid,SKU is blank
+2036,,skipped_invalid,SKU is blank
+2037,,skipped_invalid,SKU is blank
+2038,,skipped_invalid,SKU is blank
+2039,,skipped_invalid,SKU is blank
+2040,,skipped_invalid,SKU is blank
+2041,,skipped_invalid,SKU is blank
+2042,,skipped_invalid,SKU is blank
+2043,,skipped_invalid,SKU is blank
+2044,,skipped_invalid,SKU is blank
+2045,,skipped_invalid,SKU is blank
+2046,,skipped_invalid,SKU is blank
+2047,,skipped_invalid,SKU is blank
+2048,,skipped_invalid,SKU is blank
+2049,,skipped_invalid,SKU is blank
+2050,,skipped_invalid,SKU is blank
+2051,,skipped_invalid,SKU is blank
+2052,,skipped_invalid,SKU is blank
+2053,,skipped_invalid,SKU is blank
+2054,,skipped_invalid,SKU is blank
+2055,,skipped_invalid,SKU is blank
+2056,,skipped_invalid,SKU is blank
+2057,,skipped_invalid,SKU is blank
+2058,,skipped_invalid,SKU is blank
+2059,,skipped_invalid,SKU is blank
+2060,,skipped_invalid,SKU is blank
+2061,,skipped_invalid,SKU is blank
+2062,,skipped_invalid,SKU is blank
+2063,,skipped_invalid,SKU is blank
+2064,,skipped_invalid,SKU is blank
+2065,,skipped_invalid,SKU is blank
+2066,,skipped_invalid,SKU is blank
+2067,,skipped_invalid,SKU is blank
+2068,,skipped_invalid,SKU is blank
+2069,,skipped_invalid,SKU is blank
+2070,,skipped_invalid,SKU is blank
+2071,,skipped_invalid,SKU is blank
+2072,,skipped_invalid,SKU is blank
+2073,,skipped_invalid,SKU is blank
+2074,,skipped_invalid,SKU is blank
+2075,,skipped_invalid,SKU is blank
+2076,,skipped_invalid,SKU is blank
+2077,,skipped_invalid,SKU is blank
+2078,,skipped_invalid,SKU is blank
+2079,,skipped_invalid,SKU is blank
+2080,,skipped_invalid,SKU is blank
+2081,,skipped_invalid,SKU is blank
+2082,,skipped_invalid,SKU is blank
+2083,,skipped_invalid,SKU is blank
+2084,,skipped_invalid,SKU is blank
+2085,,skipped_invalid,SKU is blank
+2086,,skipped_invalid,SKU is blank
+2087,,skipped_invalid,SKU is blank
+2088,,skipped_invalid,SKU is blank
+2089,,skipped_invalid,SKU is blank
+2090,,skipped_invalid,SKU is blank
+2091,,skipped_invalid,SKU is blank
+2092,,skipped_invalid,SKU is blank
+2093,,skipped_invalid,SKU is blank
+2094,,skipped_invalid,SKU is blank
+2095,,skipped_invalid,SKU is blank
+2096,,skipped_invalid,SKU is blank
+2097,,skipped_invalid,SKU is blank
+2098,,skipped_invalid,SKU is blank
+2099,,skipped_invalid,SKU is blank
+2100,,skipped_invalid,SKU is blank
+2101,,skipped_invalid,SKU is blank
+2102,,skipped_invalid,SKU is blank
+2103,,skipped_invalid,SKU is blank
+2104,,skipped_invalid,SKU is blank
+2105,,skipped_invalid,SKU is blank
+2106,,skipped_invalid,SKU is blank
+2107,,skipped_invalid,SKU is blank
+2108,,skipped_invalid,SKU is blank
+2109,,skipped_invalid,SKU is blank
+2110,,skipped_invalid,SKU is blank
+2111,,skipped_invalid,SKU is blank
+2112,,skipped_invalid,SKU is blank
+2113,,skipped_invalid,SKU is blank
+2114,,skipped_invalid,SKU is blank
+2115,,skipped_invalid,SKU is blank
+2116,,skipped_invalid,SKU is blank
+2117,,skipped_invalid,SKU is blank
+2118,,skipped_invalid,SKU is blank
+2119,,skipped_invalid,SKU is blank
+2120,,skipped_invalid,SKU is blank
+2121,,skipped_invalid,SKU is blank
+2122,,skipped_invalid,SKU is blank
+2123,,skipped_invalid,SKU is blank
+2124,,skipped_invalid,SKU is blank
+2125,,skipped_invalid,SKU is blank
+2126,,skipped_invalid,SKU is blank
+2127,,skipped_invalid,SKU is blank
+2128,,skipped_invalid,SKU is blank
+2129,,skipped_invalid,SKU is blank
+2130,,skipped_invalid,SKU is blank
+2131,,skipped_invalid,SKU is blank
+2132,,skipped_invalid,SKU is blank
+2133,,skipped_invalid,SKU is blank
+2134,,skipped_invalid,SKU is blank
+2135,,skipped_invalid,SKU is blank
+2136,,skipped_invalid,SKU is blank
+2137,,skipped_invalid,SKU is blank
+2138,,skipped_invalid,SKU is blank
+2139,,skipped_invalid,SKU is blank
+2140,,skipped_invalid,SKU is blank
+2141,,skipped_invalid,SKU is blank
+2142,,skipped_invalid,SKU is blank
+2143,,skipped_invalid,SKU is blank
+2144,,skipped_invalid,SKU is blank
+2145,,skipped_invalid,SKU is blank
+2146,,skipped_invalid,SKU is blank
+2147,,skipped_invalid,SKU is blank
+2148,,skipped_invalid,SKU is blank
+2149,,skipped_invalid,SKU is blank
+2150,,skipped_invalid,SKU is blank
+2151,,skipped_invalid,SKU is blank
+2152,,skipped_invalid,SKU is blank
+2153,,skipped_invalid,SKU is blank
+2154,,skipped_invalid,SKU is blank
+2155,4904598,inserted,
+2156,4904599,inserted,
+2157,2851186,inserted,
+2158,404982,inserted,
+2159,,skipped_invalid,SKU is blank
+2160,4904588,inserted,
+2161,,skipped_invalid,SKU is blank
+2162,718744,skipped_dup_in_file,Same SKU appears earlier in this file
+2163,718743,skipped_dup_in_file,Same SKU appears earlier in this file
+2164,718738,inserted,
+2165,718739,inserted,
+2166,718740,inserted,
+2167,718737,inserted,
+2168,718742,skipped_dup_in_file,Same SKU appears earlier in this file
+2169,,skipped_invalid,SKU is blank
+2170,,skipped_invalid,SKU is blank
+2171,,skipped_invalid,SKU is blank
+2172,,skipped_invalid,SKU is blank
+2173,,skipped_invalid,SKU is blank
+2174,,skipped_invalid,SKU is blank
+2175,,skipped_invalid,SKU is blank
+2176,,skipped_invalid,SKU is blank
+2177,,skipped_invalid,SKU is blank
+2178,,skipped_invalid,SKU is blank
+2179,,skipped_invalid,SKU is blank
+2180,,skipped_invalid,SKU is blank
+2181,,skipped_invalid,SKU is blank
+2182,,skipped_invalid,SKU is blank
+2183,,skipped_invalid,SKU is blank
+2184,,skipped_invalid,SKU is blank
+2185,,skipped_invalid,SKU is blank
+2186,,skipped_invalid,SKU is blank
+2187,,skipped_invalid,SKU is blank
+2188,,skipped_invalid,SKU is blank
+2189,,skipped_invalid,SKU is blank
+2190,,skipped_invalid,SKU is blank
+2191,,skipped_invalid,SKU is blank
+2192,,skipped_invalid,SKU is blank
+2193,,skipped_invalid,SKU is blank
+2194,,skipped_invalid,SKU is blank
+2195,,skipped_invalid,SKU is blank
+2196,,skipped_invalid,SKU is blank
+2197,,skipped_invalid,SKU is blank
+2198,,skipped_invalid,SKU is blank
+2199,,skipped_invalid,SKU is blank
+2200,,skipped_invalid,SKU is blank
+2201,,skipped_invalid,SKU is blank
+2202,,skipped_invalid,SKU is blank
+2203,,skipped_invalid,SKU is blank
+2204,,skipped_invalid,SKU is blank
+2205,,skipped_invalid,SKU is blank
+2206,,skipped_invalid,SKU is blank
+2207,,skipped_invalid,SKU is blank
+2208,,skipped_invalid,SKU is blank
+2209,,skipped_invalid,SKU is blank
+2210,,skipped_invalid,SKU is blank
+2211,,skipped_invalid,SKU is blank
+2212,,skipped_invalid,SKU is blank
+2213,,skipped_invalid,SKU is blank
+2214,,skipped_invalid,SKU is blank
+2215,,skipped_invalid,SKU is blank
+2216,218491,inserted,
+2217,218490,inserted,
+2218,127193,inserted,
+2219,127195,inserted,
+2220,127192,inserted,
+2221,127197,inserted,
+2222,218492,inserted,
+2223,,skipped_invalid,SKU is blank
+2224,,skipped_invalid,SKU is blank
+2225,,skipped_invalid,SKU is blank
+2226,,skipped_invalid,SKU is blank
+2227,,skipped_invalid,SKU is blank
+2228,,skipped_invalid,SKU is blank
+2229,,skipped_invalid,SKU is blank
+2230,,skipped_invalid,SKU is blank
+2231,,skipped_invalid,SKU is blank
+2232,,skipped_invalid,SKU is blank
+2233,,skipped_invalid,SKU is blank
+2234,,skipped_invalid,SKU is blank
+2235,,skipped_invalid,SKU is blank
+2236,,skipped_invalid,SKU is blank
+2237,,skipped_invalid,SKU is blank
+2238,,skipped_invalid,SKU is blank
+2239,,skipped_invalid,SKU is blank
+2240,,skipped_invalid,SKU is blank
+2241,,skipped_invalid,SKU is blank
+2242,,skipped_invalid,SKU is blank
+2243,,skipped_invalid,SKU is blank
+2244,,skipped_invalid,SKU is blank
+2245,,skipped_invalid,SKU is blank
+2246,,skipped_invalid,SKU is blank
+2247,,skipped_invalid,SKU is blank
+2248,,skipped_invalid,SKU is blank
+2249,,skipped_invalid,SKU is blank
+2250,,skipped_invalid,SKU is blank
+2251,,skipped_invalid,SKU is blank
+2252,,skipped_invalid,SKU is blank
+2253,,skipped_invalid,SKU is blank
+2254,,skipped_invalid,SKU is blank
+2255,,skipped_invalid,SKU is blank
+2256,,skipped_invalid,SKU is blank
+2257,,skipped_invalid,SKU is blank
+2258,,skipped_invalid,SKU is blank
+2259,,skipped_invalid,SKU is blank
+2260,,skipped_invalid,SKU is blank
+2261,,skipped_invalid,SKU is blank
+2262,,skipped_invalid,SKU is blank
+2263,,skipped_invalid,SKU is blank
+2264,,skipped_invalid,SKU is blank
+2265,,skipped_invalid,SKU is blank
+2266,,skipped_invalid,SKU is blank
+2267,,skipped_invalid,SKU is blank
+2268,,skipped_invalid,SKU is blank
+2269,,skipped_invalid,SKU is blank
+2270,,skipped_invalid,SKU is blank
+2271,,skipped_invalid,SKU is blank
+2272,,skipped_invalid,SKU is blank
+2273,,skipped_invalid,SKU is blank
+2274,,skipped_invalid,SKU is blank
+2275,852684,skipped_dup_in_file,Same SKU appears earlier in this file
+2276,,skipped_invalid,SKU is blank
+2277,834751,skipped_dup_in_file,Same SKU appears earlier in this file
+2278,6567051,skipped_dup_in_file,Same SKU appears earlier in this file
+2279,6567069,skipped_dup_in_file,Same SKU appears earlier in this file
+2280,6567077,skipped_dup_in_file,Same SKU appears earlier in this file
+2281,6567085,skipped_dup_in_file,Same SKU appears earlier in this file
+2282,6567093,skipped_dup_in_file,Same SKU appears earlier in this file
+2283,6567101,skipped_dup_in_file,Same SKU appears earlier in this file
+2284,6567119,skipped_dup_in_file,Same SKU appears earlier in this file
+2285,6567127,skipped_dup_in_file,Same SKU appears earlier in this file
+2286,6567135,skipped_dup_in_file,Same SKU appears earlier in this file
+2287,6567143,skipped_dup_in_file,Same SKU appears earlier in this file
+2288,6567150,skipped_dup_in_file,Same SKU appears earlier in this file
+2289,6567168,skipped_dup_in_file,Same SKU appears earlier in this file
+2290,6567176,skipped_dup_in_file,Same SKU appears earlier in this file
+2291,6567184,skipped_dup_in_file,Same SKU appears earlier in this file
+2292,261958,skipped_dup_in_file,Same SKU appears earlier in this file
+2293,261962,skipped_dup_in_file,Same SKU appears earlier in this file
+2294,250439,skipped_dup_in_file,Same SKU appears earlier in this file
+2295,822695,skipped_dup_in_file,Same SKU appears earlier in this file
+2296,822704,skipped_dup_in_file,Same SKU appears earlier in this file
+2297,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+2298,822681,skipped_dup_in_file,Same SKU appears earlier in this file
+2299,822678,skipped_dup_in_file,Same SKU appears earlier in this file
+2300,822691,skipped_dup_in_file,Same SKU appears earlier in this file
+2301,,skipped_invalid,SKU is blank
+2302,822685,skipped_dup_in_file,Same SKU appears earlier in this file
+2303,822689,skipped_dup_in_file,Same SKU appears earlier in this file
+2304,822669,skipped_dup_in_file,Same SKU appears earlier in this file
+2305,,skipped_invalid,SKU is blank
+2306,816567,skipped_dup_in_file,Same SKU appears earlier in this file
+2307,816566,skipped_dup_in_file,Same SKU appears earlier in this file
+2308,816575,skipped_dup_in_file,Same SKU appears earlier in this file
+2309,816573,skipped_dup_in_file,Same SKU appears earlier in this file
+2310,816574,skipped_dup_in_file,Same SKU appears earlier in this file
+2311,816569,skipped_dup_in_file,Same SKU appears earlier in this file
+2312,816572,skipped_dup_in_file,Same SKU appears earlier in this file
+2313,807220,skipped_dup_in_file,Same SKU appears earlier in this file
+2314,807227,skipped_dup_in_file,Same SKU appears earlier in this file
+2315,807228,skipped_dup_in_file,Same SKU appears earlier in this file
+2316,807223,skipped_dup_in_file,Same SKU appears earlier in this file
+2317,807224,skipped_dup_in_file,Same SKU appears earlier in this file
+2318,,skipped_invalid,SKU is blank
+2319,810568,skipped_dup_in_file,Same SKU appears earlier in this file
+2320,810607,skipped_dup_in_file,Same SKU appears earlier in this file
+2321,810575,skipped_dup_in_file,Same SKU appears earlier in this file
+2322,810564,skipped_dup_in_file,Same SKU appears earlier in this file
+2323,810604,skipped_dup_in_file,Same SKU appears earlier in this file
+2324,810591,skipped_dup_in_file,Same SKU appears earlier in this file
+2325,810566,skipped_dup_in_file,Same SKU appears earlier in this file
+2326,808060,skipped_dup_in_file,Same SKU appears earlier in this file
+2327,812283,skipped_dup_in_file,Same SKU appears earlier in this file
+2328,812285,skipped_dup_in_file,Same SKU appears earlier in this file
+2329,812286,skipped_dup_in_file,Same SKU appears earlier in this file
+2330,812287,skipped_dup_in_file,Same SKU appears earlier in this file
+2331,812289,skipped_dup_in_file,Same SKU appears earlier in this file
+2332,839684,skipped_dup_in_file,Same SKU appears earlier in this file
+2333,839691,skipped_dup_in_file,Same SKU appears earlier in this file
+2334,,skipped_invalid,SKU is blank
+2335,,skipped_invalid,SKU is blank
+2336,,skipped_invalid,SKU is blank
+2337,,skipped_invalid,SKU is blank
+2338,836881,skipped_dup_in_file,Same SKU appears earlier in this file
+2339,834847,skipped_dup_in_file,Same SKU appears earlier in this file
+2340,803662,skipped_dup_in_file,Same SKU appears earlier in this file
+2341,803663,skipped_dup_in_file,Same SKU appears earlier in this file
+2342,834857,skipped_dup_in_file,Same SKU appears earlier in this file
+2343,803660,skipped_dup_in_file,Same SKU appears earlier in this file
+2344,801825,skipped_dup_in_file,Same SKU appears earlier in this file
+2345,801827,skipped_dup_in_file,Same SKU appears earlier in this file
+2346,801828,skipped_dup_in_file,Same SKU appears earlier in this file
+2347,801829,skipped_dup_in_file,Same SKU appears earlier in this file
+2348,801831,skipped_dup_in_file,Same SKU appears earlier in this file
+2349,801844,skipped_dup_in_file,Same SKU appears earlier in this file
+2350,801852,skipped_dup_in_file,Same SKU appears earlier in this file
+2351,801853,skipped_dup_in_file,Same SKU appears earlier in this file
+2352,801856,skipped_dup_in_file,Same SKU appears earlier in this file
+2353,801857,skipped_dup_in_file,Same SKU appears earlier in this file
+2354,89889350,skipped_dup_in_file,Same SKU appears earlier in this file
+2355,89889506,skipped_dup_in_file,Same SKU appears earlier in this file
+2356,801830,skipped_dup_in_file,Same SKU appears earlier in this file
+2357,,skipped_invalid,SKU is blank
+2358,,skipped_invalid,SKU is blank
+2359,,skipped_invalid,SKU is blank
+2360,,skipped_invalid,SKU is blank
+2361,,skipped_invalid,SKU is blank
+2362,,skipped_invalid,SKU is blank
+2363,,skipped_invalid,SKU is blank
+2364,,skipped_invalid,SKU is blank
+2365,,skipped_invalid,SKU is blank
+2366,,skipped_invalid,SKU is blank
+2367,,skipped_invalid,SKU is blank
+2368,,skipped_invalid,SKU is blank
+2369,,skipped_invalid,SKU is blank
+2370,,skipped_invalid,SKU is blank
+2371,,skipped_invalid,SKU is blank
+2372,,skipped_invalid,SKU is blank
+2373,,skipped_invalid,SKU is blank
+2374,,skipped_invalid,SKU is blank
+2375,,skipped_invalid,SKU is blank
+2376,,skipped_invalid,SKU is blank
+2377,,skipped_invalid,SKU is blank
+2378,,skipped_invalid,SKU is blank
+2379,,skipped_invalid,SKU is blank
+2380,,skipped_invalid,SKU is blank
+2381,,skipped_invalid,SKU is blank
+2382,,skipped_invalid,SKU is blank
+2383,,skipped_invalid,SKU is blank
+2384,,skipped_invalid,SKU is blank
+2385,,skipped_invalid,SKU is blank
+2386,,skipped_invalid,SKU is blank
+2387,,skipped_invalid,SKU is blank
+2388,,skipped_invalid,SKU is blank
+2389,,skipped_invalid,SKU is blank
+2390,,skipped_invalid,SKU is blank
+2391,,skipped_invalid,SKU is blank
+2392,,skipped_invalid,SKU is blank
+2393,,skipped_invalid,SKU is blank
+2394,,skipped_invalid,SKU is blank
+2395,,skipped_invalid,SKU is blank
+2396,,skipped_invalid,SKU is blank
+2397,,skipped_invalid,SKU is blank
+2398,,skipped_invalid,SKU is blank
+2399,,skipped_invalid,SKU is blank
+2400,,skipped_invalid,SKU is blank
+2401,,skipped_invalid,SKU is blank
+2402,,skipped_invalid,SKU is blank
+2403,,skipped_invalid,SKU is blank
+2404,,skipped_invalid,SKU is blank
+2405,,skipped_invalid,SKU is blank
+2406,,skipped_invalid,SKU is blank
+2407,,skipped_invalid,SKU is blank
+2408,,skipped_invalid,SKU is blank
+2409,,skipped_invalid,SKU is blank
+2410,,skipped_invalid,SKU is blank
+2411,,skipped_invalid,SKU is blank
+2412,,skipped_invalid,SKU is blank
+2413,,skipped_invalid,SKU is blank
+2414,,skipped_invalid,SKU is blank
+2415,,skipped_invalid,SKU is blank
+2416,,skipped_invalid,SKU is blank
+2417,,skipped_invalid,SKU is blank
+2418,543655,skipped_dup_in_file,Same SKU appears earlier in this file
+2419,534173,skipped_dup_in_file,Same SKU appears earlier in this file
+2420,510181,skipped_dup_in_file,Same SKU appears earlier in this file
+2421,546220,skipped_dup_in_file,Same SKU appears earlier in this file
+2422,510030,skipped_dup_in_file,Same SKU appears earlier in this file
+2423,510027,skipped_dup_in_file,Same SKU appears earlier in this file
+2424,534172,skipped_dup_in_file,Same SKU appears earlier in this file
+2425,544133,skipped_dup_in_file,Same SKU appears earlier in this file
+2426,534840,skipped_dup_in_file,Same SKU appears earlier in this file
+2427,510032,skipped_dup_in_file,Same SKU appears earlier in this file
+2428,510182,skipped_dup_in_file,Same SKU appears earlier in this file
+2429,544959,skipped_dup_in_file,Same SKU appears earlier in this file
+2430,544524,skipped_dup_in_file,Same SKU appears earlier in this file
+2431,544085,skipped_dup_in_file,Same SKU appears earlier in this file
+2432,544988,skipped_dup_in_file,Same SKU appears earlier in this file
+2433,544123,skipped_dup_in_file,Same SKU appears earlier in this file
+2434,244225,skipped_dup_in_file,Same SKU appears earlier in this file
+2435,544131,skipped_dup_in_file,Same SKU appears earlier in this file
+2436,544132,skipped_dup_in_file,Same SKU appears earlier in this file
+2437,544127,skipped_dup_in_file,Same SKU appears earlier in this file
+2438,544529,skipped_dup_in_file,Same SKU appears earlier in this file
+2439,510176,skipped_dup_in_file,Same SKU appears earlier in this file
+2440,544984,skipped_dup_in_file,Same SKU appears earlier in this file
+2441,544535,skipped_dup_in_file,Same SKU appears earlier in this file
+2442,544516,skipped_dup_in_file,Same SKU appears earlier in this file
+2443,510180,skipped_dup_in_file,Same SKU appears earlier in this file
+2444,544517,skipped_dup_in_file,Same SKU appears earlier in this file
+2445,544532,skipped_dup_in_file,Same SKU appears earlier in this file
+2446,546225,skipped_dup_in_file,Same SKU appears earlier in this file
+2447,544510,skipped_dup_in_file,Same SKU appears earlier in this file
+2448,510173,skipped_dup_in_file,Same SKU appears earlier in this file
+2449,510028,skipped_dup_in_file,Same SKU appears earlier in this file
+2450,544526,skipped_dup_in_file,Same SKU appears earlier in this file
+2451,544135,skipped_dup_in_file,Same SKU appears earlier in this file
+2452,544514,skipped_dup_in_file,Same SKU appears earlier in this file
+2453,544984,skipped_dup_in_file,Same SKU appears earlier in this file
+2454,544968,skipped_dup_in_file,Same SKU appears earlier in this file
+2455,544970,skipped_dup_in_file,Same SKU appears earlier in this file
+2456,544065,skipped_dup_in_file,Same SKU appears earlier in this file
+2457,544095,skipped_dup_in_file,Same SKU appears earlier in this file
+2458,510171,skipped_dup_in_file,Same SKU appears earlier in this file
+2459,547636,skipped_dup_in_file,Same SKU appears earlier in this file
+2460,244205,skipped_dup_in_file,Same SKU appears earlier in this file
+2461,544120,skipped_dup_in_file,Same SKU appears earlier in this file
+2462,581084,skipped_dup_in_file,Same SKU appears earlier in this file
+2463,534033,skipped_dup_in_file,Same SKU appears earlier in this file
+2464,547637,skipped_dup_in_file,Same SKU appears earlier in this file
+2465,547641,skipped_dup_in_file,Same SKU appears earlier in this file
+2466,547645,skipped_dup_in_file,Same SKU appears earlier in this file
+2467,547642,skipped_dup_in_file,Same SKU appears earlier in this file
+2468,547644,skipped_dup_in_file,Same SKU appears earlier in this file
+2469,,skipped_invalid,SKU is blank
+2470,,skipped_invalid,SKU is blank
+2471,,skipped_invalid,SKU is blank
+2472,,skipped_invalid,SKU is blank
+2473,,skipped_invalid,SKU is blank
+2474,,skipped_invalid,SKU is blank
+2475,,skipped_invalid,SKU is blank
+2476,,skipped_invalid,SKU is blank
+2477,,skipped_invalid,SKU is blank
+2478,279066,skipped_dup_in_file,Same SKU appears earlier in this file
+2479,156723,skipped_dup_in_file,Same SKU appears earlier in this file
+2480,279053,skipped_dup_in_file,Same SKU appears earlier in this file
+2481,279067,skipped_dup_in_file,Same SKU appears earlier in this file
+2482,240100,skipped_dup_in_file,Same SKU appears earlier in this file
+2483,240385,skipped_dup_in_file,Same SKU appears earlier in this file
+2484,294415,skipped_dup_in_file,Same SKU appears earlier in this file
+2485,246004,skipped_dup_in_file,Same SKU appears earlier in this file
+2486,279049,skipped_dup_in_file,Same SKU appears earlier in this file
+2487,152724,skipped_dup_in_file,Same SKU appears earlier in this file
+2488,152801,skipped_dup_in_file,Same SKU appears earlier in this file
+2489,279057,skipped_dup_in_file,Same SKU appears earlier in this file
+2490,246003,skipped_dup_in_file,Same SKU appears earlier in this file
+2491,279048,skipped_dup_in_file,Same SKU appears earlier in this file
+2492,152830,skipped_dup_in_file,Same SKU appears earlier in this file
+2493,294416,skipped_dup_in_file,Same SKU appears earlier in this file
+2494,294414,skipped_dup_in_file,Same SKU appears earlier in this file
+2495,279058,skipped_dup_in_file,Same SKU appears earlier in this file
+2496,152716,skipped_dup_in_file,Same SKU appears earlier in this file
+2497,246007,skipped_dup_in_file,Same SKU appears earlier in this file
+2498,279052,skipped_dup_in_file,Same SKU appears earlier in this file
+2499,279054,skipped_dup_in_file,Same SKU appears earlier in this file
+2500,156726,skipped_dup_in_file,Same SKU appears earlier in this file
+2501,240107,skipped_dup_in_file,Same SKU appears earlier in this file
+2502,279056,skipped_dup_in_file,Same SKU appears earlier in this file
+2503,279051,skipped_dup_in_file,Same SKU appears earlier in this file
+2504,240002,skipped_dup_in_file,Same SKU appears earlier in this file
+2505,246015,skipped_dup_in_file,Same SKU appears earlier in this file
+2506,279062,skipped_dup_in_file,Same SKU appears earlier in this file
+2507,152802,skipped_dup_in_file,Same SKU appears earlier in this file
+2508,240024,skipped_dup_in_file,Same SKU appears earlier in this file
+2509,279055,skipped_dup_in_file,Same SKU appears earlier in this file
+2510,152827,skipped_dup_in_file,Same SKU appears earlier in this file
+2511,152806,skipped_dup_in_file,Same SKU appears earlier in this file
+2512,152803,skipped_dup_in_file,Same SKU appears earlier in this file
+2513,152798,skipped_dup_in_file,Same SKU appears earlier in this file
+2514,246005,skipped_dup_in_file,Same SKU appears earlier in this file
+2515,246006,skipped_dup_in_file,Same SKU appears earlier in this file
+2516,152722,skipped_dup_in_file,Same SKU appears earlier in this file
+2517,279060,skipped_dup_in_file,Same SKU appears earlier in this file
+2518,294417,skipped_dup_in_file,Same SKU appears earlier in this file
+2519,279064,skipped_dup_in_file,Same SKU appears earlier in this file
+2520,246012,skipped_dup_in_file,Same SKU appears earlier in this file
+2521,156721,skipped_dup_in_file,Same SKU appears earlier in this file
+2522,246008,skipped_dup_in_file,Same SKU appears earlier in this file
+2523,156720,skipped_dup_in_file,Same SKU appears earlier in this file
+2524,279070,skipped_dup_in_file,Same SKU appears earlier in this file
+2525,156722,skipped_dup_in_file,Same SKU appears earlier in this file
+2526,86236901,skipped_dup_in_file,Same SKU appears earlier in this file
+2527,86236902,skipped_dup_in_file,Same SKU appears earlier in this file
+2528,86236903,skipped_dup_in_file,Same SKU appears earlier in this file
+2529,86236904,skipped_dup_in_file,Same SKU appears earlier in this file
+2530,86236905,skipped_dup_in_file,Same SKU appears earlier in this file
+2531,86236907,skipped_dup_in_file,Same SKU appears earlier in this file
+2532,86236908,skipped_dup_in_file,Same SKU appears earlier in this file
+2533,398537,skipped_dup_in_file,Same SKU appears earlier in this file
+2534,398038,skipped_dup_in_file,Same SKU appears earlier in this file
+2535,581673,inserted,
+2536,88035245,skipped_dup_in_file,Same SKU appears earlier in this file
+2537,88035264,skipped_dup_in_file,Same SKU appears earlier in this file
+2538,88035251,skipped_dup_in_file,Same SKU appears earlier in this file
+2539,88035302,skipped_dup_in_file,Same SKU appears earlier in this file
+2540,88035281,skipped_dup_in_file,Same SKU appears earlier in this file
+2541,88035292,skipped_dup_in_file,Same SKU appears earlier in this file
+2542,88035325,skipped_dup_in_file,Same SKU appears earlier in this file
+2543,88035321,skipped_dup_in_file,Same SKU appears earlier in this file
+2544,88035276,skipped_dup_in_file,Same SKU appears earlier in this file
+2545,88035255,skipped_dup_in_file,Same SKU appears earlier in this file
+2546,88035244,skipped_dup_in_file,Same SKU appears earlier in this file
+2547,88035257,skipped_dup_in_file,Same SKU appears earlier in this file
+2548,88035291,skipped_dup_in_file,Same SKU appears earlier in this file
+2549,6912877,inserted,
+2550,246011,skipped_dup_in_file,Same SKU appears earlier in this file
+2551,246010,skipped_dup_in_file,Same SKU appears earlier in this file
+2552,246009,skipped_dup_in_file,Same SKU appears earlier in this file
+2553,279079,skipped_dup_in_file,Same SKU appears earlier in this file
+2554,156731,skipped_dup_in_file,Same SKU appears earlier in this file
+2555,96035759,skipped_dup_in_file,Same SKU appears earlier in this file
+2556,96035762,skipped_dup_in_file,Same SKU appears earlier in this file
+2557,96035746,skipped_dup_in_file,Same SKU appears earlier in this file
+2558,96238843,skipped_dup_in_file,Same SKU appears earlier in this file
+2559,96035761,skipped_dup_in_file,Same SKU appears earlier in this file
+2560,96035750,skipped_dup_in_file,Same SKU appears earlier in this file
+2561,96035749,skipped_dup_in_file,Same SKU appears earlier in this file
+2562,,skipped_invalid,SKU is blank
+2563,,skipped_invalid,SKU is blank
+2564,,skipped_invalid,SKU is blank
+2565,96357041,skipped_dup_in_file,Same SKU appears earlier in this file
+2566,96357057,skipped_dup_in_file,Same SKU appears earlier in this file
+2567,543601,skipped_dup_in_file,Same SKU appears earlier in this file
+2568,98829164,skipped_dup_in_file,Same SKU appears earlier in this file
+2569,948829162,skipped_dup_in_file,Same SKU appears earlier in this file
+2570,349409,inserted,
+2571,311552,inserted,
+2572,311553,inserted,
+2573,,skipped_invalid,SKU is blank
+2574,292138,inserted,
+2575,,skipped_invalid,SKU is blank
+2576,,skipped_invalid,SKU is blank
+2577,,skipped_invalid,SKU is blank
+2578,,skipped_invalid,SKU is blank
+2579,,skipped_invalid,SKU is blank

@@ -1,0 +1,23 @@
+{% if items %}
+<table class="data-table">
+  <thead>
+    <tr><th>SKU</th><th>Description</th><th>Client</th><th>Location</th><th>Start Date</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for it in items %}
+    <tr class="{{ 'row-overdue' if it.renewal_due }}">
+      <td><strong>{{ it.sku or '—' }}</strong></td>
+      <td>{{ it.sku_description or '—' }}</td>
+      <td>{{ it.client or '—' }}</td>
+      <td>{{ it.location or '—' }}</td>
+      <td>{{ it.start_date|fmt_date if it.start_date else '—' }}
+        {% if it.renewal_due %}<span class="status-pill" style="background:#FDF1F1;color:var(--danger);">Renewal due</span>{% endif %}
+      </td>
+      <td><span class="status-pill">{{ it.status }}</span></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty-note">No matching Golden Samples.</p>
+{% endif %}

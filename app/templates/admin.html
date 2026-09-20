@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% block title %}Admin — Sample Tracker{% endblock %}
+{% block content %}
+<div class="page-header"><h1>Admin</h1></div>
+
+<div class="card">
+    <h3>Users</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        People create their own accounts at <code>/register</code> using their Outlook email and set their own password.
+        New accounts start with no page access — grant it below.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Name</th><th>Email</th><th>Role</th><th>Status</th><th></th></tr></thead>
+        <tbody>
+            {% for u in users %}
+            <tr>
+                <td>{{ u.name }}</td>
+                <td>{{ u.email }}</td>
+                <td>
+                    <form method="post" action="/admin/users/{{ u.id }}/role" style="display:inline">
+                        <select name="role" onchange="this.form.submit()" {{ 'disabled' if u.id == user.id }}>
+                            <option value="user" {{ 'selected' if u.role == 'user' }}>user</option>
+                            <option value="admin" {{ 'selected' if u.role == 'admin' }}>admin</option>
+                        </select>
+                    </form>
+                </td>
+                <td>{{ 'Active' if u.is_active else 'Disabled' }}</td>
+                <td>
+                    {% if u.id != user.id %}
+                    <form method="post" action="/admin/users/{{ u.id }}/toggle-active">
+                        <button class="icon-btn" type="submit">{{ 'Disable' if u.is_active else 'Enable' }}</button>
+                    </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="5" class="empty-note">No users yet.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3>Page access by user</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        Admins (role = admin above) always have full access to every page. For everyone else,
+        grant view/edit access per page here, matched to their email.
+    </p>
+    <table class="data-table">
+        <thead>
+            <tr><th>User</th><th>Page</th><th>View</th><th>Edit</th></tr>
+        </thead>
+        <tbody>
+            {% set non_admin_count = namespace(value=0) %}
+            {% for u in users %}
+            {% if u.role != 'admin' %}
+            {% set non_admin_count.value = non_admin_count.value + 1 %}
+            {% for page in pages %}
+            {% set perm = perms.get((u.id, page)) %}
+            <tr>
+                <td>{{ u.name }}<div class="cell-sub">{{ u.email }}</div></td>
+                <td>{{ page.replace('_', ' ') }}</td>
+                <td><input type="checkbox" class="perm-check" data-user="{{ u.id }}" data-page="{{ page }}" data-field="can_view" {{ 'checked' if perm and perm.can_view }}></td>
+                <td><input type="checkbox" class="perm-check" data-user="{{ u.id }}" data-page="{{ page }}" data-field="can_edit" {{ 'checked' if perm and perm.can_edit }}></td>
+            </tr>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+            {% if non_admin_count.value == 0 %}
+            <tr><td colspan="4" class="empty-note">No non-admin users yet.</td></tr>
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3>Development Samples — pending return client mapping</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        The biweekly "Pending Return" alert is grouped by the Client field on each Development Sample
+        and sent to the matching team here. Any client without a row below falls back to
+        <code>SMTP_NOTIFY_DEFAULT</code> from <code>.env</code>.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Client</th><th>Notify emails</th><th></th></tr></thead>
+        <tbody>
+            {% for c in client_contacts %}
+            <tr>
+                <td>{{ c.client }}</td>
+                <td>
+                    <form method="post" action="/admin/client-contacts/{{ c.id }}/update" style="display:flex;gap:8px;">
+                        <input type="text" name="team_emails" value="{{ c.team_emails }}" style="flex:1;padding:6px 8px;border-radius:6px;border:1px solid var(--border);">
+                        <button class="icon-btn" type="submit">Save</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="post" action="/admin/client-contacts/{{ c.id }}/delete" onsubmit="return confirm('Remove this client mapping?')">
+                        <button class="icon-btn icon-btn-danger" type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="3" class="empty-note">No client mappings yet — all clients use the fallback list.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top:20px;">Add client mapping</h3>
+    <form method="post" action="/admin/client-contacts/create" class="form-grid">
+        <label>Client name (must match the Client field exactly, e.g. "Wickes")<input name="client" type="text" required></label>
+        <label>Notify emails (comma-separated)<input name="team_emails" type="text" required></label>
+        <div class="span-2"><button type="submit" class="btn btn-primary">Add mapping</button></div>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Development Samples — quarterly report client mapping</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        The quarterly report (sent 1st of Jan/Apr/Jul/Oct) is grouped by the Client field and sent
+        to the matching team here. This is a separate mapping from the pending-return one above —
+        a client with no row below falls back to the recipients list further down.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Client</th><th>Name</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+            {% for m in dev_quarterly_client_contacts %}
+            <tr>
+                <td>{{ m.client }}</td>
+                <td>{{ m.name or '—' }}</td>
+                <td>{{ m.email }}</td>
+                <td>
+                    <form method="post" action="/admin/manager-contacts/{{ m.id }}/delete">
+                        <button class="icon-btn icon-btn-danger" type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="4" class="empty-note">No client mappings yet — all clients use the fallback list below.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top:20px;">Add client mapping</h3>
+    <form method="post" action="/admin/manager-contacts/create" class="form-grid">
+        <input type="hidden" name="report_type" value="development">
+        <label>Client name (must match the Client field exactly, e.g. "Wickes")<input name="client" type="text" required></label>
+        <label>Name<input name="name" type="text"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <div class="span-2"><button type="submit" class="btn btn-primary">Add mapping</button></div>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Development Samples — quarterly report fallback recipients</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        Used only for a client with no row in the mapping above.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Name</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+            {% for m in development_contacts %}
+            <tr>
+                <td>{{ m.name or '—' }}</td>
+                <td>{{ m.email }}</td>
+                <td>
+                    <form method="post" action="/admin/manager-contacts/{{ m.id }}/delete">
+                        <button class="icon-btn icon-btn-danger" type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="3" class="empty-note">No fallback recipients yet — clients without a mapping above won't get the quarterly report unless SMTP_NOTIFY_DEFAULT is set.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top:20px;">Add manager</h3>
+    <form method="post" action="/admin/manager-contacts/create" class="form-grid">
+        <input type="hidden" name="report_type" value="development">
+        <label>Name<input name="name" type="text"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <div class="span-2"><button type="submit" class="btn btn-primary">Add manager</button></div>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Golden Samples — report recipients</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        Everyone in this list gets the Golden Samples reports (monthly renewal + quarterly overview). Not client-specific — just add whoever should receive it.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Name</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+            {% for m in golden_contacts %}
+            <tr>
+                <td>{{ m.name or '—' }}</td>
+                <td>{{ m.email }}</td>
+                <td>
+                    <form method="post" action="/admin/manager-contacts/{{ m.id }}/delete">
+                        <button class="icon-btn icon-btn-danger" type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="3" class="empty-note">No recipients yet — the Golden Samples reports won't send until you add one.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top:20px;">Add recipient</h3>
+    <form method="post" action="/admin/manager-contacts/create" class="form-grid">
+        <input type="hidden" name="report_type" value="golden">
+        <label>Name<input name="name" type="text"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <div class="span-2"><button type="submit" class="btn btn-primary">Add recipient</button></div>
+    </form>
+</div>
+
+<div class="card">
+    <h3>Shipment Samples — report recipients</h3>
+    <p class="empty-note" style="text-align:left;padding:0 0 10px;">
+        Everyone in this list gets the Shipment Samples reports (monthly disposal + quarterly overview). Not client-specific — just add whoever should receive it.
+    </p>
+    <table class="data-table">
+        <thead><tr><th>Name</th><th>Email</th><th></th></tr></thead>
+        <tbody>
+            {% for m in shipment_contacts %}
+            <tr>
+                <td>{{ m.name or '—' }}</td>
+                <td>{{ m.email }}</td>
+                <td>
+                    <form method="post" action="/admin/manager-contacts/{{ m.id }}/delete">
+                        <button class="icon-btn icon-btn-danger" type="submit">Remove</button>
+                    </form>
+                </td>
+            </tr>
+            {% else %}
+            <tr><td colspan="3" class="empty-note">No recipients yet — the Shipment Samples reports won't send until you add one.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3 style="margin-top:20px;">Add recipient</h3>
+    <form method="post" action="/admin/manager-contacts/create" class="form-grid">
+        <input type="hidden" name="report_type" value="shipment">
+        <label>Name<input name="name" type="text"></label>
+        <label>Email<input name="email" type="email" required></label>
+        <div class="span-2"><button type="submit" class="btn btn-primary">Add recipient</button></div>
+    </form>
+</div>
+
+<script>
+    document.querySelectorAll('.perm-check').forEach(cb => {
+        cb.addEventListener('change', async () => {
+            const userId = cb.dataset.user, page = cb.dataset.page;
+            const row = document.querySelectorAll(`[data-user="${userId}"][data-page="${page}"]`);
+            const canView = [...row].find(el => el.dataset.field === 'can_view').checked;
+            const canEdit = [...row].find(el => el.dataset.field === 'can_edit').checked;
+            const body = new URLSearchParams({ user_id: userId, page, can_view: canView, can_edit: canEdit });
+            await fetch('/admin/permissions/set', { method: 'POST', body });
+        });
+    });
+</script>
+{% endblock %}

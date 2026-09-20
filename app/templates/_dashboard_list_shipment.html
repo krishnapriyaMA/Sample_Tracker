@@ -1,0 +1,26 @@
+{% if items %}
+<table class="data-table">
+  <thead>
+    <tr><th>Buyer Ref / PO No</th><th>Description</th><th>Vendor</th><th>Buyer</th><th>Date</th><th></th></tr>
+  </thead>
+  <tbody>
+    {% for it in items %}
+    <tr class="{{ 'row-overdue' if it.disposal_due }}">
+      <td><strong>{{ it.buyer_ref or '—' }}</strong><div class="cell-sub">{{ it.po_no or '' }}</div></td>
+      <td>{{ it.description or '—' }}</td>
+      <td>{{ it.vendor or '—' }}</td>
+      <td>{{ it.buyer or '—' }}</td>
+      <td>{{ it.date|fmt_date if it.date else '—' }}</td>
+      <td>
+        {% if it.disposed %}<span class="status-pill">Disposed</span>
+        {% elif it.disposal_due %}<span class="status-pill" style="background:#FDF1F1;color:var(--danger);">Disposal due</span>
+        {% elif it.disposal_soon %}<span class="status-pill" style="background:#FFF9EC;color:#8A6D1D;">Due soon</span>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="empty-note">No matching Shipment Samples.</p>
+{% endif %}
