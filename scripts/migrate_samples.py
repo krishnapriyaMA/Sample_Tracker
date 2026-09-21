@@ -1,197 +1,182 @@
 """
-Migrate Shipment Samples from Excel (Shipment_samples_migr.xlsx) into the
-shipment_samples table.
+One-time migration: add report_type/client to the existing manager_contacts
+table, and replace the old single-column unique constraint on email with a
+composite one on (email, report_type, client).
 
-Column mapping applied (source -> ShipmentSample field):
-    Buyer                   -> buyer
-    Vendor                  -> vendor
-    Date                    -> date
-    Buyer Ref               -> buyer_ref
-    Description             -> description
-    Barcode                 -> barcode
-    Finish                  -> finish
-    Rack no.                -> rack_no
-    Shipment samples PO No  -> po_no
-    Location                -> location
-    Remarks                 -> disposed (True only when Remarks is exactly
-                                "Disposed"; the sheet's other values are None
-                                and "Not for disposal", both -> False)
+WHY THIS IS NEEDED
+------------------
+The old table only had (id, name, email) with email UNIQUE. jobs.py and
+admin.py were written assuming report_type and client columns already
+existed. Just editing models.py doesn't touch the live database -- SQLAlchemy
+only auto-creates tables that don't exist yet (Base.metadata.create_all()),
+it never ALTERs an existing table. Without running this migration, every
+job in jobs.py that does db.query(ManagerContact).filter_by(report_type=...)
+will keep raising an error, because that column won't actually exist in
+the database even though models.py now declares it in Python.
 
-NOT mapped (on purpose):
-    Title          - sheet only has a sequential row number here; the
-                     ShipmentSample model has no `title` column to put it in.
-    disposed_at    - not derivable from the sheet (it records only whether
-                     something was disposed, not when), so it's left as
-                     None/NULL for every migrated row.
-    __PowerAppsId__, Item Type, Path - source/export metadata, not app data.
+WHAT THIS DOES, STEP BY STEP
+-----------------------------
+1. Adds report_type as nullable first (never add a NOT NULL column with no
+   default to a table that already has rows -- it will fail outright on most
+   engines, or silently do the wrong thing on the ones that allow it).
+2. Backfills every existing row's report_type to 'development' -- this is
+   the only report type your OLD table's data could have possibly meant,
+   since the prior schema only ever supported Development Samples contacts.
+   Existing rows are NOT deleted or touched otherwise.
+3. Backfills client to NULL for all existing rows (they become the flat
+   "development fallback" recipients list -- exactly matching how
+   admin.py's development_contacts filter already interprets
+   "report_type == development and no client").
+4. Only after backfilling does it enforce NOT NULL on report_type.
+5. Drops the old single-column unique constraint/index on email (if it
+   exists under a database-specific name -- see the try/except) and adds
+   the new composite unique constraint on (email, report_type, client).
 
-BEHAVIOUR
----------
-- Always inserts every row (duplicates and blanks included), matching the
-  Golden/Development Samples migrations.
-- Each row is inserted inside its own SAVEPOINT (session.begin_nested()), so
-  one bad row is rolled back and logged without aborting the rest.
-- --dry-run parses and validates everything but writes nothing to the DB.
-- Every row's outcome is written to migration_report_shipment_<timestamp>.csv
-  next to this script.
+BEFORE RUNNING
+--------------
+- BACK UP YOUR DATABASE FIRST. This is a schema-altering migration.
+- Confirm which engine you're on (SQLite vs Postgres/MySQL) -- see the
+  branches below. SQLite has limited ALTER TABLE support, so its path
+  rebuilds the table; Postgres/MySQL use plain ALTER TABLE statements.
+- Run this once. It is not designed to be safely re-run if it partially
+  succeeds -- inspect the table state before re-running.
 
 USAGE
 -----
-    python scripts/migrate_shipment_samples.py --file Shipment_samples_migr.xlsx --dry-run
-    python scripts/migrate_shipment_samples.py --file Shipment_samples_migr.xlsx
-
-Run from the project root (the directory containing the `app` package), or
-from inside scripts/ - PROJECT_ROOT below resolves one level up either way.
+    python migrate_manager_contacts.py
 """
-
-import argparse
-import csv
+import os
 import sys
-from datetime import datetime
-from pathlib import Path
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text, inspect
 
-import pandas as pd
+load_dotenv()
 
-PROJECT_ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(PROJECT_ROOT))
-
-from app.database import SessionLocal, engine  # noqa: E402
-from app.models import ShipmentSample  # noqa: E402
-
-# Source column name -> ShipmentSample attribute name
-COLUMN_MAP = {
-    "Buyer": "buyer",
-    "Vendor": "vendor",
-    "Date": "date",
-    "Buyer Ref": "buyer_ref",
-    "Description": "description",
-    "Barcode": "barcode",
-    "Finish": "finish",
-    "Rack no.": "rack_no",
-    "Shipment samples PO No": "po_no",
-    "Location": "location",
-    "Remarks": "_remarks",  # not a model field directly - used below to derive `disposed`
-}
-
-DATE_FIELDS = {"date"}
-STRING_FIELDS = {
-    "buyer", "vendor", "buyer_ref", "description", "barcode",
-    "finish", "rack_no", "po_no", "location", "_remarks",
-}
+# Reads the same DATABASE_URL your app's database.py uses (from .env).
+# We deliberately do NOT fall back to sqlite:///./dev.db here the way the
+# app does -- if DATABASE_URL isn't set, this script should stop rather
+# than silently migrating the wrong (empty, local) database.
+DATABASE_URL = os.getenv("DATABASE_URL", "").strip()
+if not DATABASE_URL:
+    print(
+        "DATABASE_URL is not set (checked environment and .env). "
+        "Refusing to guess -- set it to the same Postgres URL your app uses "
+        "before running this migration.",
+        file=sys.stderr,
+    )
+    sys.exit(1)
 
 
-def clean_str(value):
-    if value is None:
-        return None
-    if isinstance(value, float) and pd.isna(value):
-        return None
-    s = str(value).strip()
-    return s or None
+def existing_unique_constraint_name(inspector, table_name: str, column: str):
+    """Find the name of a UNIQUE constraint/index covering exactly this one column,
+    so we can drop the right one without guessing a hardcoded name."""
+    for uc in inspector.get_unique_constraints(table_name):
+        if uc.get("column_names") == [column]:
+            return uc.get("name")
+    for idx in inspector.get_indexes(table_name):
+        if idx.get("unique") and idx.get("column_names") == [column]:
+            return idx.get("name")
+    return None
 
 
-def clean_date(value):
-    if value is None or (isinstance(value, float) and pd.isna(value)):
-        return None
-    ts = pd.to_datetime(value, errors="coerce")
-    if pd.isna(ts):
-        return None
-    return ts.to_pydatetime()
+def migrate_postgres_or_mysql(engine):
+    with engine.begin() as conn:
+        inspector = inspect(conn)
+        cols = {c["name"] for c in inspector.get_columns("manager_contacts")}
+
+        if "report_type" not in cols:
+            conn.execute(text(
+                "ALTER TABLE manager_contacts ADD COLUMN report_type VARCHAR(20)"
+            ))
+        if "client" not in cols:
+            conn.execute(text(
+                "ALTER TABLE manager_contacts ADD COLUMN client VARCHAR(120)"
+            ))
+
+        # Backfill existing rows: the old table only ever served Development
+        # Samples contacts, so every pre-existing row becomes a development
+        # fallback recipient (client stays NULL).
+        conn.execute(text(
+            "UPDATE manager_contacts SET report_type = 'development' WHERE report_type IS NULL"
+        ))
+
+        # Now safe to enforce NOT NULL with a default for future rows.
+        conn.execute(text(
+            "ALTER TABLE manager_contacts ALTER COLUMN report_type SET DEFAULT 'development'"
+        ))
+        conn.execute(text(
+            "ALTER TABLE manager_contacts ALTER COLUMN report_type SET NOT NULL"
+        ))
+
+        old_uc = existing_unique_constraint_name(inspect(conn), "manager_contacts", "email")
+        if old_uc:
+            conn.execute(text(f'ALTER TABLE manager_contacts DROP CONSTRAINT "{old_uc}"'))
+
+        conn.execute(text(
+            "ALTER TABLE manager_contacts "
+            "ADD CONSTRAINT uq_manager_contact_email_type_client "
+            "UNIQUE (email, report_type, client)"
+        ))
+    print("Migration complete (Postgres/MySQL path).")
 
 
-def load_rows(xlsx_path: Path):
-    df = pd.read_excel(xlsx_path, sheet_name=0, dtype=object)
-    # Normalize headers: strip whitespace so "Buyer Ref " matches "Buyer Ref"
-    df.columns = [str(c).strip() for c in df.columns]
+def migrate_sqlite(engine):
+    """SQLite can't drop constraints or reliably ALTER column nullability in
+    place, so we rebuild the table: create the new shape, copy the data
+    across (backfilling report_type/client), drop the old table, rename."""
+    with engine.begin() as conn:
+        inspector = inspect(conn)
+        cols = {c["name"] for c in inspector.get_columns("manager_contacts")}
+        if "report_type" in cols and "client" in cols:
+            print("Columns already present -- nothing to do.")
+            return
 
-    missing = [src for src in COLUMN_MAP if src not in df.columns]
-    if missing:
-        raise SystemExit(
-            f"These expected source columns are missing from the sheet: {missing}\n"
-            f"Sheet actually has: {list(df.columns)}"
-        )
+        conn.execute(text("""
+            CREATE TABLE manager_contacts_new (
+                id INTEGER PRIMARY KEY,
+                name VARCHAR(120),
+                email VARCHAR(255) NOT NULL,
+                report_type VARCHAR(20) NOT NULL DEFAULT 'development',
+                client VARCHAR(120),
+                UNIQUE (email, report_type, client)
+            )
+        """))
 
-    rows = []
-    for i, raw in enumerate(df.to_dict(orient="records"), start=2):  # row 2 = first data row
-        mapped = {}
-        for src_col, field in COLUMN_MAP.items():
-            value = raw.get(src_col)
-            if field in DATE_FIELDS:
-                mapped[field] = clean_date(value)
-            elif field in STRING_FIELDS:
-                mapped[field] = clean_str(value)
-            else:
-                mapped[field] = value
-        rows.append({"_row_num": i, **mapped})
-    return rows
+        # Every existing row is treated as a development-report fallback
+        # recipient (client left NULL), matching the only role this table
+        # played under the old schema.
+        conn.execute(text("""
+            INSERT INTO manager_contacts_new (id, name, email, report_type, client)
+            SELECT id, name, email, 'development', NULL FROM manager_contacts
+        """))
 
-
-def derive_disposed(row: dict) -> dict:
-    """Turn the raw Remarks text into the model's `disposed` boolean.
-    `disposed_at` is left unset (None) since the sheet doesn't record when
-    the disposal actually happened - only that it did."""
-    remarks = (row.pop("_remarks", None) or "").strip().lower()
-    row["disposed"] = remarks == "disposed"
-    return row
+        conn.execute(text("DROP TABLE manager_contacts"))
+        conn.execute(text("ALTER TABLE manager_contacts_new RENAME TO manager_contacts"))
+    print("Migration complete (SQLite path).")
 
 
 def main():
-    parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    parser.add_argument("--file", required=True, help="Path to Shipment_samples_migr.xlsx")
-    parser.add_argument("--dry-run", action="store_true", help="Validate and report only; write nothing to the DB")
-    parser.add_argument("--created-by", type=int, default=None, help="User id to stamp on created_by, if any")
-    args = parser.parse_args()
+    engine = create_engine(DATABASE_URL, pool_pre_ping=True)
+    inspector = inspect(engine)
 
-    xlsx_path = Path(args.file)
-    if not xlsx_path.exists():
-        raise SystemExit(f"File not found: {xlsx_path}")
+    if "manager_contacts" not in inspector.get_table_names():
+        print("manager_contacts table doesn't exist yet -- nothing to migrate. "
+              "It will be created fresh with the new schema on next app startup.")
+        return
 
-    print(f"DB target: {engine.url}")
-    print(f"Mode: {'DRY RUN (no writes)' if args.dry_run else 'LIVE'} - always inserts everything (no dedup, no blank skip)")
+    cols = {c["name"] for c in inspector.get_columns("manager_contacts")}
+    if "report_type" in cols and "client" in cols:
+        print("report_type and client columns already exist -- nothing to do.")
+        return
 
-    rows = load_rows(xlsx_path)
-    print(f"Read {len(rows)} data rows from {xlsx_path.name}")
-
-    session = SessionLocal()
-    report_rows = []
-    inserted = failed = 0
-
-    try:
-        for row in rows:
-            row_num = row.pop("_row_num")
-            row = derive_disposed(row)
-            description = row.get("description")
-
-            try:
-                with session.begin_nested():  # SAVEPOINT: isolates this row
-                    obj = ShipmentSample(**row, created_by=args.created_by)
-                    session.add(obj)
-                    session.flush()
-                    inserted += 1
-                    report_rows.append({"row": row_num, "description": description, "outcome": "inserted", "reason": ""})
-            except Exception as exc:  # noqa: BLE001
-                failed += 1
-                report_rows.append({"row": row_num, "description": description, "outcome": "failed", "reason": str(exc)})
-
-        if args.dry_run:
-            session.rollback()
-            print("\nDry run complete - no changes were written.")
-        else:
-            session.commit()
-            print("\nChanges committed.")
-
-    finally:
-        session.close()
-
-    report_path = PROJECT_ROOT / f"migration_report_shipment_{datetime.now():%Y%m%d_%H%M%S}.csv"
-    with open(report_path, "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["row", "description", "outcome", "reason"])
-        writer.writeheader()
-        writer.writerows(report_rows)
-
-    print("\n--- Summary ---")
-    print(f"Inserted: {inserted}")
-    print(f"Failed:   {failed}")
-    print(f"Full report written to: {report_path}")
+    if engine.dialect.name == "sqlite":
+        migrate_sqlite(engine)
+    elif engine.dialect.name in ("postgresql", "mysql"):
+        migrate_postgres_or_mysql(engine)
+    else:
+        print(f"Unsupported dialect '{engine.dialect.name}' -- write a manual "
+              f"ALTER TABLE for this engine before proceeding.", file=sys.stderr)
+        sys.exit(1)
 
 
 if __name__ == "__main__":

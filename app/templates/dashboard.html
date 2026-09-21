@@ -75,6 +75,16 @@
     margin-bottom: 24px;
   }
 
+  /* Fix: Chart.js in responsive mode sizes the canvas to its parent.
+     Without an explicitly-sized, positioned parent, the parent collapses
+     to 0 height and the chart never draws. This wrapper gives Chart.js
+     a real box to fill. */
+  .chart-canvas-wrap {
+    position: relative;
+    height: 220px;
+    width: 100%;
+  }
+
   .two-col {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -153,36 +163,83 @@
 <div class="chart-row">
   <div class="card">
     <h3>Golden Samples by status</h3>
-    <canvas id="chartGolden" height="180"></canvas>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartGolden"></canvas>
+    </div>
   </div>
   <div class="card">
     <h3>Shipment Samples — disposal status</h3>
-    <canvas id="chartShipment" height="180"></canvas>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartShipment"></canvas>
+    </div>
   </div>
   <div class="card">
     <h3>Development Samples by status</h3>
-    <canvas id="chartDev" height="180"></canvas>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartDev"></canvas>
+    </div>
   </div>
 </div>
 
 <div class="two-col">
   <div class="card">
-    <h3>Overdue development returns</h3>
-    {% if overdue %}
+    <h3>Status of upcoming 30 days</h3>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Golden Samples — renewal due ({{ upcoming_golden|length }})</h4>
+    {% if upcoming_golden %}
     <table class="mini-table">
-      <thead><tr><th>Item</th><th>Client</th><th>Due</th></tr></thead>
+      <thead><tr><th>SKU</th><th>Description</th><th>Client</th><th>Renewal</th></tr></thead>
       <tbody>
-        {% for d in overdue %}
+        {% for g in upcoming_golden %}
         <tr>
-          <td><a href="/development-samples">{{ d.title or ('#' ~ d.id) }}</a></td>
-          <td>{{ d.client or '—' }}</td>
-          <td class="overdue-date">{{ d.return_date|fmt_date }}</td>
+          <td><a href="/golden-samples">{{ g.sku }}</a></td>
+          <td>{{ g.description or '—' }}</td>
+          <td>{{ g.client or '—' }}</td>
+          <td>{{ g.due|fmt_date }}</td>
         </tr>
         {% endfor %}
       </tbody>
     </table>
     {% else %}
-    <p class="empty-note">Nothing overdue right now.</p>
+    <p class="empty-note">None in the next 30 days.</p>
+    {% endif %}
+
+    <h4 style="margin:18px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Development Samples — return due ({{ upcoming_dev|length }})</h4>
+    {% if upcoming_dev %}
+    <table class="mini-table">
+      <thead><tr><th>SKU</th><th>Description</th><th>Client</th><th>Return</th></tr></thead>
+      <tbody>
+        {% for d in upcoming_dev %}
+        <tr>
+          <td><a href="/development-samples">{{ d.sku }}</a></td>
+          <td>{{ d.description or '—' }}</td>
+          <td>{{ d.client or '—' }}</td>
+          <td>{{ d.due|fmt_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty-note">None in the next 30 days.</p>
+    {% endif %}
+
+    <h4 style="margin:18px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Shipment Samples — disposal due ({{ upcoming_shipment|length }})</h4>
+    {% if upcoming_shipment %}
+    <table class="mini-table">
+      <thead><tr><th>Buyer Ref</th><th>Description</th><th>Buyer</th><th>Disposal</th></tr></thead>
+      <tbody>
+        {% for s in upcoming_shipment %}
+        <tr>
+          <td><a href="/shipment-samples">{{ s.sku }}</a></td>
+          <td>{{ s.description or '—' }}</td>
+          <td>{{ s.client or '—' }}</td>
+          <td>{{ s.due|fmt_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty-note">None in the next 30 days.</p>
     {% endif %}
   </div>
 
@@ -204,16 +261,26 @@
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<!-- Self-hosted: avoids relying on an external CDN, which is often blocked
+     on internal/corporate networks and causes charts to silently fail to
+     render (Chart is undefined). Place chart.umd.min.js in your static
+     assets, e.g. app/static/js/chart.umd.min.js -->
+<script src="/static/js/chart.umd.min.js"></script>
 <script>
+  if (typeof Chart === 'undefined') {
+    console.error('Chart.js failed to load from /static/js/chart.umd.min.js — check the file exists at that path and the network tab for a 404.');
+  }
   const palette = ['#123458', '#D4A94A', '#5B7FA6', '#B23A48', '#7A9E7E', '#8C8C8C'];
   function renderChart(id, dataObj) {
+    if (typeof Chart === 'undefined') return; // Chart.js didn't load — see console error above
     const labels = Object.keys(dataObj);
     const values = Object.values(dataObj);
     new Chart(document.getElementById(id), {
       type: 'bar',
       data: { labels, datasets: [{ data: values, backgroundColor: palette }] },
       options: {
+        responsive: true,
+        maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
       }

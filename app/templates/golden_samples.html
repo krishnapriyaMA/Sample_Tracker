@@ -1,4 +1,4 @@
-]{% extends "base.html" %}
+{% extends "base.html" %}
 {% block title %}Golden Samples — Sample Tracker{% endblock %}
 {% block content %}
 <div class="page-header">
@@ -28,7 +28,7 @@
     <thead>
       <tr>
         <th>SKU</th><th>Client</th><th>Supplier</th><th>Location</th>
-        <th>Start Date</th><th>Status</th>{% if can_edit %}<th></th>{% endif %}
+        <th>Start Date</th><th>Status</th>
       </tr>
     </thead>
     <tbody>
@@ -46,16 +46,9 @@
         <td>{{ it.location or '—' }}{% if it.rack %} · Rack {{ it.rack }}{% endif %}</td>
         <td>{{ it.start_date|fmt_date if it.start_date else '—' }}{% if it.renewal_due %} <span class="status-pill" style="background:#FDF1F1;color:var(--danger);">Renewal due</span>{% endif %}</td>
         <td><span class="status-pill">{{ it.status }}</span></td>
-        {% if can_edit %}
-        <td class="row-actions">
-          <form method="post" action="/golden-samples/{{ it.id }}/delete" onsubmit="return confirm('Delete this record?')" onclick="event.stopPropagation()" style="display:inline">
-            <button class="icon-btn icon-btn-danger" type="submit">Delete</button>
-          </form>
-        </td>
-        {% endif %}
       </tr>
       {% else %}
-      <tr><td colspan="{{ 7 if can_edit else 6 }}" class="empty-note">No golden samples yet.</td></tr>
+      <tr><td colspan="6" class="empty-note">No golden samples yet.</td></tr>
       {% endfor %}
     </tbody>
   </table>
@@ -81,12 +74,15 @@
     <form method="post" id="editForm" enctype="multipart/form-data">
       {% include "_golden_fields.html" %}
       <div class="modal-actions">
+        <button type="submit" form="deleteForm" class="btn btn-secondary" style="margin-right:auto;color:var(--danger);">Delete</button>
         <button type="button" class="btn btn-secondary" onclick="closeModal('editModal')">Cancel</button>
         <button type="submit" class="btn btn-primary">Save changes</button>
       </div>
     </form>
   </div>
 </div>
+
+<form method="post" id="deleteForm" onsubmit="return confirm('Delete this record?')"></form>
 
 <script>
 function syncToggle(form, isActive) {
@@ -122,6 +118,7 @@ function openAdd() {
 function openEdit(item) {
   const form = document.getElementById('editForm');
   form.action = '/golden-samples/' + item.id + '/update';
+  document.getElementById('deleteForm').action = '/golden-samples/' + item.id + '/delete';
   for (const key in item) {
     const field = form.querySelector('[name="' + key + '"]');
     if (field && item[key] !== null && item[key] !== undefined) field.value = item[key];

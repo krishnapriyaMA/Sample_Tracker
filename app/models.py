@@ -119,14 +119,40 @@ class ClientContact(Base):
 
 
 class ManagerContact(Base):
-    """Admin-managed recipient list for the quarterly Development Samples
-    report. Kept separate from SMTP_NOTIFY_DEFAULT so it's editable without
-    touching .env."""
+    """Admin-managed recipient list for report emails, shared across Golden,
+    Shipment, and Development report types.
+
+    report_type distinguishes which report a row feeds:
+      - "golden"      -> Golden Samples monthly + quarterly reports
+      - "shipment"    -> Shipment Samples monthly + quarterly reports
+      - "development" -> Development Samples quarterly report
+
+    client is only meaningful when report_type == "development":
+      - set  -> this row is the per-client recipient list used by
+                dev_samples_quarterly_job's client_map
+      - NULL -> this row is part of the flat fallback recipients list
+                used when a client has no specific mapping
+    client is always NULL for "golden" and "shipment" rows (those reports
+    are not client-specific).
+
+    NOTE (migration): this table previously had `email` as globally unique
+    with no report_type/client columns. Adding these fields requires an
+    ALTER TABLE migration on any existing database -- see the accompanying
+    migration script. Do not rely on Base.metadata.create_all() to apply
+    this change; it only creates missing tables, it does not alter existing
+    ones, and old rows in the live table have no value to populate
+    report_type/client from automatically.
+    """
     __tablename__ = "manager_contacts"
+    __table_args__ = (
+        UniqueConstraint("email", "report_type", "client", name="uq_manager_contact_email_type_client"),
+    )
 
     id = Column(Integer, primary_key=True)
     name = Column(String(120), nullable=True)
-    email = Column(String(255), unique=True, nullable=False)
+    email = Column(String(255), nullable=False)
+    report_type = Column(String(20), nullable=False, default="development", server_default="development")
+    client = Column(String(120), nullable=True)
 
 
 class ActivityLog(Base):

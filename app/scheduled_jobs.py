@@ -38,7 +38,9 @@ def golden_samples_monthly_job():
             if 0 <= days_remaining <= WARNING_WINDOW_DAYS:
                 payload.append({
                     "sku": getattr(i, "sku", "") or f"#{i.id}",
-                    "description": getattr(i, "description", "") or "-",
+                    # Fixed: GoldenSample has no "description" field -- the real
+                    # column is "sku_description". Previously always fell back to "-".
+                    "description": getattr(i, "sku_description", "") or "-",
                     "client": getattr(i, "client", "") or "-",
                     "supplier": getattr(i, "supplier", getattr(i, "supplier_name", "")) or "-",
                     "renewal_due_date": renewal_due_date.strftime("%d-%b-%Y"),
@@ -67,7 +69,9 @@ def shipment_disposal_job():
             disposal_due_date = s.date + timedelta(days=SHIPMENT_DISPOSAL_DAYS)
             days_remaining = (disposal_due_date - now).days
 
-            if 0 <= days_remaining <= WARNING_WINDOW_DAYS:
+            # Changed: same fix as golden_samples_monthly_job -- include
+            # already-overdue items, not just ones approaching the window.
+            if days_remaining <= WARNING_WINDOW_DAYS:
                 payload.append({
                     "buyer_ref": getattr(s, "buyer_ref", "") or "-",
                     "po_no": getattr(s, "po_no", "") or "-",
@@ -96,8 +100,12 @@ def dev_samples_pending_return_job():
         for d in items:
             is_overdue_1mo = bool(d.return_date and d.return_date < one_month_ago)
             item_dict = {
-                "sku": getattr(d, "sku", "") or f"#{d.id}",
-                "description": getattr(d, "description", "") or "-",
+                # Fixed: DevelopmentSample has no "sku" field -- the real
+                # identifying column is "title". Previously always fell back to "#<id>".
+                "sku": getattr(d, "title", "") or f"#{d.id}",
+                # Fixed: real column is "sku_description", not "description".
+                # Previously always fell back to "-".
+                "description": getattr(d, "sku_description", "") or "-",
                 "product_link": getattr(d, "product_link", "") or "-",
                 "client": getattr(d, "client", "") or "(no client set)",
                 "supplier": getattr(d, "supplier_name", getattr(d, "supplier", "")) or "-",
@@ -156,10 +164,13 @@ def dev_samples_quarterly_job():
                 "Missing": len(missing),
             }
 
+            # Note: DevelopmentSample has no "sku" column -- the real
+            # identifying field is "title". Data below reads d.title; header
+            # label kept as "SKU" to match the rest of the report's wording.
             pending_headers = ["SKU", "Description", "Product Link", "Supplier", "Route", "Return Date"]
             pending_rows = [
                 [
-                    d.sku or f"#{d.id}",
+                    d.title or f"#{d.id}",
                     d.sku_description or "-",
                     d.product_link or "-",
                     d.supplier_name or "-",
@@ -176,7 +187,7 @@ def dev_samples_quarterly_job():
             missing_headers = ["SKU", "Description", "Product Link", "Supplier", "Route", "Responsible Merchandiser"]
             missing_rows = [
                 [
-                    d.sku or f"#{d.id}",
+                    d.title or f"#{d.id}",
                     d.sku_description or "-",
                     d.product_link or "-",
                     d.supplier_name or "-",
@@ -189,7 +200,7 @@ def dev_samples_quarterly_job():
             returned_headers = ["SKU", "Description", "Product Link", "Supplier", "To Location"]
             returned_rows = [
                 [
-                    d.sku or f"#{d.id}",
+                    d.title or f"#{d.id}",
                     d.sku_description or "-",
                     d.product_link or "-",
                     d.supplier_name or "-",

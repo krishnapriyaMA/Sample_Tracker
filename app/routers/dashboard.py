@@ -77,6 +77,69 @@ def dashboard(request: Request, user=Depends(require_page_view(PAGE)), db: Sessi
         .all()
     )
 
+    # Status of upcoming 30 days: items whose due date falls between now and now + 30 days.
+    upcoming_window = now + timedelta(days=DISPOSAL_APPROACHING_DAYS)
+
+    # Golden: renewal date = start_date + 2 years
+    upcoming_golden_rows = (
+        db.query(GoldenSample)
+        .filter(GoldenSample.status == "Active")
+        .filter(GoldenSample.start_date != None)  # noqa: E711
+        .filter(GoldenSample.start_date >= renewal_cutoff)
+        .filter(GoldenSample.start_date < renewal_cutoff + timedelta(days=DISPOSAL_APPROACHING_DAYS))
+        .order_by(GoldenSample.start_date.asc())
+        .all()
+    )
+    upcoming_golden = [
+        {
+            "sku": g.sku or f"#{g.id}",
+            "description": g.sku_description,
+            "client": g.client,
+            "due": g.start_date + timedelta(days=RENEWAL_WINDOW_DAYS),
+        }
+        for g in upcoming_golden_rows
+    ]
+
+    # Development: return date within the next 30 days, still pending return
+    upcoming_dev_rows = (
+        db.query(DevelopmentSample)
+        .filter(DevelopmentSample.status == "Pending Return")
+        .filter(DevelopmentSample.return_date != None)  # noqa: E711
+        .filter(DevelopmentSample.return_date >= now)
+        .filter(DevelopmentSample.return_date <= upcoming_window)
+        .order_by(DevelopmentSample.return_date.asc())
+        .all()
+    )
+    upcoming_dev = [
+        {
+            "sku": d.title or f"#{d.id}",
+            "description": d.sku_description,
+            "client": d.client,
+            "due": d.return_date,
+        }
+        for d in upcoming_dev_rows
+    ]
+
+    # Shipment: disposal date = date + 1 year, not yet disposed
+    upcoming_shipment_rows = (
+        db.query(ShipmentSample)
+        .filter(ShipmentSample.date != None)  # noqa: E711
+        .filter(ShipmentSample.date >= disposal_cutoff)
+        .filter(ShipmentSample.date < approaching_boundary)
+        .filter(ShipmentSample.disposed == False)  # noqa: E712
+        .order_by(ShipmentSample.date.asc())
+        .all()
+    )
+    upcoming_shipment = [
+        {
+            "sku": s.buyer_ref or f"#{s.id}",
+            "description": s.description,
+            "client": s.buyer,
+            "due": s.date + timedelta(days=DISPOSAL_WINDOW_DAYS),
+        }
+        for s in upcoming_shipment_rows
+    ]
+
     recent = db.query(ActivityLog).order_by(ActivityLog.created_at.desc()).limit(20).all()
 
     return templates.TemplateResponse("dashboard.html", {
@@ -87,6 +150,7 @@ def dashboard(request: Request, user=Depends(require_page_view(PAGE)), db: Sessi
         "dev_pending_return_count": dev_pending_return_count, "dev_missing_count": dev_missing_count,
         "shipment_disposal_due": shipment_disposal_due, "shipment_disposal_approaching": shipment_disposal_approaching,
         "overdue": overdue, "recent": recent,
+        "upcoming_golden": upcoming_golden, "upcoming_dev": upcoming_dev, "upcoming_shipment": upcoming_shipment,
     })
 
 
