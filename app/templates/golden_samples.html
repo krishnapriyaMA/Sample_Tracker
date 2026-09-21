@@ -35,7 +35,7 @@
       {% for it in items %}
       <tr class="{{ 'row-overdue' if it.renewal_due }}{{ ' row-clickable' if can_edit }}"
         {% if can_edit %}onclick='openEdit({{ {
-            "id": it.id, "sku": it.sku, "sku_description": it.sku_description, "item_type": it.item_type,
+            "id": it.id, "golden_id": (it.golden_id or ""), "sku": it.sku, "sku_description": it.sku_description, "item_type": it.item_type,
             "client": it.client, "supplier": it.supplier, "vendor_ref": it.vendor_ref, "barcode": it.barcode,
             "size": it.size, "location": it.location, "rack": it.rack, "seal_no": it.seal_no,
             "status": it.status, "image_path": it.image_path,
@@ -72,6 +72,12 @@
   <div class="modal-card">
     <h2>Edit Golden Sample</h2>
     <form method="post" id="editForm" enctype="multipart/form-data">
+      {# Read-only: no name attribute, so it is never submitted with the form #}
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 4px;">Golden ID</label>
+        <input type="text" id="editGoldenId" readonly title="Auto-generated and cannot be edited"
+               style="width: 100%; padding: 8px; box-sizing: border-box; font-size: 14px; font-family: monospace; background: #f3f3f3; color: #555; cursor: default;">
+      </div>
       {% include "_golden_fields.html" %}
       <div class="modal-actions">
         <button type="submit" form="deleteForm" class="btn btn-secondary" style="margin-right:auto;color:var(--danger);">Delete</button>
@@ -123,6 +129,8 @@ function openEdit(item) {
     const field = form.querySelector('[name="' + key + '"]');
     if (field && item[key] !== null && item[key] !== undefined) field.value = item[key];
   }
+  // read-only display of the auto-generated ID
+  document.getElementById('editGoldenId').value = item.golden_id || '';
   // sync the Active/Closed toggle switch to match the hidden status field just set above
   syncToggle(form, item.status !== 'Closed');
   // show the existing image (if any) in the preview box

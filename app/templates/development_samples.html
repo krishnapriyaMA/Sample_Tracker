@@ -31,7 +31,7 @@
       {% for it in items %}
       <tr class="{{ 'row-overdue' if it.return_date and it.return_date < now and it.status != 'Returned' }}{{ ' row-clickable' if can_edit }}"
         {% if can_edit %}onclick='openEdit({{ {
-            "id": it.id, "title": it.title, "sku_description": it.sku_description, "client": it.client,
+            "id": it.id, "dev_id": (it.dev_id or ""), "title": it.title, "sku_description": it.sku_description, "client": it.client,
             "supplier_name": it.supplier_name, "from_location": it.from_location, "to_location": it.to_location,
             "status": it.status, "remarks": it.remarks, "product_link": it.product_link,
             "tracking_url": it.tracking_url,
@@ -69,6 +69,13 @@
   <div class="modal-card">
     <h2>Edit Development Sample</h2>
     <form method="post" id="editForm" enctype="multipart/form-data">
+      {# Read-only: no name attribute, so it is never submitted with the form #}
+      <div class="form-grid" style="margin-bottom: 12px;">
+        <label class="span-2">Development ID
+          <input type="text" id="editDevId" readonly title="Auto-generated and cannot be edited"
+                 style="font-family: monospace; background: #f3f3f3; color: #555; cursor: default;">
+        </label>
+      </div>
       {% include "_development_fields.html" %}
       <div class="modal-actions">
         <button type="submit" form="deleteForm" class="btn btn-secondary" style="margin-right:auto;color:var(--danger);">Delete</button>
@@ -96,6 +103,8 @@ function openEdit(item) {
     const field = form.querySelector('[name="' + key + '"]');
     if (field && item[key] !== null && item[key] !== undefined) field.value = item[key];
   }
+  // read-only display of the auto-generated ID
+  document.getElementById('editDevId').value = item.dev_id || '';
   openModal('editModal');
 }
 </script>

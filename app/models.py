@@ -1,3 +1,4 @@
+import secrets
 from datetime import datetime
 from sqlalchemy import (
     Column, Integer, String, Float, Text, DateTime, Boolean, ForeignKey, UniqueConstraint
@@ -7,6 +8,45 @@ from .database import Base
 
 PAGES = ["golden_samples", "shipment_samples", "development_samples", "dashboard", "admin"]
 ROLES = ["admin", "user"]
+
+
+# ---------------------------------------------------------------------------
+# Unique sample IDs
+# ---------------------------------------------------------------------------
+# Format:  <PREFIX>-<10 random chars>   e.g.  GLD-7K3M9Q2XPA
+#   GLD = Golden sample, SHP = Shipment sample, DEV = Development sample
+#
+# The 10 chars come from a 32-symbol alphabet with no I / L / O / U (so nothing
+# gets misread as 1 / 0 / V when typed or printed on a label). That is 32^10
+# (~1.1 quadrillion) combinations per sample type, and each column also has a
+# UNIQUE index in the database as the final guarantee.
+#
+# IDs are generated automatically when a row is inserted, so existing create
+# code in the routers does not need to change. They must never be edited after
+# creation -- other systems rely on them.
+SAMPLE_ID_ALPHABET = "0123456789ABCDEFGHJKMNPQRSTVWXYZ"
+SAMPLE_ID_LENGTH = 10
+
+GOLDEN_ID_PREFIX = "GLD"
+SHIPMENT_ID_PREFIX = "SHP"
+DEV_ID_PREFIX = "DEV"
+
+
+def generate_sample_id(prefix: str) -> str:
+    code = "".join(secrets.choice(SAMPLE_ID_ALPHABET) for _ in range(SAMPLE_ID_LENGTH))
+    return f"{prefix}-{code}"
+
+
+def new_golden_id() -> str:
+    return generate_sample_id(GOLDEN_ID_PREFIX)
+
+
+def new_shipment_id() -> str:
+    return generate_sample_id(SHIPMENT_ID_PREFIX)
+
+
+def new_dev_id() -> str:
+    return generate_sample_id(DEV_ID_PREFIX)
 
 
 class User(Base):
@@ -38,6 +78,9 @@ class GoldenSample(Base):
     __tablename__ = "golden_samples"
 
     id = Column(Integer, primary_key=True, index=True)
+    # Public unique ID, e.g. "GLD-7K3M9Q2XPA". Nullable at the DB level only so the
+    # column can be added to an existing table and backfilled; new rows always get one.
+    golden_id = Column(String(20), unique=True, index=True, nullable=True, default=new_golden_id)
     sku = Column(String(255))  # the SKU number itself (e.g. "253891")
     sku_description = Column(String(255))
     item_type = Column(String(120))
@@ -65,6 +108,8 @@ class ShipmentSample(Base):
     __tablename__ = "shipment_samples"
 
     id = Column(Integer, primary_key=True, index=True)
+    # Public unique ID, e.g. "SHP-4T8W1NC6RB".
+    shipment_id = Column(String(20), unique=True, index=True, nullable=True, default=new_shipment_id)
     buyer_ref = Column(String(120), index=True)
     po_no = Column(String(120))
     vendor = Column(String(120))
@@ -86,6 +131,8 @@ class DevelopmentSample(Base):
     __tablename__ = "development_samples"
 
     id = Column(Integer, primary_key=True, index=True)
+    # Public unique ID, e.g. "DEV-9F2H5ZQ0MD".
+    dev_id = Column(String(20), unique=True, index=True, nullable=True, default=new_dev_id)
     title = Column(String(255))
     sku_description = Column(String(255))
     client = Column(String(120), index=True)

@@ -22,6 +22,7 @@ from .routers import development as development_router
 from .routers import dashboard as dashboard_router
 from .routers import admin as admin_router
 from .routers import notifications as notifications_router
+from .verify_sample import router as verify_sample_router
 
 from . import seed
 
@@ -44,6 +45,7 @@ app.include_router(shipment_router.router)
 app.include_router(development_router.router)
 app.include_router(notifications_router.router)
 app.include_router(admin_router.router)
+app.include_router(verify_sample_router)  # GET /api/v1/verify-sample/{sample_id}
 
 
 @app.on_event("startup")
