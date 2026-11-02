@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% block title %}Shipment Samples — Sample Tracker{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1>Shipment Samples</h1>
+  {% if can_edit %}<div style="display:flex; gap:10px;"><button class="btn btn-secondary" onclick="openBulk()">⬆ Bulk upload</button><button class="btn btn-primary" onclick="openAdd()">+ Add Shipment Sample</button></div>{% endif %}
+</div>
+
+<form class="filter-bar" method="get">
+  <input type="text" name="q" placeholder="Search Buyer Ref, PO No, Description, Barcode..." value="{{ q }}">
+  <select name="vendor" onchange="this.form.submit()">
+    <option value="">All vendors</option>
+    {% for v in vendors %}<option value="{{ v }}" {{ 'selected' if v == vendor }}>{{ v }}</option>{% endfor %}
+  </select>
+  <select name="buyer" onchange="this.form.submit()">
+    <option value="">All buyers</option>
+    {% for b in buyers %}<option value="{{ b }}" {{ 'selected' if b == buyer }}>{{ b }}</option>{% endfor %}
+  </select>
+  <select name="rack" onchange="this.form.submit()">
+    <option value="">All racks</option>
+    {% for x in racks %}<option value="{{ x }}" {{ 'selected' if x == rack }}>{{ x }}</option>{% endfor %}
+  </select>
+  <select name="finish" onchange="this.form.submit()">
+    <option value="">All finishes</option>
+    {% for x in finishes %}<option value="{{ x }}" {{ 'selected' if x == finish }}>{{ x }}</option>{% endfor %}
+  </select>
+  <select name="disposal_due" onchange="this.form.submit()">
+    <option value="">All items</option>
+    <option value="1" {{ 'selected' if disposal_due == '1' }}>Disposal due only</option>
+  </select>
+  <span class="fgroup">Disposal date
+    <input type="date" class="fdate" name="disp_from" value="{{ disp_from }}" title="Disposal date from">
+    <span>to</span>
+    <input type="date" class="fdate" name="disp_to" value="{{ disp_to }}" title="Disposal date to">
+  </span>
+  <button type="submit" class="btn btn-secondary">Filter</button>
+  <a href="/shipment-samples" class="btn btn-secondary" style="text-decoration:none;">Clear</a>
+</form>
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Buyer Ref</th><th>PO No</th><th>Description</th><th>Barcode</th><th>Vendor</th><th>Buyer</th>
+        <th>Rack</th><th>Disposal Date</th><th>Finish</th>{% if can_edit %}<th></th>{% endif %}
+      </tr>
+    </thead>
+    <tbody>
+      {% for it in items %}
+      <tr class="{{ 'row-overdue' if it.disposal_due }}{{ ' row-clickable' if can_edit }}"
+        {% if can_edit %}onclick='openEdit({{ {
+            "id": it.id, "shipment_id": (it.shipment_id or ""), "buyer_ref": it.buyer_ref, "po_no": it.po_no, "vendor": it.vendor,
+            "barcode": it.barcode, "rack_no": it.rack_no, "description": it.description,
+            "buyer": it.buyer, "finish": it.finish,
+            "date": it.date.strftime("%Y-%m-%d") if it.date else "" } | tojson }})'{% endif %}>
+        <td>{{ it.buyer_ref or '—' }}</td>
+        <td>{{ it.po_no or '—' }}</td>
+        <td>{{ it.description or '—' }}{% if it.disposal_due %} <span class="status-pill" style="background:#FDF1F1;color:var(--danger);">Disposal due</span>{% endif %}{% if it.disposed %} <span class="status-pill">Disposed</span>{% endif %}</td>
+        <td>{{ it.barcode or '—' }}</td>
+        <td>{{ it.vendor or '—' }}</td>
+        <td>{{ it.buyer or '—' }}</td>
+        <td>{{ it.rack_no or '—' }}</td>
+        <td style="white-space: nowrap;">{{ it.disposal_date|fmt_date if it.disposal_date else '—' }}</td>
+        <td>{{ it.finish or '—' }}</td>
+        {% if can_edit %}
+        <td class="row-actions">
+          {% if it.disposal_due and not it.disposed %}
+          <form method="post" action="/shipment-samples/{{ it.id }}/mark-disposed" onclick="event.stopPropagation()" style="display:inline">
+            <button class="icon-btn" type="submit">Mark disposed</button>
+          </form>
+          {% endif %}
+        </td>
+        {% endif %}
+      </tr>
+      {% else %}
+      <tr><td colspan="{{ 10 if can_edit else 9 }}" class="empty-note">No shipment samples yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if can_edit %}
+{% with bulk_base='/shipment-samples', bulk_label='Shipment Samples', bulk_cols=bulk_cols_shipment_samples %}{% include "_bulk_upload.html" %}{% endwith %}
+<div class="modal" id="addModal">
+  <div class="modal-card">
+    <h2>Add Shipment Sample</h2>
+    <form method="post" action="/shipment-samples/create">
+      {% include "_shipment_fields.html" %}
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('addModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="editModal">
+  <div class="modal-card">
+    <h2>Edit Shipment Sample</h2>
+    <form method="post" id="editForm">
+      {# Read-only: no name attribute, so it is never submitted with the form #}
+      <div class="form-grid" style="margin-bottom: 12px;">
+        <label class="span-2">Shipment ID
+          <input type="text" id="editShipmentId" readonly title="Auto-generated and cannot be edited"
+                 style="font-family: monospace; background: #f3f3f3; color: #555; cursor: default;">
+        </label>
+      </div>
+      {% include "_shipment_fields.html" %}
+      <div class="modal-actions">
+        <button type="submit" form="deleteForm" class="btn btn-secondary" style="margin-right:auto;color:var(--danger);">Delete</button>
+        <button type="button" class="btn btn-secondary" onclick="closeModal('editModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<form method="post" id="deleteForm" onsubmit="return confirm('Delete this record?')"></form>
+
+<script>
+function openAdd() {
+  const form = document.querySelector('#addModal form');
+  form.reset();
+  openModal('addModal');
+}
+
+function openEdit(item) {
+  const form = document.getElementById('editForm');
+  form.action = '/shipment-samples/' + item.id + '/update';
+  document.getElementById('deleteForm').action = '/shipment-samples/' + item.id + '/delete';
+  for (const key in item) {
+    const field = form.querySelector('[name="' + key + '"]');
+    if (field && item[key] !== null && item[key] !== undefined) field.value = item[key];
+  }
+  // read-only display of the auto-generated ID
+  document.getElementById('editShipmentId').value = item.shipment_id || '';
+  openModal('editModal');
+}
+</script>
+{% endif %}
+{% endblock %}

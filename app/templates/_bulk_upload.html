@@ -1,0 +1,60 @@
+{# Expects: bulk_base (e.g. '/golden-samples'), bulk_label (e.g. 'Golden Samples'), bulk_cols (list of column names) #}
+<div class="modal" id="bulkModal">
+  <div class="modal-card">
+    <h2>Bulk upload — {{ bulk_label }}</h2>
+    <p style="font-size:13px; color:var(--text-muted); margin:0 0 12px;">
+      Upload an Excel (.xlsx) or CSV file. The first row must be column headings matching the database columns:
+      <code style="font-size:12px;">{{ bulk_cols|join(', ') }}</code>.
+      Each following row becomes one entry. If any row has a problem, nothing is imported and the problems are listed so you can fix the file and retry.
+    </p>
+    <p style="margin:0 0 14px;"><a href="{{ bulk_base }}/bulk-template">⬇ Download Excel template</a></p>
+    <form id="bulkForm" onsubmit="return submitBulk(event)">
+      <input type="file" name="file" id="bulkFile" accept=".xlsx,.xlsm,.csv" required>
+      <div id="bulkResult" style="margin-top:14px; font-size:13px;"></div>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="bulkCancel" onclick="closeBulk()">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="bulkSubmit">Upload</button>
+      </div>
+    </form>
+  </div>
+</div>
+<script>
+function openBulk() {
+  document.getElementById('bulkForm').reset();
+  document.getElementById('bulkResult').innerHTML = '';
+  document.getElementById('bulkSubmit').style.display = '';
+  document.getElementById('bulkCancel').textContent = 'Cancel';
+  openModal('bulkModal');
+}
+function closeBulk() {
+  const done = document.getElementById('bulkSubmit').dataset.done === '1';
+  closeModal('bulkModal');
+  if (done) location.reload();
+}
+async function submitBulk(e) {
+  e.preventDefault();
+  const btn = document.getElementById('bulkSubmit');
+  const out = document.getElementById('bulkResult');
+  const esc = (s) => String(s).replace(/[&<>]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  btn.disabled = true; btn.textContent = 'Uploading…'; out.innerHTML = '';
+  try {
+    const resp = await fetch('{{ bulk_base }}/bulk-upload', { method: 'POST', body: new FormData(e.target) });
+    if (!resp.ok) throw new Error('Server returned ' + resp.status);
+    const r = await resp.json();
+    let html = '';
+    if (r.warnings && r.warnings.length) html += '<p style="color:#8A6D1D;">' + r.warnings.map(esc).join('<br>') + '</p>';
+    if (r.ok) {
+      html += '<p style="color:#2F6B3A; font-weight:600;">✓ ' + r.created + ' entries created.</p>';
+      btn.style.display = 'none'; btn.dataset.done = '1';
+      document.getElementById('bulkCancel').textContent = 'Close';
+    } else {
+      html += '<p style="color:var(--danger); font-weight:600;">Nothing was imported. Please fix:</p><ul style="margin:0; padding-left:18px; max-height:200px; overflow-y:auto; color:var(--danger);">'
+            + r.errors.map((x) => '<li>' + esc(x) + '</li>').join('') + '</ul>';
+    }
+    out.innerHTML = html;
+  } catch (err) {
+    out.innerHTML = '<p style="color:var(--danger);">Upload failed: ' + esc(err.message) + '</p>';
+  }
+  btn.disabled = false; btn.textContent = 'Upload';
+}
+</script>

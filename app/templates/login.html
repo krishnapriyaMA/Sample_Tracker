@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Log in — Sample Tracker{% endblock %}
+{% block bare_content %}
+<div class="login-screen">
+  <form class="login-card" method="post" action="/login">
+    <div class="brand" style="margin-bottom: 24px;">
+      <span class="brand-mark">JJ</span>
+      <span class="brand-name">Sample&nbsp;Tracker</span>
+    </div>
+    <h1>Log in</h1>
+    {% if error %}<p class="form-error">{{ error }}</p>{% endif %}
+    <label>Email
+      <input type="email" name="email" required autofocus>
+    </label>
+    <label>Password
+      <input type="password" name="password" required>
+    </label>
+    <button type="submit" class="btn btn-primary btn-block">Log in</button>
+    <p style="font-size:13px;text-align:center;margin-top:14px;">
+      <a href="/forgot-password" style="color:var(--text-muted);">Forgot password?</a>
+    </p>
+    <p style="font-size:13px;text-align:center;margin-top:6px;">
+      New here? <a href="/register" style="color:var(--navy);font-weight:600;">Create an account</a>
+    </p>
+  </form>
+</div>
+{% endblock %}

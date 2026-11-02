@@ -1,0 +1,176 @@
+{% extends "base.html" %}
+{% block title %}Golden Samples — Sample Tracker{% endblock %}
+{% block content %}
+<div class="page-header">
+  <h1>Golden Samples</h1>
+  {% if can_edit %}<div style="display:flex; gap:10px;"><button class="btn btn-secondary" onclick="openBulk()">⬆ Bulk upload</button><button class="btn btn-primary" onclick="openAdd()">+ Add Golden Sample</button></div>{% endif %}
+</div>
+
+<form class="filter-bar" method="get">
+  <input type="text" name="q" placeholder="Search SKU or description..." value="{{ q }}">
+  <select name="client" onchange="this.form.submit()">
+    <option value="">All clients</option>
+    {% for c in clients %}<option value="{{ c }}" {{ 'selected' if c == client }}>{{ c }}</option>{% endfor %}
+  </select>
+  <select name="supplier" onchange="this.form.submit()">
+    <option value="">All suppliers</option>
+    {% for x in suppliers %}<option value="{{ x }}" {{ 'selected' if x == supplier }}>{{ x }}</option>{% endfor %}
+  </select>
+  <select name="location" onchange="this.form.submit()">
+    <option value="">All locations</option>
+    {% for x in locations %}<option value="{{ x }}" {{ 'selected' if x == location }}>{{ x }}</option>{% endfor %}
+  </select>
+  <select name="status" onchange="this.form.submit()">
+    <option value="">All statuses</option>
+    {% for s in statuses %}<option value="{{ s }}" {{ 'selected' if s == status }}>{{ s }}</option>{% endfor %}
+  </select>
+  <select name="renewal_due" onchange="this.form.submit()">
+    <option value="">All items</option>
+    <option value="1" {{ 'selected' if renewal_due == '1' }}>Renewal due only</option>
+  </select>
+  <span class="fgroup">Start date
+    <input type="date" class="fdate" name="start_from" value="{{ start_from }}" title="Start date from">
+    <span>to</span>
+    <input type="date" class="fdate" name="start_to" value="{{ start_to }}" title="Start date to">
+  </span>
+  <button type="submit" class="btn btn-secondary">Filter</button>
+  <a href="/golden-samples" class="btn btn-secondary" style="text-decoration:none;">Clear</a>
+</form>
+
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>SKU</th><th>Client</th><th>Supplier</th><th>Location</th>
+        <th>Start Date</th><th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for it in items %}
+      <tr class="{{ 'row-overdue' if it.renewal_due }}{{ ' row-clickable' if can_edit }}"
+        {% if can_edit %}onclick='openEdit({{ {
+            "id": it.id, "golden_id": (it.golden_id or ""), "sku": it.sku, "sku_description": it.sku_description, "item_type": it.item_type,
+            "client": it.client, "supplier": it.supplier, "vendor_ref": it.vendor_ref, "barcode": it.barcode,
+            "size": it.size, "location": it.location, "rack": it.rack, "seal_no": it.seal_no,
+            "status": it.status, "image_path": it.image_path,
+            "start_date": it.start_date.strftime("%Y-%m-%d") if it.start_date else "" } | tojson }})'{% endif %}>
+        <td><div class="cell-title">{{ it.sku or '—' }}</div><div class="cell-sub">{{ it.sku_description or '' }}</div></td>
+        <td>{{ it.client or '—' }}</td>
+        <td>{{ it.supplier or '—' }}</td>
+        <td>{{ it.location or '—' }}{% if it.rack %} · Rack {{ it.rack }}{% endif %}</td>
+        <td>{{ it.start_date|fmt_date if it.start_date else '—' }}{% if it.renewal_due %} <span class="status-pill" style="background:#FDF1F1;color:var(--danger);">Renewal due</span>{% endif %}</td>
+        <td><span class="status-pill">{{ it.status }}</span></td>
+      </tr>
+      {% else %}
+      <tr><td colspan="6" class="empty-note">No golden samples yet.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if can_edit %}
+{% with bulk_base='/golden-samples', bulk_label='Golden Samples', bulk_cols=bulk_cols_golden_samples %}{% include "_bulk_upload.html" %}{% endwith %}
+<div class="modal" id="addModal">
+  <div class="modal-card">
+    <h2>Add Golden Sample</h2>
+    <form method="post" action="/golden-samples/create" enctype="multipart/form-data">
+      {% include "_golden_fields.html" %}
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('addModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="modal" id="editModal">
+  <div class="modal-card">
+    <h2>Edit Golden Sample</h2>
+    <form method="post" id="editForm" enctype="multipart/form-data">
+      {# Read-only: no name attribute, so it is never submitted with the form #}
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 4px;">Golden ID</label>
+        <input type="text" id="editGoldenId" readonly title="Auto-generated and cannot be edited"
+               style="width: 100%; padding: 8px; box-sizing: border-box; font-size: 14px; font-family: monospace; background: #f3f3f3; color: #555; cursor: default;">
+      </div>
+      {% include "_golden_fields.html" %}
+      <div class="modal-actions">
+        <button type="submit" form="deleteForm" class="btn btn-secondary" style="margin-right:auto;color:var(--danger);">Delete</button>
+        <button type="button" class="btn btn-secondary" onclick="closeModal('editModal')">Cancel</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<form method="post" id="deleteForm" onsubmit="return confirm('Delete this record?')"></form>
+
+<script>
+function syncToggle(form, isActive) {
+  const toggle = form.querySelector('.status-toggle');
+  const word = form.querySelector('.toggle-word');
+  const hidden = form.querySelector('[name="status"]');
+  if (toggle) toggle.checked = isActive;
+  if (word) word.textContent = isActive ? 'Active' : 'Closed';
+  if (hidden) hidden.value = isActive ? 'Active' : 'Closed';
+}
+
+function setPreview(form, src) {
+  const wrap = form.querySelector('.modal-img-preview');
+  const img = wrap ? wrap.querySelector('img') : null;
+  if (!wrap || !img) return;
+  if (src) {
+    img.src = src;
+    wrap.style.display = 'block';
+  } else {
+    img.src = '';
+    wrap.style.display = 'none';
+  }
+}
+
+function openAdd() {
+  const form = document.querySelector('#addModal form');
+  form.reset();
+  syncToggle(form, true);
+  setPreview(form, null);
+  openModal('addModal');
+}
+
+function openEdit(item) {
+  const form = document.getElementById('editForm');
+  form.action = '/golden-samples/' + item.id + '/update';
+  document.getElementById('deleteForm').action = '/golden-samples/' + item.id + '/delete';
+  for (const key in item) {
+    const field = form.querySelector('[name="' + key + '"]');
+    if (field && item[key] !== null && item[key] !== undefined) field.value = item[key];
+  }
+  // read-only display of the auto-generated ID
+  document.getElementById('editGoldenId').value = item.golden_id || '';
+  // sync the Active/Closed toggle switch to match the hidden status field just set above
+  syncToggle(form, item.status !== 'Closed');
+  // show the existing image (if any) in the preview box
+  setPreview(form, item.image_path || null);
+  openModal('editModal');
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  // wire the Active/Closed toggle switch in both the Add and Edit forms
+  document.querySelectorAll('.status-toggle').forEach(function (toggle) {
+    toggle.addEventListener('change', function () {
+      syncToggle(toggle.closest('form'), toggle.checked);
+    });
+  });
+  // live-preview a newly selected image file
+  document.querySelectorAll('input[type="file"][name="image"]').forEach(function (input) {
+    input.addEventListener('change', function () {
+      const form = input.closest('form');
+      if (!input.files || !input.files[0]) return;
+      const reader = new FileReader();
+      reader.onload = function (e) { setPreview(form, e.target.result); };
+      reader.readAsDataURL(input.files[0]);
+    });
+  });
+});
+</script>
+{% endif %}
+{% endblock %}

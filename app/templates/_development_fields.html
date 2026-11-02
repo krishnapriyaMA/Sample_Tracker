@@ -1,0 +1,27 @@
+<div class="form-grid">
+  <label>SKU<input name="title" type="text"></label>
+  <label>SKU Description<input name="sku_description" type="text"></label>
+  <label>Client
+    <input name="client" type="text" list="clientOptions" placeholder="Select or type a client" autocomplete="off">
+  </label>
+  <label>Supplier<input name="supplier_name" type="text"></label>
+  <label>From Location
+    <input name="from_location" type="text" list="locationOptions" placeholder="Select or type a location" autocomplete="off">
+  </label>
+  <label>To Location
+    <input name="to_location" type="text" list="locationOptions" placeholder="Select or type a location" autocomplete="off">
+  </label>
+  <label>Status
+    <select name="status">
+      <option>Pending Return</option>
+      <option>Returned</option>
+      <option>Missing</option>
+    </select>
+  </label>
+  <label>Sent Date<input name="sent_date" type="date"></label>
+  <label>Return Due Date<input name="return_date" type="date"></label>
+  <label>Product Link<input name="product_link" type="url"></label>
+  <label>Tracking URL<input name="tracking_url" type="url"></label>
+  <label class="span-2">Remarks<textarea name="remarks" rows="2"></textarea></label>
+  <label>Product Image<input name="product_image" type="file" accept="image/*"></label>
+</div>

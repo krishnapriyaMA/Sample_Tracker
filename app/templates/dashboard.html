@@ -1,0 +1,360 @@
+{% extends "base.html" %}
+{% block title %}Dashboard — Sample Tracker{% endblock %}
+{% block content %}
+
+<style>
+  /* Local layout adjustments matching style.css theme variables */
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .stat-card {
+    background: var(--card, #ffffff);
+    border: 1px solid var(--border, #E2E5EA);
+    border-radius: var(--radius, 10px);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .stat-number {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--navy, #123458);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-muted, #6B7280);
+    margin-top: 6px;
+    font-weight: 500;
+  }
+
+  .kpi-submetrics {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border, #E2E5EA);
+    font-size: 12px;
+    color: var(--text-muted, #6B7280);
+    flex-wrap: wrap;
+  }
+
+  .kpi-submetric {
+    cursor: pointer;
+    padding: 3px 8px;
+    border-radius: 6px;
+    transition: background 0.12s, color 0.12s;
+  }
+
+  .kpi-submetric:hover {
+    background: #F0F1F3;
+  }
+
+  .kpi-submetric.kpi-selected {
+    background: #EEF2F7;
+    outline: 1px solid var(--navy, #123458);
+    color: var(--navy, #123458);
+    font-weight: 600;
+  }
+
+  .kpi-submetric.kpi-warn {
+    color: var(--danger, #B23A48);
+  }
+
+  .chart-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  /* Fix: Chart.js in responsive mode sizes the canvas to its parent.
+     Without an explicitly-sized, positioned parent, the parent collapses
+     to 0 height and the chart never draws. This wrapper gives Chart.js
+     a real box to fill. */
+  .chart-canvas-wrap {
+    position: relative;
+    height: 220px;
+    width: 100%;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 900px) {
+    .stat-row, .chart-row, .two-col {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="page-header">
+  <h1>Dashboard</h1>
+</div>
+
+<div class="stat-row" id="kpiRow">
+  <div class="stat-card kpi-card" data-category="golden" onclick="selectCard(event,'golden','all')">
+    <div>
+      <div class="stat-number">{{ golden_count }}</div>
+      <div class="stat-label">Total Golden Samples</div>
+    </div>
+    <div class="kpi-submetrics">
+      <span class="kpi-submetric" data-category="golden" data-filter="active" onclick="selectCard(event,'golden','active')">
+        <strong>{{ golden_active_count }}</strong> Active
+      </span>
+      <span class="kpi-submetric {{ 'kpi-warn' if golden_renewal_due }}" data-category="golden" data-filter="renewal_due" onclick="selectCard(event,'golden','renewal_due')">
+        <strong>{{ golden_renewal_due }}</strong> Renewal Due
+      </span>
+    </div>
+  </div>
+
+  <div class="stat-card kpi-card" data-category="development" onclick="selectCard(event,'development','all')">
+    <div>
+      <div class="stat-number">{{ dev_count }}</div>
+      <div class="stat-label">Total Development Samples</div>
+    </div>
+    <div class="kpi-submetrics">
+      <span class="kpi-submetric" data-category="development" data-filter="pending_return" onclick="selectCard(event,'development','pending_return')">
+        <strong>{{ dev_pending_return_count }}</strong> Pending Return
+      </span>
+      <span class="kpi-submetric {{ 'kpi-warn' if dev_missing_count }}" data-category="development" data-filter="missing" onclick="selectCard(event,'development','missing')">
+        <strong>{{ dev_missing_count }}</strong> Missing
+      </span>
+    </div>
+  </div>
+
+  <div class="stat-card kpi-card" data-category="shipment" onclick="selectCard(event,'shipment','all')">
+    <div>
+      <div class="stat-number">{{ shipment_count }}</div>
+      <div class="stat-label">Total Shipment Samples</div>
+    </div>
+    <div class="kpi-submetrics">
+      <span class="kpi-submetric {{ 'kpi-warn' if shipment_disposal_due }}" data-category="shipment" data-filter="disposal_due" onclick="selectCard(event,'shipment','disposal_due')">
+        <strong>{{ shipment_disposal_due }}</strong> Disposal Due
+      </span>
+      <span class="kpi-submetric" data-category="shipment" data-filter="disposal_soon" onclick="selectCard(event,'shipment','disposal_soon')">
+        <strong>{{ shipment_disposal_approaching }}</strong> Disposal Due Soon
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="card" id="resultsPanel" style="display:none;">
+  <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap;">
+    <h3 id="resultsTitle" style="margin:0;">Results</h3>
+    <div style="display:flex; gap:10px; align-items:center;">
+      <input type="text" id="resultsSearch" placeholder="Search..." oninput="onSearchInput()"
+        style="padding:8px 12px; border-radius:8px; border:1px solid var(--border); font-size:14px; min-width:220px;">
+      <button type="button" class="results-close" onclick="closeResults()" title="Close list">✕ Close</button>
+    </div>
+  </div>
+  <div id="resultsBody">
+    <p class="empty-note">Loading…</p>
+  </div>
+</div>
+
+<div class="chart-row">
+  <div class="card">
+    <h3>Golden Samples by status</h3>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartGolden"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Shipment Samples — disposal status</h3>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartShipment"></canvas>
+    </div>
+  </div>
+  <div class="card">
+    <h3>Development Samples by status</h3>
+    <div class="chart-canvas-wrap">
+      <canvas id="chartDev"></canvas>
+    </div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div class="card">
+    <h3>Status of upcoming 30 days</h3>
+
+    <h4 style="margin:14px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Golden Samples — renewal due ({{ upcoming_golden|length }})</h4>
+    {% if upcoming_golden %}
+    <table class="mini-table">
+      <thead><tr><th>SKU</th><th>Description</th><th>Client</th><th>Renewal</th></tr></thead>
+      <tbody>
+        {% for g in upcoming_golden %}
+        <tr>
+          <td><a href="/golden-samples">{{ g.sku }}</a></td>
+          <td>{{ g.description or '—' }}</td>
+          <td>{{ g.client or '—' }}</td>
+          <td>{{ g.due|fmt_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty-note">None in the next 30 days.</p>
+    {% endif %}
+
+    <h4 style="margin:18px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Development Samples — return due ({{ upcoming_dev|length }})</h4>
+    {% if upcoming_dev %}
+    <table class="mini-table">
+      <thead><tr><th>SKU</th><th>Description</th><th>Client</th><th>Return</th></tr></thead>
+      <tbody>
+        {% for d in upcoming_dev %}
+        <tr>
+          <td><a href="/development-samples">{{ d.sku }}</a></td>
+          <td>{{ d.description or '—' }}</td>
+          <td>{{ d.client or '—' }}</td>
+          <td>{{ d.due|fmt_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty-note">None in the next 30 days.</p>
+    {% endif %}
+
+    <h4 style="margin:18px 0 6px; font-size:13px; color:var(--text-muted, #6B7280);">Shipment Samples — disposal due ({{ upcoming_shipment|length }})</h4>
+    {% if upcoming_shipment %}
+    <table class="mini-table">
+      <thead><tr><th>Buyer Ref</th><th>Description</th><th>Buyer</th><th>Disposal</th></tr></thead>
+      <tbody>
+        {% for s in upcoming_shipment %}
+        <tr>
+          <td><a href="/shipment-samples">{{ s.sku }}</a></td>
+          <td>{{ s.description or '—' }}</td>
+          <td>{{ s.client or '—' }}</td>
+          <td>{{ s.due|fmt_date }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="empty-note">None in the next 30 days.</p>
+    {% endif %}
+  </div>
+
+  <div class="card">
+    <h3>Recent activity</h3>
+    {% if recent %}
+    <ul class="activity-feed">
+      {% for a in recent %}
+      <li>
+        <span class="activity-action activity-{{ a.action }}">{{ a.action.replace('_',' ') }}</span>
+        <span>{{ a.detail or ('#' ~ a.record_id) }}</span>
+        <span class="activity-meta">{{ a.page.replace('_',' ') }} · {{ a.user_email }} · {{ a.created_at.strftime('%d %b, %H:%M') }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="empty-note">No activity yet.</p>
+    {% endif %}
+  </div>
+</div>
+
+<!-- Self-hosted: avoids relying on an external CDN, which is often blocked
+     on internal/corporate networks and causes charts to silently fail to
+     render (Chart is undefined). Place chart.umd.min.js in your static
+     assets, e.g. app/static/js/chart.umd.min.js -->
+<script src="/static/js/chart.umd.min.js"></script>
+<script>
+  if (typeof Chart === 'undefined') {
+    console.error('Chart.js failed to load from /static/js/chart.umd.min.js — check the file exists at that path and the network tab for a 404.');
+  }
+  const palette = ['#123458', '#D4A94A', '#5B7FA6', '#B23A48', '#7A9E7E', '#8C8C8C'];
+  function renderChart(id, dataObj) {
+    if (typeof Chart === 'undefined') return; // Chart.js didn't load — see console error above
+    const labels = Object.keys(dataObj);
+    const values = Object.values(dataObj);
+    new Chart(document.getElementById(id), {
+      type: 'bar',
+      data: { labels, datasets: [{ data: values, backgroundColor: palette }] },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: { y: { beginAtZero: true, ticks: { precision: 0 } } }
+      }
+    });
+  }
+  renderChart('chartGolden', {{ golden_status|tojson }});
+  renderChart('chartShipment', {{ shipment_status|tojson }});
+  renderChart('chartDev', {{ dev_status|tojson }});
+
+  // --- Interactive KPI cards: click a card for the full list, click a
+  // sub-metric to filter it, all rendered inline below without navigating. ---
+  const CATEGORY_LABELS = { golden: 'Golden Samples', development: 'Development Samples', shipment: 'Shipment Samples' };
+  const FILTER_LABELS = {
+    all: 'All', active: 'Active', renewal_due: 'Renewal Due',
+    pending_return: 'Pending Return', missing: 'Missing',
+    disposal_due: 'Disposal Due', disposal_soon: 'Disposal Due Soon',
+  };
+  let currentCategory = null;
+  let currentFilter = 'all';
+  let searchTimer = null;
+
+  function selectCard(event, category, filter) {
+    event.stopPropagation();
+    currentCategory = category;
+    currentFilter = filter;
+    document.getElementById('resultsSearch').value = '';
+    updateSelection();
+    loadResults(true);
+  }
+
+  function updateSelection() {
+    document.querySelectorAll('.kpi-card').forEach(card => {
+      card.classList.toggle('kpi-selected', card.dataset.category === currentCategory && currentFilter === 'all');
+    });
+    document.querySelectorAll('.kpi-submetric').forEach(sub => {
+      sub.classList.toggle('kpi-selected', sub.dataset.category === currentCategory && sub.dataset.filter === currentFilter);
+    });
+  }
+
+  async function loadResults(scrollIntoView) {
+    const panel = document.getElementById('resultsPanel');
+    panel.style.display = 'block';
+    const q = document.getElementById('resultsSearch').value;
+    document.getElementById('resultsTitle').textContent = CATEGORY_LABELS[currentCategory] + ' — ' + FILTER_LABELS[currentFilter];
+    document.getElementById('resultsBody').innerHTML = '<p class="empty-note">Loading…</p>';
+    try {
+      const resp = await fetch(`/dashboard/list?category=${currentCategory}&filter=${currentFilter}&q=${encodeURIComponent(q)}`);
+      document.getElementById('resultsBody').innerHTML = await resp.text();
+      const tbl = document.querySelector('#resultsBody table.data-table');
+      if (tbl && window.initColumnFilters) initColumnFilters(tbl);
+    } catch (e) {
+      document.getElementById('resultsBody').innerHTML = '<p class="empty-note">Could not load results.</p>';
+    }
+    if (scrollIntoView) panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function closeResults() {
+    document.getElementById('resultsPanel').style.display = 'none';
+    document.getElementById('resultsBody').innerHTML = '';
+    currentCategory = null;
+    currentFilter = 'all';
+    updateSelection();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.getElementById('resultsPanel').style.display !== 'none') closeResults();
+  });
+
+  function onSearchInput() {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => loadResults(false), 300);
+  }
+</script>
+{% endblock %}
